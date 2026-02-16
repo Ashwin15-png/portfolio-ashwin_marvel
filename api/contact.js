@@ -45,11 +45,17 @@ export default async function handler(req, res) {
 
     try {
         // 1. Connect to DB and Save
-        await connectToDatabase();
-
-        const newContact = new Contact({ name, email, message });
-        await newContact.save();
-        console.log("📝 Message saved to database");
+        try {
+            await connectToDatabase();
+            const newContact = new Contact({ name, email, message });
+            await newContact.save();
+            console.log("📝 Message saved to database");
+        } catch (dbError) {
+            console.error("❌ Database Error:", dbError);
+            // Optional: Don't fail the whole request if DB fails, just log it?
+            // For now, let's bubble it up but with a clear prefix.
+            throw new Error(`Database Error: ${dbError.message}`);
+        }
 
         // 2. Setup Email Transporter
         const transporter = nodemailer.createTransport({
@@ -65,12 +71,13 @@ export default async function handler(req, res) {
         const instagram = "https://www.instagram.com/ash_brave_2004/?hl=en-gb";
         const x = "https://x.com/ash_marvel_15";
 
-        // 📩 Email to you (Owner Notification)
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER,
-            subject: "New Portfolio Message",
-            text: `
+        try {
+            // 📩 Email to you (Owner Notification)
+            await transporter.sendMail({
+                from: process.env.EMAIL_USER,
+                to: process.env.EMAIL_USER,
+                subject: "New Portfolio Message",
+                text: `
 New Contact Form Submission
 
 Name: ${name}
@@ -81,15 +88,15 @@ Message: ${message}
 LinkedIn: ${linkedin}
 Instagram: ${instagram}
 X: ${x}
-      `,
-        });
+          `,
+            });
 
-        // 📧 Auto Reply to Sender
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: email,
-            subject: "Thank you for contacting me",
-            text: `
+            // 📧 Auto Reply to Sender
+            await transporter.sendMail({
+                from: process.env.EMAIL_USER,
+                to: email,
+                subject: "Thank you for contacting me",
+                text: `
 Hi ${name},
 
 Thank you for reaching out! I have received your message.
@@ -104,8 +111,12 @@ X: ${x}
 
 Best regards,
 Ashwin
-      `,
-        });
+          `,
+            });
+        } catch (emailError) {
+            console.error("❌ Email Error:", emailError);
+            throw new Error(`Email Error: ${emailError.message}`);
+        }
 
         return res.status(200).json({ message: "Message sent and saved successfully!" });
 
