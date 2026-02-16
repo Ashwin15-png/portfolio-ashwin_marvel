@@ -107,6 +107,6 @@ Ashwin
 
     } catch (error) {
         console.error("API Error:", error);
-        return res.status(500).json({ error: "Failed to process request" });
+        return res.status(500).json({ error: error.message || "Failed to process request" });
     }
 }

@@ -478,7 +478,8 @@
             if (response.ok) {
                 window.location.href = "/success.html";
             } else {
-                alert("Something went wrong. Please try again.");
+                const result = await response.json();
+                alert("Error: " + (result.error || "Something went wrong"));
             }
 
         } catch (error) {
