@@ -1,0 +1,11 @@
+{
+    "name": "portfolio-contact-api",
+    "version": "1.0.0",
+    "description": "Portfolio Contact Form API",
+    "main": "api/contact.js",
+    "dependencies": {
+        "dotenv": "^17.3.1",
+        "mongoose": "^8.3.1",
+        "nodemailer": "^6.9.13"
+    }
+}
