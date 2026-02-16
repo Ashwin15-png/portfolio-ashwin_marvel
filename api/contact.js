@@ -16,18 +16,22 @@ const Contact = mongoose.models.Contact || mongoose.model("Contact", ContactSche
 let isConnected = false;
 
 async function connectToDatabase() {
-    if (isConnected) return;
+    if (mongoose.connections[0].readyState) {
+        return;
+    }
 
     if (!process.env.MONGODB_URI) {
         throw new Error("MONGODB_URI is not defined");
     }
 
     try {
-        await mongoose.connect(process.env.MONGODB_URI);
-        isConnected = true;
+        await mongoose.connect(process.env.MONGODB_URI, {
+            bufferCommands: false, // Fail fast if not connected
+        });
         console.log("✅ MongoDB Connected");
     } catch (error) {
         console.error("❌ MongoDB Connection Error:", error);
+        throw error; // Rethrow to stop execution
     }
 }
 
