@@ -71,8 +71,8 @@ export default async function handler(req, res) {
         const instagram = "https://www.instagram.com/ash_brave_2004/?hl=en-gb";
         const x = "https://x.com/ash_marvel_15";
 
+        // 3. Send Main Email (Critical)
         try {
-            // 📩 Email to you (Owner Notification)
             await transporter.sendMail({
                 from: process.env.EMAIL_USER,
                 to: process.env.EMAIL_USER,
@@ -90,11 +90,17 @@ Instagram: ${instagram}
 X: ${x}
           `,
             });
+        } catch (emailError) {
+            console.error("❌ Owner Email Error:", emailError);
+            throw new Error(`Owner Notification Failed: ${emailError.message}`);
+        }
 
-            // 📧 Auto Reply to Sender
+        // 4. Send Auto-Reply (Non-Critical)
+        try {
+            console.log(`📧 Attempting Auto-Reply to: ${email}`);
             await transporter.sendMail({
                 from: process.env.EMAIL_USER,
-                to: email,
+                to: email, // Send to the user's email
                 subject: "Thank you for contacting me",
                 text: `
 Hi ${name},
@@ -113,9 +119,9 @@ Best regards,
 Ashwin
           `,
             });
-        } catch (emailError) {
-            console.error("❌ Email Error:", emailError);
-            throw new Error(`Email Error: ${emailError.message}`);
+        } catch (autoReplyError) {
+            console.warn("⚠️ Auto-Reply Failed (Non-fatal):", autoReplyError.message);
+            // Do not throw, letting the request succeed
         }
 
         return res.status(200).json({ message: "Message sent and saved successfully!" });
