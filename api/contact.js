@@ -67,7 +67,7 @@ export default async function handler(req, res) {
         });
 
         // 🔗 Your Social Links
-        const linkedin = "https://linkedin.com/in/s-ashwin-kumar-5053bb272/";
+        const linkedin = "https://www.linkedin.com/in/ashwin-kumar-s-5053bb272/";
         const instagram = "https://www.instagram.com/ash_brave_2004/?hl=en-gb";
         const x = "https://x.com/ash_marvel_15";
 
