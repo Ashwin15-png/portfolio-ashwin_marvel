@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S. Ashwin Kumar | DevSecOps Engineer</title>
+    <title>S. Ashwin Kumar | DevSecOps & Big Data Engineer</title>
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,286 +17,343 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#09090b',
+                        darkCard: 'rgba(20, 20, 25, 0.6)',
+                        accentBlue: '#3b82f6',
+                        accentPurple: '#a855f7',
+                        accentIndigo: '#6366f1',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body class="selection:bg-blue-500/30 selection:text-blue-200">
+<body class="selection:bg-indigo-500/30 selection:text-white">
 
-    <nav class="fixed w-full z-[1000] px-6 py-8">
-        <div class="max-w-7xl mx-auto flex justify-between items-center glass-card px-8 py-4 bg-black/40">
-            <div class="text-2xl font-bold tracking-tighter mono neon-text">
-                S <span class="text-blue-500"> Ashwin Kumar</span>
-            </div>
-            <div class="hidden md:flex space-x-10 text-xs font-semibold uppercase tracking-widest text-slate-400">
-                <a href="#about" class="hover:text-blue-400 transition">Base</a>
-                <a href="#experience" class="hover:text-blue-400 transition">Experience</a>
-                <a href="#skills" class="hover:text-blue-400 transition">Stack</a>
-                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-                <a href="#certs" class="hover:text-blue-400 transition">Credentials</a>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-follower" id="customCursorFollower"></div>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <!-- Interactive Drifting Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <nav class="fixed w-full z-[1000] px-6 py-6 transition-all duration-300">
+        <div
+            class="max-w-7xl mx-auto flex justify-between items-center glass-card interactive-card px-8 py-4 bg-black/40 border-white/5">
+            <a href="#" class="text-2xl font-extrabold tracking-tighter mono neon-text cursor-none">
+                S <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Ashwin
+                    Kumar</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-xs font-semibold uppercase tracking-widest text-[#a1a1aa]">
+                <a href="#about" class="hover:text-white transition cursor-none">// Base</a>
+                <a href="#experience" class="hover:text-white transition cursor-none">// Experience</a>
+                <a href="#skills" class="hover:text-white transition cursor-none">// Stack</a>
+                <a href="#projects" class="hover:text-white transition cursor-none">// Projects</a>
+                <a href="#certs" class="hover:text-white transition cursor-none">// Credentials</a>
             </div>
             <a href="#contact"
-                class="hidden md:block px-6 py-2 bg-blue-600 rounded-full text-sm font-bold hover:scale-105 transition">CONTACT</a>
+                class="hidden md:block btn-premium btn-premium-accent px-6 py-2 rounded-full text-xs cursor-none">
+                CONTACT
+            </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <div class="absolute inset-0 opacity-20 pointer-events-none">
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <div class="z-10 text-center px-4 max-w-5xl mx-auto" data-aos="zoom-out" data-aos-duration="1200">
             <div
-                class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[128px] animate-pulse">
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/5 text-blue-400 mono text-xs mb-8">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                SYSTEM_SECURED: STATUS_OK
             </div>
-            <div
-                class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[128px] animate-pulse delay-700">
+            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight mb-8 leading-none">
+                S. ASHWIN <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500">KUMAR</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed mb-12">
+                Designing secure, highly scalable infrastructure platforms at the intersection of
+                <span class="text-white border-b-2 border-blue-500/40 pb-1">DevSecOps Engineering</span> and
+                <span class="text-white border-b-2 border-purple-500/40 pb-1">Big Data Pipelines</span>.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="#experience" class="btn-premium btn-premium-primary text-black">
+                    Explore Architecture
+                </a>
+                <a href="https://www.credly.com/users/s-ashwin-kumar.f2377623" target="_blank"
+                    class="btn-premium btn-premium-secondary">
+                    Verify Credentials <i class="bi bi-arrow-up-right ml-2 text-xs"></i>
+                </a>
             </div>
         </div>
 
-        <div class="z-10 text-center px-4" data-aos="zoom-out" data-aos-duration="1500">
-            <div
-                class="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 mono text-xs mb-6 mb-4">
-                <i class="bi bi-shield-lock-fill mr-2"></i> SYSTEM_SECURED: STATUS_OK
-            </div>
-            <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-6">
-                S. ASHWIN <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">KUMAR</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed mb-10">
-                Architecting secure, scalable infrastructure at the intersection of <span
-                    class="text-white border-b-2 border-blue-500">DevSecOps</span> and <span
-                    class="text-white border-b-2 border-purple-500">Big Data</span>.
-            </p>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-                <a href="#experience"
-                    class="px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300">View
-                    Infrastructure</a>
-                <a href="https://www.credly.com/users/s-ashwin-kumar.f2377623" target="_blank"
-                    class="px-10 py-4 glass-card font-bold hover:border-blue-500 transition-all">Verify Credentials</a>
+        <!-- Subtle Scroll Down Indicator -->
+        <div
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 text-[10px] uppercase tracking-widest">
+            <span>Scroll Down</span>
+            <div class="w-1.5 h-6 rounded-full border border-slate-500/30 flex items-start justify-center p-[2px] h-8">
+                <div class="w-1 h-2 bg-slate-400 rounded-full animate-bounce"></div>
             </div>
         </div>
     </section>
 
     <!-- Base / About Section -->
-    <section id="about" class="py-32 px-6 bg-black/50">
+    <section id="about" class="py-32 px-6 bg-black/20">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-sm mono text-blue-500 mb-2">// BASE INFO</h2>
-            <h3 class="text-4xl font-bold uppercase mb-6">About Me</h3>
-            <p class="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed mb-4">
-                I am S. Ashwin Kumar, a DevSecOps Engineer specializing in secure, scalable infrastructure and Big Data
-                pipelines.
-                Passionate about automation, cloud architecture, and creating robust systems that integrate security at
-                every level.
+            <h2 class="text-xs mono text-blue-400 mb-4 tracking-widest uppercase">// BASE INFO</h2>
+            <h3 class="text-3xl md:text-5xl font-bold uppercase mb-8 tracking-tight bg-text-gradient">About Me</h3>
+            <p class="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed mb-6">
+                I am S. Ashwin Kumar, a DevSecOps Engineer specializing in secure, resilient infrastructure and
+                enterprise scale Big Data processing pipelines.
+                Driven by developer velocity, systems automation, cloud infrastructure design, and injecting high-level
+                security paradigms at every tier.
             </p>
             <p class="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                With experience in enterprise IT infrastructure, Hadoop-based data pipelines, and system security, I
-                combine technical expertise with leadership and collaboration skills to deliver high-quality solutions.
+                Applying extensive workflows in corporate IT frameworks, Hadoop infrastructures, and system encryption
+                protocols.
+                I balance concrete security design with agile iteration to deploy production-resilient architectures.
             </p>
         </div>
     </section>
 
-    <!-- Additional sections: experience, skills, projects, certs, contact, footer -->
+    <!-- Experience Section -->
     <section id="experience" class="py-32 px-6">
-<div class="max-w-7xl mx-auto">
-
-<div class="mb-16">
-<h2 class="text-sm mono text-blue-500 mb-2">// CAREER PATH</h2>
-<h3 class="text-4xl font-bold uppercase">Professional Exposure</h3>
-</div>
-
-<div class="grid md:grid-cols-12 gap-8">
-
-<!-- Petrofac Experience -->
-<div class="md:col-span-8 glass-card p-10 border-l-4 border-l-blue-600" data-aos="fade-right">
-
-<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-
-<div>
-<h4 class="text-3xl font-bold">IT Infrastructure Intern</h4>
-<p class="text-xl text-blue-400 font-medium">Petrofac · Chennai, India</p>
-</div>
-
-<div class="mt-4 md:mt-0 px-4 py-2 bg-white/5 rounded-xl border border-white/10 mono text-xs">
-MAY 2025 – JUL 2025
-</div>
-
-</div>
-
-<p class="text-slate-400 text-lg leading-relaxed mb-6">
-Worked in IT Infrastructure and Service Delivery at Petrofac’s Chennai Engineering
-Center, gaining enterprise exposure to infrastructure operations,
-secure server environments, and deployment workflows used in large-scale engineering organizations.
-</p>
-
-<a href="https://www.petrofac.com/media/news/petrofac-opens-engineering-office-in-chennai"
-target="_blank"
-class="inline-block text-blue-400 text-sm font-semibold hover:underline mb-8">
-
-Read about Petrofac Chennai Engineering Center →
-
-</a>
-
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-
-<div class="p-4 bg-white/5 rounded-2xl text-center border border-white/5">
-<i class="bi bi-cpu text-blue-400 text-2xl mb-2"></i>
-<p class="text-[10px] uppercase tracking-widest">Systems</p>
-</div>
-
-<div class="p-4 bg-white/5 rounded-2xl text-center border border-white/5">
-<i class="bi bi-cloud-check text-purple-400 text-2xl mb-2"></i>
-<p class="text-[10px] uppercase tracking-widest">ITIL</p>
-</div>
-
-<div class="p-4 bg-white/5 rounded-2xl text-center border border-white/5">
-<i class="bi bi-hdd-network text-blue-400 text-2xl mb-2"></i>
-<p class="text-[10px] uppercase tracking-widest">Infrastructure</p>
-</div>
-
-<div class="p-4 bg-white/5 rounded-2xl text-center border border-white/5">
-<i class="bi bi-terminal text-purple-400 text-2xl mb-2"></i>
-<p class="text-[10px] uppercase tracking-widest">Service Desk</p>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- Leadership -->
-<div class="md:col-span-4 space-y-8">
-
-<div class="glass-card p-8 h-full flex flex-col justify-center" data-aos="fade-left">
-
-<h4 class="text-xl font-bold mb-6">Leadership</h4>
-
-<div class="space-y-8">
-
-<!-- IntelliVerse -->
-<div class="flex gap-4">
-<div class="w-1 h-12 bg-blue-500 rounded-full"></div>
-<div>
-<p class="font-bold">President</p>
-<p class="text-sm text-slate-500">IntelliVerse AI/ML Club · PSVPEC</p>
-</div>
-</div>
-
-
-<!-- GDG Organizer -->
-<div class="flex gap-4">
-    <div class="w-1 h-12 bg-purple-500 rounded-full"></div>
-    <div>
-        <p class="font-bold">Organizer</p>
-        <p class="text-sm text-slate-500">Google Developer Groups PSVPEC</p>
-        <a href="https://gdg.community.dev/u/mmpqup/#/about"
-           target="_blank"
-           class="text-sm text-green-400 hover:underline">
-           Google Chapter Profile 
-        </a>
-    </div>
-</div>
-
-<!-- Google Developer Profile -->
-<div class="flex gap-4">
-    <div class="w-1 h-12 bg-green-500 rounded-full"></div>
-    <div>
-        <p class="font-bold">Google Developer Profile</p>
-        <a href="https://g.dev/ashwin-kumar-s"
-           target="_blank"
-           class="text-sm text-green-400 hover:underline">
-           g.dev/ashwin-kumar-s
-        </a>
-    </div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-</section>
-
-    <section id="skills" class="py-32 px-6 bg-black/50">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-sm mono text-blue-500 mb-2 text-center">// CORE_STACK</h2>
-            <h3 class="text-4xl font-bold uppercase text-center mb-20">Technical Arsenal</h3>
+            <div class="mb-16">
+                <h2 class="text-xs mono text-blue-400 mb-4 tracking-widest uppercase">// CAREER PATH</h2>
+                <h3 class="text-3xl md:text-5xl font-bold uppercase tracking-tight bg-text-gradient">Professional
+                    Exposure</h3>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-8">
+                <!-- Petrofac Experience Card -->
+                <div class="md:col-span-8 glass-card interactive-card p-10 gradient-border-blue" data-aos="fade-right">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                        <div>
+                            <h4 class="text-2xl md:text-3xl font-extrabold text-white">IT Infrastructure Intern</h4>
+                            <p class="text-lg text-blue-400 font-medium mt-1">Petrofac · Chennai, India</p>
+                        </div>
+                        <div
+                            class="px-4 py-1.5 bg-white/5 rounded-full border border-white/10 mono text-[10px] tracking-wider text-slate-300">
+                            MAY 2025 – JUL 2025
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        Gained first-hand enterprise operations experience inside Petrofac’s specialized Chennai
+                        Engineering Center.
+                        Participated in managing server environments, deploying secure infrastructure changes, and
+                        ensuring compliance across complex corporate deployment workflows.
+                    </p>
+
+                    <a href="https://www.petrofac.com/media/news/petrofac-opens-engineering-office-in-chennai"
+                        target="_blank"
+                        class="inline-flex items-center text-blue-400 text-sm font-semibold hover:underline mb-8 cursor-none">
+                        Read about Petrofac Chennai Engineering Center <i class="bi bi-arrow-right ml-1"></i>
+                    </a>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div
+                            class="p-4 bg-white/[0.02] rounded-2xl text-center border border-white/5 hover:bg-white/5 transition duration-300">
+                            <i class="bi bi-cpu text-blue-400 text-2xl mb-2 block"></i>
+                            <p class="text-[9px] uppercase tracking-widest font-bold text-slate-300">Systems</p>
+                        </div>
+                        <div
+                            class="p-4 bg-white/[0.02] rounded-2xl text-center border border-white/5 hover:bg-white/5 transition duration-300">
+                            <i class="bi bi-cloud-check text-purple-400 text-2xl mb-2 block"></i>
+                            <p class="text-[9px] uppercase tracking-widest font-bold text-slate-300">ITIL</p>
+                        </div>
+                        <div
+                            class="p-4 bg-white/[0.02] rounded-2xl text-center border border-white/5 hover:bg-white/5 transition duration-300">
+                            <i class="bi bi-hdd-network text-blue-400 text-2xl mb-2 block"></i>
+                            <p class="text-[9px] uppercase tracking-widest font-bold text-slate-300">Infrastructure</p>
+                        </div>
+                        <div
+                            class="p-4 bg-white/[0.02] rounded-2xl text-center border border-white/5 hover:bg-white/5 transition duration-300">
+                            <i class="bi bi-terminal text-purple-400 text-2xl mb-2 block"></i>
+                            <p class="text-[9px] uppercase tracking-widest font-bold text-slate-300">Service Desk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leadership & Profiles Card -->
+                <div class="md:col-span-4 space-y-8 flex flex-col justify-between">
+                    <div class="glass-card interactive-card p-8 h-full flex flex-col justify-center border-white/5"
+                        data-aos="fade-left">
+                        <h4 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">// Leadership</h4>
+
+                        <div class="space-y-6">
+                            <!-- IntelliVerse -->
+                            <div class="flex gap-4 items-start">
+                                <div class="w-1 h-12 bg-blue-500 rounded-full shrink-0"></div>
+                                <div>
+                                    <p class="font-extrabold text-white">President</p>
+                                    <p class="text-xs text-slate-400">IntelliVerse AI/ML Club · PSVPEC</p>
+                                </div>
+                            </div>
+
+                            <!-- GDG Organizer -->
+                            <div class="flex gap-4 items-start">
+                                <div class="w-1 h-12 bg-purple-500 rounded-full shrink-0"></div>
+                                <div>
+                                    <p class="font-extrabold text-white">Organizer</p>
+                                    <p class="text-xs text-slate-400">Google Developer Groups PSVPEC</p>
+                                    <a href="https://gdg.community.dev/u/mmpqup/#/about" target="_blank"
+                                        class="text-xs text-emerald-400 hover:underline mt-1 inline-block cursor-none">
+                                        Google Chapter Profile <i class="bi bi-box-arrow-up-right ml-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Google Developer Profile -->
+                            <div class="flex gap-4 items-start">
+                                <div class="w-1 h-12 bg-emerald-500 rounded-full shrink-0"></div>
+                                <div>
+                                    <p class="font-extrabold text-white">Google Developer Profile</p>
+                                    <a href="https://g.dev/ashwin-kumar-s" target="_blank"
+                                        class="text-xs text-emerald-400 hover:underline mt-1 inline-block cursor-none">
+                                        g.dev/ashwin-kumar-s <i class="bi bi-box-arrow-up-right ml-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Stack Section -->
+    <section id="skills" class="py-32 px-6 bg-black/20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-xs mono text-blue-400 mb-4 text-center tracking-widest uppercase">// CORE_STACK</h2>
+            <h3 class="text-3xl md:text-5xl font-bold uppercase text-center mb-20 tracking-tight bg-text-gradient">
+                Technical Arsenal</h3>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div class="md:col-span-2 glass-card p-8 group" data-aos="fade-up">
+                <!-- Big Data Card -->
+                <div class="md:col-span-2 glass-card interactive-card p-8 group border-white/5" data-aos="fade-up">
                     <div class="flex justify-between items-start mb-6">
                         <i class="bi bi-database-fill-gear text-4xl text-blue-500"></i>
-                        <span class="mono text-xs opacity-50">#BIG_DATA</span>
+                        <span class="mono text-xs text-slate-500">#BIG_DATA</span>
                     </div>
-                    <h4 class="text-2xl font-bold mb-6">Hadoop & Processing</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm">Hadoop
+                    <h4 class="text-2xl font-bold text-white mb-6">Hadoop & Processing</h4>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span
+                            class="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs hover:border-blue-500 transition duration-300 text-slate-300">Hadoop
                             Arch</span>
-                        <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm">Pig
+                        <span
+                            class="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs hover:border-blue-500 transition duration-300 text-slate-300">Pig
                             Scripting</span>
-                        <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm">Hive</span>
-                        <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm">Apache
+                        <span
+                            class="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs hover:border-blue-500 transition duration-300 text-slate-300">Hive</span>
+                        <span
+                            class="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs hover:border-blue-500 transition duration-300 text-slate-300">Apache
                             PySpark</span>
-                        <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm">HBase</span>
+                        <span
+                            class="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs hover:border-blue-500 transition duration-300 text-slate-300">HBase</span>
                     </div>
                 </div>
 
-                <div class="md:col-span-2 glass-card p-8 group" data-aos="fade-up" data-aos-delay="100">
+                <!-- DevSecOps Card -->
+                <div class="md:col-span-2 glass-card interactive-card p-8 group border-white/5" data-aos="fade-up"
+                    data-aos-delay="100">
                     <div class="flex justify-between items-start mb-6">
                         <i class="bi bi-terminal-fill text-4xl text-purple-500"></i>
-                        <span class="mono text-xs opacity-50">#DEV_SEC_OPS</span>
+                        <span class="mono text-xs text-slate-500">#DEV_SEC_OPS</span>
                     </div>
-                    <h4 class="text-2xl font-bold mb-6">System Security</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm">Shell
+                    <h4 class="text-2xl font-bold text-white mb-6">System Security</h4>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span
+                            class="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs hover:border-purple-500 transition duration-300 text-slate-300">Shell
                             Scripting</span>
-                        <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm">Linux
+                        <span
+                            class="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs hover:border-purple-500 transition duration-300 text-slate-300">Linux
                             Permissions</span>
-                        <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm">SSH
+                        <span
+                            class="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs hover:border-purple-500 transition duration-300 text-slate-300">SSH
                             Client/Server</span>
-                        <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm">Encryption</span>
+                        <span
+                            class="px-3.5 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs hover:border-purple-500 transition duration-300 text-slate-300">Encryption</span>
                     </div>
                 </div>
 
-                <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="200">
-                    <h5 class="mono text-blue-400 text-xs mb-4 uppercase">Languages</h5>
-                    <ul class="space-y-3 text-slate-400">
-                        <li class="flex justify-between"><span>Java</span> <span class="text-white">Expert</span></li>
-                        <li class="flex justify-between"><span>Python</span> <span class="text-white">Senior</span></li>
-                        <li class="flex justify-between"><span>JavaScript</span> <span
-                                class="text-white">Intermediate</span></li>
-                        <li class="flex justify-between"><span>C++/C#</span> <span class="text-white">Core</span></li>
+                <!-- Languages Card -->
+                <div class="glass-card interactive-card p-8 border-white/5" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="mono text-blue-400 text-xs mb-6 uppercase tracking-wider">// Languages</h5>
+                    <ul class="space-y-4 text-slate-400">
+                        <li class="flex justify-between items-center">
+                            <span>Java</span> <span
+                                class="text-white text-xs font-semibold px-2 py-0.5 bg-white/10 rounded-md">Expert</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span>Python</span> <span
+                                class="text-white text-xs font-semibold px-2 py-0.5 bg-white/10 rounded-md">Senior</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span>JavaScript</span> <span
+                                class="text-white text-xs font-semibold px-2 py-0.5 bg-white/10 rounded-md">Mid</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span>C++/C#</span> <span
+                                class="text-white text-xs font-semibold px-2 py-0.5 bg-white/10 rounded-md">Core</span>
+                        </li>
                     </ul>
                 </div>
 
-                <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="300">
-                    <h5 class="mono text-purple-400 text-xs mb-4 uppercase">Platforms</h5>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3">
-                            <i class="bi bi-google"></i> <span>GCP</span>
+                <!-- Platforms Card -->
+                <div class="glass-card interactive-card p-8 border-white/5" data-aos="fade-up" data-aos-delay="300">
+                    <h5 class="mono text-purple-400 text-xs mb-6 uppercase tracking-wider">// Platforms</h5>
+                    <div class="grid grid-cols-2 gap-4 text-slate-300">
+                        <div class="flex items-center gap-2">
+                            <i class="bi bi-google text-blue-400"></i> <span>GCP</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <i class="bi bi-microsoft"></i> <span>Azure</span>
+                        <div class="flex items-center gap-2">
+                            <i class="bi bi-microsoft text-indigo-400"></i> <span>Azure</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <i class="bi bi-server"></i> <span>MongoDB</span>
+                        <div class="flex items-center gap-2">
+                            <i class="bi bi-hdd-stack text-emerald-400"></i> <span>MongoDB</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <i class="bi bi-server"></i> <span>Neo4j</span>
+                        <div class="flex items-center gap-2">
+                            <i class="bi bi-database text-purple-400"></i> <span>Neo4j</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="md:col-span-2 glass-card p-8 flex items-center justify-between" data-aos="fade-up"
-                    data-aos-delay="400">
+                <!-- Interpersonal Highlights -->
+                <div class="md:col-span-2 glass-card interactive-card p-8 flex items-center justify-between border-white/5"
+                    data-aos="fade-up" data-aos-delay="400">
                     <div>
-                        <h5 class="mono text-xs text-slate-500 uppercase mb-2">Interpersonal</h5>
-                        <p class="text-xl font-bold italic text-slate-300">"Strong leadership, coordination, and
-                            community-building skills."</p>
+                        <h5 class="mono text-xs text-slate-500 uppercase mb-4 tracking-wider">// Leadership</h5>
+                        <p class="text-lg md:text-xl font-bold italic text-slate-300 leading-relaxed">
+                            "Strong engineering leadership, club coordination, and active tech community builder."
+                        </p>
                     </div>
-                    <div class="flex -space-x-4">
+                    <div class="flex -space-x-4 shrink-0 ml-4">
                         <div
-                            class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center border-4 border-[#0a0a0c]">
+                            class="w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center border-4 border-darkBg text-xs font-bold text-white shadow-lg">
                             L</div>
                         <div
-                            class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center border-4 border-[#0a0a0c]">
+                            class="w-11 h-11 bg-purple-600 rounded-full flex items-center justify-center border-4 border-darkBg text-xs font-bold text-white shadow-lg">
                             C</div>
                     </div>
                 </div>
@@ -304,280 +361,400 @@ Read about Petrofac Chennai Engineering Center →
         </div>
     </section>
 
-    <section id="projects" class="py-32 px-6 bg-black/40">
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-sm mono text-blue-500 mb-2 text-center">// PROJECTS</h2>
-            <h3 class="text-4xl font-bold uppercase text-center mb-20">Mini Projects</h3>
+            <h2 class="text-xs mono text-blue-400 mb-4 text-center tracking-widest uppercase">// PORTFOLIO</h2>
+            <h3 class="text-3xl md:text-5xl font-bold uppercase text-center mb-20 tracking-tight bg-text-gradient">
+                Featured Work</h3>
 
             <div class="grid md:grid-cols-12 gap-8">
-                <!-- Mini Project Card -->
-                <div class="md:col-span-7 glass-card p-10" data-aos="fade-up">
+                <!-- Project Card -->
+                <div class="md:col-span-7 glass-card interactive-card p-10 border-white/5" data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                        <div
+                            class="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20">
                             <i class="bi bi-currency-exchange text-purple-400 text-xl"></i>
                         </div>
-                        <h4 class="text-2xl font-bold text-white">Real-Time Payment Pipeline</h4>
+                        <h4 class="text-2xl font-extrabold text-white">Real-Time Payment Pipeline</h4>
                     </div>
-                    <p class="text-slate-400 mb-8">
-                        Mini Project supervised by <span class="text-white font-semibold">Ms. Latha B.</span>.
-                        Developed a high-velocity data pipeline for digital payments using Apache Spark architecture to
-                        ensure transaction integrity and real-time processing.
+                    <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                        Technical project supervised under <span class="text-white font-semibold">Ms. Latha B.</span>.
+                        Engineered a high-velocity data flow pipeline handling simulated digital transactions.
+                        Integrated Apache Spark streaming to support high throughput data validation and transactional
+                        safety.
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span
-                            class="text-[10px] px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full font-bold border border-purple-500/20 uppercase">
-                            Apache Spark</span>
+                            class="text-[10px] px-3.5 py-1.5 bg-purple-500/5 text-purple-300 rounded-full font-bold border border-purple-500/15 uppercase tracking-wider">Apache
+                            Spark</span>
                         <span
-                            class="text-[10px] px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full font-bold border border-purple-500/20 uppercase">Kafka</span>
+                            class="text-[10px] px-3.5 py-1.5 bg-purple-500/5 text-purple-300 rounded-full font-bold border border-purple-500/15 uppercase tracking-wider">Kafka</span>
                         <span
-                            class="text-[10px] px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full font-bold border border-purple-500/20 uppercase">Big
+                            class="text-[10px] px-3.5 py-1.5 bg-purple-500/5 text-purple-300 rounded-full font-bold border border-purple-500/15 uppercase tracking-wider">Big
                             Data</span>
                         <span
-                            class="text-[10px] px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full font-bold border border-purple-500/20 uppercase">MongoDB</span>
+                            class="text-[10px] px-3.5 py-1.5 bg-purple-500/5 text-purple-300 rounded-full font-bold border border-purple-500/15 uppercase tracking-wider">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Quote Card -->
+                <div class="md:col-span-5 glass-card interactive-card p-10 border-white/5 flex flex-col justify-between"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <i class="bi bi-quote text-5xl text-blue-500 opacity-60"></i>
+                    <div>
+                        <blockquote class="text-xl font-medium text-slate-300 leading-normal mb-6">
+                            "Security is not a feature you add at the end. It must be built inherently into the
+                            infrastructure foundations."
+                        </blockquote>
+                        <cite class="not-italic text-sm text-slate-500 font-bold tracking-widest uppercase">// System
+                            Paradigm</cite>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <section id="certs" class="py-32 px-6">
+    <!-- Academic Journey & Credentials -->
+    <section id="certs" class="py-32 px-6 bg-black/20">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
             <div data-aos="fade-right">
-                <h3 class="text-3xl font-bold mb-12 uppercase tracking-tighter">Academic Journey</h3>
-                <div class="space-y-12">
+                <h3 class="text-3xl font-extrabold mb-12 tracking-tight uppercase bg-text-gradient">Academic Journey
+                </h3>
+                <div class="space-y-10">
                     <!-- Current College -->
                     <div class="relative pl-8">
                         <div class="absolute left-0 top-0 h-full w-px bg-blue-500/20"></div>
-                        <div class="absolute left-[-4px] top-0 w-2 h-2 bg-blue-500 rounded-full"></div>
-                        <p class="mono text-xs text-blue-500 mb-1">Ongoing | Chennai</p>
-                        <h4 class="text-xl font-bold">B.Tech Information Technology</h4>
-                        <p class="text-slate-400 mb-2">Prince Shri Venkateshwara Padmavathy Engineering College</p>
-                        <p class="text-2xl font-bold text-white">CGPA: 82%</p>
+                        <div class="absolute left-[-4px] top-1.5 w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <p class="mono text-[10px] text-blue-400 mb-1.5 uppercase tracking-wider">Ongoing | Chennai</p>
+                        <h4 class="text-lg font-bold text-white">B.Tech Information Technology</h4>
+                        <p class="text-sm text-slate-400 mb-3">Prince Shri Venkateshwara Padmavathy Engineering College
+                        </p>
+                        <p class="text-xl font-extrabold text-blue-400">CGPA: 82%</p>
                     </div>
 
                     <!-- Bachelor of Arts -->
                     <div class="relative pl-8">
                         <div class="absolute left-0 top-0 h-full w-px bg-purple-500/20"></div>
-                        <div class="absolute left-[-4px] top-0 w-2 h-2 bg-purple-500 rounded-full"></div>
-                        <p class="mono text-xs text-purple-500 mb-1">Graduated | First Class</p>
-                        <h4 class="text-xl font-bold">Bachelor of Arts (Hindi)</h4>
-                        <p class="text-slate-400">Dakshina Bharat Hindi Prachar Sabha, Chennai</p>
+                        <div class="absolute left-[-4px] top-1.5 w-2 h-2 bg-purple-500 rounded-full"></div>
+                        <p class="mono text-[10px] text-purple-400 mb-1.5 uppercase tracking-wider">Graduated | First
+                            Class</p>
+                        <h4 class="text-lg font-bold text-white">Bachelor of Arts (Hindi)</h4>
+                        <p class="text-sm text-slate-400">Dakshina Bharat Hindi Prachar Sabha, Chennai</p>
                     </div>
 
-                    <!-- School Education -->
+                    <!-- KV 12 -->
                     <div class="relative pl-8">
                         <div class="absolute left-0 top-0 h-full w-px bg-blue-500/20"></div>
-                        <div class="absolute left-[-4px] top-0 w-2 h-2 bg-blue-500 rounded-full"></div>
-                        <p class="mono text-xs text-blue-500 mb-1">Senior Secondary Education </p>
-                        <h4 class="text-xl font-bold">PM Shri Kendriya Vidyalaya Minabakkam (KV), Chennai</h4>
-                        <p class="text-slate-400 mb-2">Higher Secondary Education (Class 12)</p>
-                        <p class="text-2xl font-bold text-white">Grade: 68%</p>
+                        <div class="absolute left-[-4px] top-1.5 w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <p class="mono text-[10px] text-blue-400 mb-1.5 uppercase tracking-wider">Higher Secondary
+                            Education </p>
+                        <h4 class="text-lg font-bold text-white">PM Shri Kendriya Vidyalaya Minabakkam (KV), Chennai
+                        </h4>
+                        <p class="text-sm text-slate-400 mb-3">Class 12 (HSC)</p>
+                        <p class="text-xl font-extrabold text-white">Grade: 68%</p>
                     </div>
 
-                    <!-- School Education -->
+                    <!-- KV 10 -->
                     <div class="relative pl-8">
-                       <div class="absolute left-0 top-0 h-full w-px bg-blue-500/20"></div>
-                        <div class="absolute left-[-4px] top-0 w-2 h-2 bg-blue-500 rounded-full"></div>
-                        <p class="mono text-xs text-blue-500 mb-1">Higher Secondary Education </p>
-                        <h4 class="text-xl font-bold">PM Shri Kendriya Vidyalaya Minabakkam(KV), Chennai</h4>
-                        <p class="text-slate-400 mb-2">Higher Secondary Education (Class 10)</p>
-                        <p class="text-2xl font-bold text-white">Grade: 81%</p>
+                        <div class="absolute left-0 top-0 h-full w-px bg-blue-500/20"></div>
+                        <div class="absolute left-[-4px] top-1.5 w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <p class="mono text-[10px] text-blue-400 mb-1.5 uppercase tracking-wider">Secondary Education
+                        </p>
+                        <h4 class="text-lg font-bold text-white">PM Shri Kendriya Vidyalaya Minabakkam (KV), Chennai
+                        </h4>
+                        <p class="text-sm text-slate-400 mb-3">Class 10 (SSLC)</p>
+                        <p class="text-xl font-extrabold text-white">Grade: 81%</p>
                     </div>
-
                 </div>
             </div>
 
-
+            <!-- Certifications -->
             <div data-aos="fade-left">
-    <h3 class="text-3xl font-bold mb-12 uppercase tracking-tighter">Certifications</h3>
+                <h3 class="text-3xl font-extrabold mb-12 tracking-tight uppercase bg-text-gradient">Certifications</h3>
+                <div class="space-y-4">
+                    <!-- Neo4j -->
+                    <a href="https://graphacademy.neo4j.com/c/ca3540eb-d5cc-465d-ba0a-c9f0f577ff3a/" target="_blank"
+                        class="block cursor-none">
+                        <div
+                            class="glass-card interactive-card p-5 flex items-center justify-between border-white/5 group">
+                            <span class="text-sm font-medium text-slate-200">Neo4j Certified Professional</span>
+                            <i
+                                class="bi bi-patch-check-fill text-blue-500 opacity-60 group-hover:opacity-100 transition duration-300"></i>
+                        </div>
+                    </a>
 
-    <div class="grid grid-cols-1 gap-4">
+                    <!-- GCP -->
+                    <a href="https://www.skills.google/public_profiles/400e9e04-0ad0-4814-8982-67af18b2f1cd"
+                        target="_blank" class="block cursor-none">
+                        <div
+                            class="glass-card interactive-card p-5 flex items-center justify-between border-white/5 group">
+                            <span class="text-sm font-medium text-slate-200">GCP Skill Badges (Compute, Storage)</span>
+                            <i
+                                class="bi bi-patch-check-fill text-blue-500 opacity-60 group-hover:opacity-100 transition duration-300"></i>
+                        </div>
+                    </a>
 
-        <!-- Neo4j -->
-        <a href="https://graphacademy.neo4j.com/c/ca3540eb-d5cc-465d-ba0a-c9f0f577ff3a/" target="_blank">
-            <div class="glass-card p-4 flex items-center justify-between group">
-                <span class="text-sm">Neo4j Certified Professional</span>
-                <i class="bi bi-patch-check-fill text-blue-500 opacity-0 group-hover:opacity-100 transition"></i>
+                    <!-- IBM -->
+                    <div class="glass-card interactive-card p-5 flex items-center justify-between border-white/5 group">
+                        <span class="text-sm font-medium text-slate-200">IBM Encryption Fundamentals</span>
+                        <i
+                            class="bi bi-patch-check-fill text-indigo-500 opacity-60 group-hover:opacity-100 transition duration-300"></i>
+                    </div>
+
+                    <!-- Microsoft -->
+                    <div class="glass-card interactive-card p-5 flex items-center justify-between border-white/5 group">
+                        <span class="text-sm font-medium text-slate-200">Microsoft Generative AI Essentials</span>
+                        <i
+                            class="bi bi-patch-check-fill text-purple-500 opacity-60 group-hover:opacity-100 transition duration-300"></i>
+                    </div>
+
+                    <!-- MongoDB -->
+                    <div class="glass-card interactive-card p-5 flex items-center justify-between border-white/5 group">
+                        <span class="text-sm font-medium text-slate-200">MongoDB Shell — MongoDB University</span>
+                        <i
+                            class="bi bi-patch-check-fill text-emerald-500 opacity-60 group-hover:opacity-100 transition duration-300"></i>
+                    </div>
+
+                    <!-- Apache Spark -->
+                    <div class="glass-card interactive-card p-5 flex items-center justify-between border-white/5 group">
+                        <span class="text-sm font-medium text-slate-200">Introduction to Apache Spark™ —
+                            Databricks</span>
+                        <i
+                            class="bi bi-patch-check-fill text-purple-500 opacity-60 group-hover:opacity-100 transition duration-300"></i>
+                    </div>
+                </div>
             </div>
-        </a>
-
-        <!-- GCP -->
-        <a href="https://www.skills.google/public_profiles/400e9e04-0ad0-4814-8982-67af18b2f1cd" target="_blank">
-            <div class="glass-card p-4 flex items-center justify-between group">
-                <span class="text-sm">GCP Skill Badges (Compute, Storage)</span>
-                <i class="bi bi-patch-check-fill text-blue-500 opacity-0 group-hover:opacity-100 transition"></i>
-            </div>
-        </a>
-
-        <!-- IBM -->
-        <div class="glass-card p-4 flex items-center justify-between group">
-            <span class="text-sm">IBM Encryption Fundamentals</span>
-            <i class="bi bi-patch-check-fill text-blue-500 opacity-0 group-hover:opacity-100 transition"></i>
         </div>
-
-        <!-- Microsoft -->
-        <div class="glass-card p-4 flex items-center justify-between group">
-            <span class="text-sm">Microsoft Generative AI Essentials</span>
-            <i class="bi bi-patch-check-fill text-blue-500 opacity-0 group-hover:opacity-100 transition"></i>
-        </div>
-
-        <!-- MongoDB (NEW) -->
-        <div class="glass-card p-4 flex items-center justify-between group">
-            <span class="text-sm">MongoDB Shell — MongoDB University</span>
-            <i class="bi bi-patch-check-fill text-blue-500 opacity-0 group-hover:opacity-100 transition"></i>
-        </div>
-
-        <!-- Apache Spark (NEW) -->
-        <div class="glass-card p-4 flex items-center justify-between group">
-            <span class="text-sm">Introduction to Apache Spark™ — Databricks Academy</span>
-            <i class="bi bi-patch-check-fill text-blue-500 opacity-0 group-hover:opacity-100 transition"></i>
-        </div>
-
-    </div>
-</div>
-</section>
-
-
+    </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-32 px-6 bg-black/50">
+    <section id="contact" class="py-32 px-6">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-sm mono text-blue-500 mb-2">// CONNECT WITH ME</h2>
-            <h3 class="text-4xl font-bold uppercase mb-12">Contact Me</h3>
+            <h2 class="text-xs mono text-blue-400 mb-4 tracking-widest uppercase">// CONNECT WITH ME</h2>
+            <h3 class="text-3xl md:text-5xl font-bold uppercase mb-16 tracking-tight bg-text-gradient">Get In Touch</h3>
 
-            <form id="contactForm" class="space-y-6">
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <input type="text" name="name" placeholder="Your Name" required
-                        class="w-full px-6 py-4 bg-black/30 border border-white/10 rounded-xl text-white">
-
-                    <input type="email" name="email" placeholder="Your Email" required
-                        class="w-full px-6 py-4 bg-black/30 border border-white/10 rounded-xl text-white">
+            <form id="contactForm" class="space-y-6 text-left max-w-2xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-500 mb-2 font-bold mono">Your
+                            Name</label>
+                        <input type="text" name="name" required placeholder="John Doe"
+                            class="w-full px-5 py-4 bg-black/40 border border-white/5 rounded-2xl text-white text-sm cursor-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-500 mb-2 font-bold mono">Your
+                            Email</label>
+                        <input type="email" name="email" required placeholder="john@example.com"
+                            class="w-full px-5 py-4 bg-black/40 border border-white/5 rounded-2xl text-white text-sm cursor-none">
+                    </div>
                 </div>
-
-                <textarea name="message" rows="6" placeholder="Your Message" required
-                    class="w-full px-6 py-4 bg-black/30 border border-white/10 rounded-xl text-white"></textarea>
-
-                <button type="submit"
-                    class="px-10 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-purple-600 transition">
-                    Send Message
-                </button>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-slate-500 mb-2 font-bold mono">Message
+                        String</label>
+                    <textarea name="message" rows="5" required
+                        placeholder="I'd love to talk about infrastructure engineering..."
+                        class="w-full px-5 py-4 bg-black/40 border border-white/5 rounded-2xl text-white text-sm cursor-none"></textarea>
+                </div>
+                <div class="text-center pt-4">
+                    <button type="submit"
+                        class="btn-premium btn-premium-accent px-12 py-4 rounded-full text-sm font-extrabold cursor-none">
+                        Send Message <i class="bi bi-chevron-right ml-1"></i>
+                    </button>
+                </div>
             </form>
-
-
-
-
-
-
-<footer class="relative bg-black/80 py-40 px-6 md:px-16 lg:px-24 text-white">
-
-    <!-- Gradient Top Line -->
-    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600"></div>
-
-    <!-- Main Footer Content -->
-    <div class="w-full max-w-screen-2xl mx-auto text-center space-y-16">
-
-        <!-- Footer Heading -->
-        <h2 class="text-5xl md:text-6xl font-extrabold tracking-tight max-w-5xl mx-auto">
-            Let's build the 
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-                next evolution
-            </span> 
-            of secure tech.
-        </h2>
-
-        <!-- Social Links Grid (WIDER) -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-10 w-full max-w-7xl mx-auto">
-            
-            <a href="https://www.linkedin.com/in/ashwin-kumar-s-5053bb272/" target="_blank"
-                class="glass-card p-6 flex flex-col items-center group hover:scale-110 transition">
-                <i class="bi bi-linkedin text-4xl mb-2 group-hover:text-blue-500 transition"></i>
-                <span class="mono text-[10px] tracking-widest font-bold">LINKEDIN</span>
-            </a>
-
-            <a href="https://www.credly.com/users/s-ashwin-kumar.f2377623" target="_blank"
-                class="glass-card p-6 flex flex-col items-center group hover:scale-110 transition">
-                <i class="bi bi-award text-4xl mb-2 group-hover:text-purple-500 transition"></i>
-                <span class="mono text-[10px] tracking-widest font-bold">CREDLY</span>
-            </a>
-
-            <a href="mailto:ashwinkumarsarkar15@gmail.com"
-                class="glass-card p-6 flex flex-col items-center group hover:scale-110 transition">
-                <i class="bi bi-envelope-at text-4xl mb-2 group-hover:text-blue-400 transition"></i>
-                <span class="mono text-[10px] tracking-widest font-bold">EMAIL_ME</span>
-            </a>
-
-            <a href="https://github.com/Ashwin15-png" target="_blank"
-                class="glass-card p-6 flex flex-col items-center group hover:scale-110 transition">
-                <i class="bi bi-github text-4xl mb-2 group-hover:text-white transition"></i>
-                <span class="mono text-[10px] tracking-widest font-bold">GITHUB</span>
-            </a>
-
-            <a href="https://x.com/ash_marvel_15" target="_blank"
-                class="glass-card p-6 flex flex-col items-center group hover:scale-110 transition">
-                <i class="bi bi-twitter text-4xl mb-2 group-hover:text-blue-400 transition"></i>
-                <span class="mono text-[10px] tracking-widest font-bold">X</span>
-            </a>
-
-            <a href="https://www.instagram.com/ash_brave_2004/?hl=en-gb" target="_blank"
-                class="glass-card p-6 flex flex-col items-center group hover:scale-110 transition">
-                <i class="bi bi-instagram text-4xl mb-2 group-hover:text-pink-500 transition"></i>
-                <span class="mono text-[10px] tracking-widest font-bold">INSTAGRAM</span>
-            </a>
-
         </div>
+    </section>
 
-        <!-- Bottom Bar -->
-        <div class="flex flex-col md:flex-row justify-between items-center text-[10px] text-slate-600 mono tracking-[0.4em] gap-6 uppercase w-full max-w-7xl mx-auto">
-            
-            <p>© 2026 S. Ashwin Kumar // All Rights Reserved</p>
+    <!-- Footer -->
+    <footer class="relative bg-black/60 py-32 px-6 text-white border-t border-white/5">
+        <div class="max-w-7xl mx-auto text-center space-y-16">
+            <h2
+                class="text-4xl md:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-none bg-text-gradient">
+                Let's build the <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">next
+                    evolution</span> of secure tech.
+            </h2>
 
-            <div class="flex gap-10">
-                <span>DevSecOps</span>
-                <span>Big Data</span>
-                <span>Infrastructure</span>
+            <!-- Social Links Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 max-w-5xl mx-auto">
+                <a href="https://www.linkedin.com/in/ashwin-kumar-s-5053bb272/" target="_blank"
+                    class="glass-card interactive-card p-6 flex flex-col items-center group cursor-none border-white/5">
+                    <i
+                        class="bi bi-linkedin text-3xl mb-3 text-slate-400 group-hover:text-blue-500 transition duration-300"></i>
+                    <span
+                        class="mono text-[9px] tracking-widest font-bold text-slate-400 group-hover:text-white">LINKEDIN</span>
+                </a>
+
+                <a href="https://www.credly.com/users/s-ashwin-kumar.f2377623" target="_blank"
+                    class="glass-card interactive-card p-6 flex flex-col items-center group cursor-none border-white/5">
+                    <i
+                        class="bi bi-award text-3xl mb-3 text-slate-400 group-hover:text-purple-500 transition duration-300"></i>
+                    <span
+                        class="mono text-[9px] tracking-widest font-bold text-slate-400 group-hover:text-white">CREDLY</span>
+                </a>
+
+                <a href="mailto:ashwinkumarsarkar15@gmail.com"
+                    class="glass-card interactive-card p-6 flex flex-col items-center group cursor-none border-white/5">
+                    <i
+                        class="bi bi-envelope-at text-3xl mb-3 text-slate-400 group-hover:text-blue-400 transition duration-300"></i>
+                    <span
+                        class="mono text-[9px] tracking-widest font-bold text-slate-400 group-hover:text-white">EMAIL</span>
+                </a>
+
+                <a href="https://github.com/Ashwin15-png" target="_blank"
+                    class="glass-card interactive-card p-6 flex flex-col items-center group cursor-none border-white/5">
+                    <i
+                        class="bi bi-github text-3xl mb-3 text-slate-400 group-hover:text-white transition duration-300"></i>
+                    <span
+                        class="mono text-[9px] tracking-widest font-bold text-slate-400 group-hover:text-white">GITHUB</span>
+                </a>
+
+                <a href="https://x.com/ash_marvel_15" target="_blank"
+                    class="glass-card interactive-card p-6 flex flex-col items-center group cursor-none border-white/5">
+                    <i
+                        class="bi bi-twitter-x text-3xl mb-3 text-slate-400 group-hover:text-blue-400 transition duration-300"></i>
+                    <span
+                        class="mono text-[9px] tracking-widest font-bold text-slate-400 group-hover:text-white">X</span>
+                </a>
+
+                <a href="https://www.instagram.com/ash_brave_2004/?hl=en-gb" target="_blank"
+                    class="glass-card interactive-card p-6 flex flex-col items-center group cursor-none border-white/5">
+                    <i
+                        class="bi bi-instagram text-3xl mb-3 text-slate-400 group-hover:text-pink-500 transition duration-300"></i>
+                    <span
+                        class="mono text-[9px] tracking-widest font-bold text-slate-400 group-hover:text-white">INSTAGRAM</span>
+                </a>
             </div>
 
-            <p>Chennai, India</p>
-
+            <!-- Bottom footer line -->
+            <div
+                class="flex flex-col md:flex-row justify-between items-center text-[9px] text-slate-500 mono tracking-[0.4em] gap-6 uppercase max-w-5xl mx-auto pt-8 border-t border-white/5">
+                <p>© 2026 S. Ashwin Kumar // All Rights Reserved</p>
+                <div class="flex gap-4">
+                    <span>DevSecOps</span>
+                    <span>Big Data</span>
+                    <span>Systems</span>
+                </div>
+                <p>Chennai, India</p>
+            </div>
         </div>
+    </footer>
 
-    </div>
-</footer>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-            <script>
-                AOS.init({ duration: 1000, once: true });
-            </script>
-</body>
-<script>
-    document.getElementById("contactForm").addEventListener("submit", async function (e) {
-        e.preventDefault();
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
 
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData.entries());
+        // Custom Cursor trailing logic
+        const cursor = document.getElementById('customCursor');
+        const follower = document.getElementById('customCursorFollower');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
 
-        try {
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            // Spotlight glow effect for interactive cards
+            const cards = document.querySelectorAll('.interactive-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
             });
+        });
 
-            if (response.ok) {
-                window.location.href = "/success.html";
-            } else {
-                const result = await response.json();
-                alert("Error: " + (result.error || "Something went wrong"));
-            }
+        // Smoothly double update positions via linear interpolation (Lerp)
+        function animateCursors() {
+            cursorX += (mouseX - cursorX) * 0.25;
+            cursorY += (mouseY - cursorY) * 0.25;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
 
-        } catch (error) {
-            alert("Server error. Please try again later.");
+            followerX += (mouseX - followerX) * 0.12;
+            followerY += (mouseY - followerY) * 0.12;
+            follower.style.left = followerX + 'px';
+            follower.style.top = followerY + 'px';
+
+            requestAnimationFrame(animateCursors);
         }
-    });
-</script>
+        animateCursors();
 
+        // Cursor scaling and color shift on hover
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, .interactive-card, .btn-premium');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                document.body.classList.add('cursor-hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                document.body.classList.remove('cursor-hover');
+            });
+        });
+
+        // Scroll progress bar and floating navbar shrink
+        const navbar = document.querySelector('nav');
+        const scrollBar = document.getElementById('scrollProgress');
+
+        window.addEventListener('scroll', () => {
+            const documentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolledPercentage = (window.scrollY / documentHeight) * 100;
+            scrollBar.style.width = scrolledPercentage + '%';
+
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled-nav');
+            } else {
+                navbar.classList.remove('scrolled-nav');
+            }
+        });
+
+        // Magnetic button interaction
+        const magneticButtons = document.querySelectorAll('.btn-premium');
+        magneticButtons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const bounds = btn.getBoundingClientRect();
+                const relativeX = e.clientX - bounds.left - bounds.width / 2;
+                const relativeY = e.clientY - bounds.top - bounds.height / 2;
+
+                // Translate the button slightly towards the cursor to create magnetic feel
+                btn.style.transform = `translate(${relativeX * 0.35}px, ${relativeY * 0.35}px) scale(1.02)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+
+        // Contact Form processing logic
+        document.getElementById("contactForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    window.location.href = "/success.html";
+                } else {
+                    const result = await response.json();
+                    alert("Error: " + (result.error || "Something went wrong"));
+                }
+
+            } catch (error) {
+                alert("Server error. Please try again later.");
+            }
+        });
+    </script>
+</body>
 
 </html>
