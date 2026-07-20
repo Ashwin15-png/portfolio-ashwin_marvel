@@ -20,12 +20,16 @@ async function connectToDatabase() {
         return;
     }
 
-    if (!process.env.MONGODB_URI) {
+    let uri = process.env.MONGODB_URI;
+    if (!uri) {
         throw new Error("MONGODB_URI is not defined");
     }
 
+    // Clean connection string (remove quotes/whitespace)
+    uri = uri.replace(/^["']|["']$/g, '').trim();
+
     try {
-        await mongoose.connect(process.env.MONGODB_URI, {
+        await mongoose.connect(uri, {
             bufferCommands: false, // Fail fast if not connected
         });
         console.log("✅ MongoDB Connected");
