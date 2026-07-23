@@ -3,3 +3,5 @@ node_modules
 scripts/verify-db.js
 scripts/test-connection.js
 error.log
+.vercel
+.env*

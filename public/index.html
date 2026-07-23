@@ -68,7 +68,7 @@
                 <a href="#about" class="hover:text-white transition cursor-none">// About</a>
                 <a href="#experience" class="hover:text-white transition cursor-none">// Experience</a>
                 <a href="#skills" class="hover:text-white transition cursor-none">// Tech Stack</a>
-                <a href="#projects" class="hover:text-white transition cursor-none">// Projects</a>
+                <a href="/projects" class="hover:text-white transition cursor-none">// Projects</a>
                 <a href="#certs" class="hover:text-white transition cursor-none">// Certifications</a>
             </div>
             <a href="#contact"
@@ -108,7 +108,7 @@
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a href="#projects" class="btn-premium btn-premium-primary text-black">
+                <a href="/projects" class="btn-premium btn-premium-primary text-black">
                     View Projects
                 </a>
                 <a href="assets/Resume_CV_-Ashwin Kumar S.pdf" download="Resume_CV_-Ashwin Kumar S.pdf"
@@ -385,9 +385,9 @@
             <h3 class="text-3xl md:text-5xl font-bold uppercase text-center mb-20 tracking-tight bg-text-gradient">
                 Featured Projects</h3>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between"
+                <a href="/smart-attendance.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
                     data-aos="fade-up">
                     <div>
                         <div
@@ -402,10 +402,10 @@
                         </p>
                     </div>
                     <div class="mono text-[10px] text-slate-500">CI/CD // CLOUD // COMPUTER VISION</div>
-                </div>
+                </a>
 
                 <!-- Project 2 -->
-                <div class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between"
+                <a href="/prescription-extractor.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
                     data-aos="fade-up" data-aos-delay="100">
                     <div>
                         <div
@@ -420,10 +420,10 @@
                         </p>
                     </div>
                     <div class="mono text-[10px] text-slate-500">AI // OCR // FASTAPI</div>
-                </div>
+                </a>
 
                 <!-- Project 3 -->
-                <div class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between"
+                <a href="/sign-language.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
                     data-aos="fade-up" data-aos-delay="200">
                     <div>
                         <div
@@ -437,10 +437,10 @@
                         </p>
                     </div>
                     <div class="mono text-[10px] text-slate-500">CV // MEDIAPIPE // ACCESSIBILITY</div>
-                </div>
+                </a>
 
                 <!-- Project 4 -->
-                <div class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between"
+                <a href="/face-recognition.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
                     data-aos="fade-up">
                     <div>
                         <div
@@ -454,10 +454,10 @@
                         </p>
                     </div>
                     <div class="mono text-[10px] text-slate-500">OPENCV // ML // VERIFICATION</div>
-                </div>
+                </a>
 
                 <!-- Project 5 -->
-                <div class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between"
+                <a href="/hospital-portal.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
                     data-aos="fade-up" data-aos-delay="100">
                     <div>
                         <div
@@ -471,10 +471,10 @@
                         </p>
                     </div>
                     <div class="mono text-[10px] text-slate-500">DEV // DATABASES // PORTAL</div>
-                </div>
+                </a>
 
                 <!-- Project 6 -->
-                <div class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between"
+                <a href="/hotel-reservation.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
                     data-aos="fade-up" data-aos-delay="200">
                     <div>
                         <div
@@ -488,7 +488,7 @@
                         </p>
                     </div>
                     <div class="mono text-[10px] text-slate-500">DATABASES // BOOKING // DEPLOY</div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -793,6 +793,8 @@
         let mouseX = 0, mouseY = 0;
         let cursorX = 0, cursorY = 0;
         let followerX = 0, followerY = 0;
+        let targetX = 0, targetY = 0;
+        let hoveredEl = null;
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
@@ -809,6 +811,10 @@
             });
         });
 
+        // Set click classes
+        document.addEventListener('mousedown', () => document.body.classList.add('cursor-clicking'));
+        document.addEventListener('mouseup', () => document.body.classList.remove('cursor-clicking'));
+
         // Smoothly double update positions via linear interpolation (Lerp)
         function animateCursors() {
             cursorX += (mouseX - cursorX) * 0.25;
@@ -816,8 +822,27 @@
             cursor.style.left = cursorX + 'px';
             cursor.style.top = cursorY + 'px';
 
-            followerX += (mouseX - followerX) * 0.12;
-            followerY += (mouseY - followerY) * 0.12;
+            if (hoveredEl) {
+                const rect = hoveredEl.getBoundingClientRect();
+                targetX = rect.left + rect.width / 2;
+                targetY = rect.top + rect.height / 2;
+                
+                // Slowly scale follower dimensions to wrap target element
+                const snapWidth = rect.width + 16;
+                const snapHeight = rect.height + 16;
+                follower.style.width = snapWidth + 'px';
+                follower.style.height = snapHeight + 'px';
+                follower.style.borderRadius = window.getComputedStyle(hoveredEl).borderRadius;
+            } else {
+                targetX = mouseX;
+                targetY = mouseY;
+                follower.style.width = (document.body.classList.contains('cursor-hover') ? 58 : 44) + 'px';
+                follower.style.height = (document.body.classList.contains('cursor-hover') ? 58 : 44) + 'px';
+                follower.style.borderRadius = '50%';
+            }
+
+            followerX += (targetX - followerX) * 0.15;
+            followerY += (targetY - followerY) * 0.15;
             follower.style.left = followerX + 'px';
             follower.style.top = followerY + 'px';
 
@@ -830,9 +855,13 @@
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 document.body.classList.add('cursor-hover');
+                if (el.classList.contains('btn-premium') || el.tagName === 'A' || el.tagName === 'BUTTON') {
+                    hoveredEl = el;
+                }
             });
             el.addEventListener('mouseleave', () => {
                 document.body.classList.remove('cursor-hover');
+                hoveredEl = null;
             });
         });
 

@@ -84,41 +84,59 @@ body {
 
 /* Custom Cursor */
 .custom-cursor {
-    width: 12px;
-    height: 12px;
-    background: #fff;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #3b82f6, #a855f7);
     border-radius: 50%;
     position: fixed;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 10000;
-    transition: width 0.2s, height 0.2s, background-color 0.2s, transform 0.1s ease-out;
+    transition: width 0.2s, height 0.2s, background 0.3s, transform 0.1s ease-out;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
 }
 
 .custom-cursor-follower {
-    width: 32px;
-    height: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 44px;
+    height: 44px;
+    border: 1.5px dashed rgba(99, 102, 241, 0.4);
     border-radius: 50%;
     position: fixed;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 9999;
-    transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s, transform 0.1s ease-out;
 }
 
 /* Hover effects for cursor */
 .cursor-hover .custom-cursor {
-    width: 6px;
-    height: 6px;
-    background-color: var(--accent-blue);
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.8);
 }
 
 .cursor-hover .custom-cursor-follower {
-    width: 48px;
-    height: 48px;
-    border-color: var(--accent-blue);
-    background-color: rgba(59, 130, 246, 0.08);
+    width: 58px;
+    height: 58px;
+    border: 1.5px solid rgba(168, 85, 247, 0.6);
+    border-style: solid;
+    background-color: rgba(168, 85, 247, 0.05);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+/* Clicking effect */
+.cursor-clicking .custom-cursor {
+    width: 4px;
+    height: 4px;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.cursor-clicking .custom-cursor-follower {
+    width: 32px;
+    height: 32px;
+    border-color: #ec4899;
+    background-color: rgba(236, 72, 153, 0.1);
 }
 
 /* Background Blobs */

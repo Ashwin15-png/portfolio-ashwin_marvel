@@ -10,10 +10,19 @@
             "use": "@vercel/static"
         }
     ],
+    "cleanUrls": true,
     "routes": [
         {
             "src": "/api/contact",
             "dest": "/api/contact.js"
+        },
+        {
+            "src": "/projects",
+            "dest": "/public/projects/index.html"
+        },
+        {
+            "src": "/projects/(.*)",
+            "dest": "/public/projects/$1"
         },
         {
             "src": "/(.*)",
