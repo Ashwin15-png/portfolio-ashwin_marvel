@@ -381,11 +381,85 @@
     <!-- Projects Section -->
     <section id="projects" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-xs mono text-blue-400 mb-4 text-center tracking-widest uppercase">// PORTFOLIO</h2>
-            <h3 class="text-3xl md:text-5xl font-bold uppercase text-center mb-20 tracking-tight bg-text-gradient">
+            <h2 class="text-xs mono text-cyan-400 mb-4 text-center tracking-widest uppercase">// PORTFOLIO FLAGSHIP SHOWCASE</h2>
+            <h3 class="text-3xl md:text-5xl font-bold uppercase text-center mb-16 tracking-tight bg-text-gradient">
                 Featured Projects</h3>
 
+            <!-- ⭐ FLAGSHIP PROJECT HERO BANNER -->
+            <div class="glass-card interactive-card p-8 md:p-12 border-cyan-500/30 mb-16 relative overflow-hidden group" data-aos="fade-up">
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition duration-700"></div>
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/40 bg-cyan-500/10 text-cyan-300 mono text-[11px] font-bold tracking-wider uppercase">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                            ⭐ FLAGSHIP PROJECT • INDUSTRIAL IOT
+                        </div>
+                        <h4 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                            VibeGuard AI — Real-Time Machine Condition Monitoring & Predictive Maintenance System
+                        </h4>
+                        <p class="text-indigo-200 text-base md:text-lg italic font-light leading-relaxed border-l-2 border-cyan-400 pl-4 py-1">
+                            "An enterprise-grade Industrial IoT platform leveraging real-time sensor processing, noise-filtered anomaly detection algorithms, and WebSocket telemetry to minimise costly machinery downtime."
+                        </p>
+                        <p class="text-slate-400 text-sm leading-relaxed font-light">
+                            Continuous machine telemetry monitoring with sustained anomaly verification (<code class="text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded font-mono">CONSECUTIVE_READINGS_THRESHOLD = 3</code>), EMA signal filtering, Socket.IO live streaming, and MongoDB Atlas persistence.
+                        </p>
+                        
+                        <!-- Tech Badges -->
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-xs font-mono text-blue-300">React</span>
+                            <span class="px-2.5 py-1 rounded bg-purple-500/10 border border-purple-500/20 text-xs font-mono text-purple-300">Vite</span>
+                            <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-300">Node.js</span>
+                            <span class="px-2.5 py-1 rounded bg-indigo-500/10 border border-indigo-500/20 text-xs font-mono text-indigo-300">Express.js</span>
+                            <span class="px-2.5 py-1 rounded bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-300">Socket.IO</span>
+                            <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-300">MongoDB Atlas</span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex flex-wrap items-center gap-4 pt-4">
+                            <a href="/vibeguard-ai.html" class="btn-premium btn-premium-primary text-black font-bold text-xs uppercase tracking-wider cursor-none">
+                                View Case Study <i class="bi bi-arrow-right ml-1"></i>
+                            </a>
+                            <a href="https://machine-condition-monitoring-vibe-g.vercel.app" target="_blank" class="px-6 py-3 rounded-full bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500/20 text-cyan-300 font-bold text-xs uppercase tracking-wider transition cursor-none">
+                                Live Demo <i class="bi bi-box-arrow-up-right ml-1"></i>
+                            </a>
+                            <a href="https://github.com/Ashwin15-png/Machine-Condition-Monitoring-VibeGuardAI" target="_blank" class="px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 font-bold text-xs uppercase tracking-wider transition cursor-none">
+                                GitHub Repo <i class="bi bi-github ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Graphic -->
+                    <div class="md:col-span-5 relative rounded-2xl overflow-hidden border border-cyan-500/20 shadow-[0_15px_40px_rgba(6,182,212,0.15)] group-hover:scale-[1.02] transition duration-500">
+                        <img src="/projects/assets/images/vibeguard_ai.jpg" alt="VibeGuard AI Telemetry Suite" class="w-full h-64 md:h-80 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 flex justify-between items-center text-xs font-mono">
+                            <span class="text-cyan-400 font-bold">● LIVE STREAMING</span>
+                            <span class="text-emerald-400 font-bold">5+ PARAMETERS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Flagship Grid Card -->
+                <a href="/vibeguard-ai.html" class="glass-card interactive-card p-8 border-cyan-500/30 flex flex-col justify-between cursor-none hover:no-underline relative overflow-hidden"
+                    data-aos="fade-up">
+                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded bg-cyan-500/20 border border-cyan-500/40 text-[9px] font-mono font-bold text-cyan-300 uppercase">
+                        ⭐ FLAGSHIP
+                    </div>
+                    <div>
+                        <div
+                            class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center border border-cyan-500/30 mb-6">
+                            <i class="bi bi-cpu-fill text-cyan-400 text-lg"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-4">VibeGuard AI — Predictive Maintenance Platform</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Enterprise Industrial IoT system leveraging real-time sensor processing, noise-filtered anomaly detection algorithms, Socket.IO live telemetry, and sustained anomaly validation.
+                        </p>
+                    </div>
+                    <div class="mono text-[10px] text-cyan-400 font-bold">INDUSTRIAL IOT // SOCKET.IO // MONGODB</div>
+                </a>
+
                 <!-- Project 1 -->
                 <a href="/smart-attendance.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
                     data-aos="fade-up">

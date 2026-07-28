@@ -20,9 +20,111 @@ export interface Project {
     futureScope: string;
     gallery: string[];
   };
+  isFlagship?: boolean;
+  tagline?: string;
+  problemStatement?: string;
+  engineeringHighlights?: { title: string; subtitle: string; description: string; points: string[] }[];
+  resumeHighlights?: string[];
+  technicalFeatures?: string[];
 }
 
 export const projectsData: Project[] = [
+  {
+    id: "vibeguard-ai",
+    isFlagship: true,
+    title: "VibeGuard AI — Real-Time Machine Condition Monitoring & Industrial IoT Predictive Maintenance System",
+    category: "INDUSTRIAL IOT / PREDICTIVE MAINTENANCE",
+    categories: ["Industrial IoT", "Predictive Maintenance", "AI", "Full Stack", "WebSocket"],
+    tagline: "An enterprise-grade Industrial IoT platform leveraging real-time sensor processing, noise-filtered anomaly detection algorithms, and WebSocket telemetry to minimise costly machinery downtime.",
+    description: "Enterprise-grade real-time machine condition monitoring and predictive maintenance solution for industrial IoT infrastructure featuring sustained anomaly verification, Socket.IO live telemetry, signal processing algorithms, and MongoDB Atlas persistence.",
+    problemStatement: "Manufacturing machines often fail unexpectedly due to vibration spikes, overheating, abnormal current, and speed fluctuations. Traditional monitoring systems trigger excessive false alarms. VibeGuard AI solves this using mathematical filtering and sustained anomaly validation.",
+    features: [
+      "Live Sensor Telemetry",
+      "WebSocket Communication",
+      "MongoDB Persistence",
+      "Machine Health Monitoring",
+      "Predictive Alerts",
+      "Fleet Dashboard",
+      "Manual Simulation Controls",
+      "Historical Data",
+      "Responsive UI",
+      "Automated Test Suite"
+    ],
+    technicalFeatures: [
+      "Live Sensor Telemetry",
+      "WebSocket Communication",
+      "MongoDB Persistence",
+      "Machine Health Monitoring",
+      "Predictive Alerts",
+      "Fleet Dashboard",
+      "Manual Simulation Controls",
+      "Historical Data",
+      "Responsive UI",
+      "Automated Test Suite"
+    ],
+    engineeringHighlights: [
+      {
+        title: "Real-Time WebSocket Telemetry",
+        subtitle: "High-Frequency Stream Pipeline",
+        description: "Built on Socket.IO for low-latency bidirectional streaming across industrial machine fleets.",
+        points: ["Socket.IO", "Live streaming", "Fleet monitoring", "Instant updates"]
+      },
+      {
+        title: "Consecutive Reading Anomaly Engine",
+        subtitle: "Sustained Anomaly Validation (CONSECUTIVE_READINGS_THRESHOLD = 3)",
+        description: "Alerts trigger strictly after 3 consecutive abnormal sensor readings to eliminate transient noise and false positives.",
+        points: ["CONSECUTIVE_READINGS_THRESHOLD = 3", "Zero False Positives", "Sustained Validation", "Instant Alert Triggering"]
+      },
+      {
+        title: "Signal Processing Pipeline",
+        subtitle: "Mathematical Noise Filtering & Verification",
+        description: "Applied moving averages, median filters, and spike rejection to transform raw sensor noise into clean telemetry signals.",
+        points: ["Exponential Moving Average (EMA)", "Median Filter", "Range Validation", "Noise Reduction"]
+      },
+      {
+        title: "Industrial Control Dashboard",
+        subtitle: "Comprehensive Fleet Operations Center",
+        description: "Recruiter-focused, high-contrast industrial control suite with dynamic charts, dark/light theme, and live telemetry control.",
+        points: ["Dark/Light Mode", "Responsive UI", "Machine Status", "KPI Cards", "Fleet Health", "Charts", "Live Alerts"]
+      }
+    ],
+    resumeHighlights: [
+      "Architected VibeGuard AI using React, Node.js, Express, Socket.IO, and MongoDB.",
+      "Engineered a consecutive-reading anomaly detection engine with EMA and spike rejection to reduce false alerts.",
+      "Implemented live WebSocket telemetry pipelines for industrial sensor streaming.",
+      "Built automated integration tests validating anomaly logic and alert generation."
+    ],
+    architecture: [
+      "IoT Industrial Sensors & Telemetry Simulator",
+      "Signal Processing Engine (EMA + Median Filter + Spike Rejection)",
+      "Consecutive Reading Anomaly Validation Engine (Threshold = 3)",
+      "Node.js & Express REST Backend & Socket.IO Telemetry Router",
+      "MongoDB Atlas Mongoose Persistence Layer",
+      "React + Vite High-Performance Industrial Fleet Dashboard"
+    ],
+    technology: ["React", "Vite", "Node.js", "Express.js", "Socket.IO", "MongoDB Atlas", "Mongoose", "JavaScript ES6+", "CSS Variables", "Vercel"],
+    statistics: [
+      { label: "Industrial Parameters", value: "5+" },
+      { label: "Streaming Pipeline", value: "Real-Time WebSocket" },
+      { label: "UI Responsiveness", value: "100%" },
+      { label: "System Design", value: "Enterprise" }
+    ],
+    image: "/projects/assets/images/vibeguard_ai.jpg",
+    links: {
+      demo: "https://machine-condition-monitoring-vibe-g.vercel.app",
+      github: "https://github.com/Ashwin15-png/Machine-Condition-Monitoring-VibeGuardAI"
+    },
+    modalDetails: {
+      overview: "VibeGuard AI is a real-time predictive maintenance platform engineered for industrial machine condition monitoring. It delivers continuous sensor monitoring, live telemetry streaming, early anomaly detection, fleet monitoring, false alarm reduction, and an intuitive industrial control dashboard.",
+      challenges: "Manufacturing machines experience frequent environmental noise, electrical interference, and single-point sensor spikes that cause traditional threshold alarms to flood engineers with false alerts and costly unnecessary downtime.",
+      solutions: "Formulated a multi-stage signal processing pipeline using Exponential Moving Average (EMA) and Median Filtering alongside a Consecutive Reading Anomaly Engine (CONSECUTIVE_READINGS_THRESHOLD = 3) that verifies abnormal metrics across 3 consecutive cycles before escalating alerts.",
+      futureScope: "Integrating edge-AI microcontrollers (ESP32/Raspberry Pi) with MQTT protocol support, automated maintenance work-order generation, and deep-learning predictive time-to-failure forecasting models.",
+      gallery: [
+        "/projects/assets/images/vibeguard_ai.jpg",
+        "/projects/assets/images/vibeguard_details_1.jpg"
+      ]
+    }
+  },
   {
     id: "attendance-system",
     title: "Smart Attendance & Visitor Management System",

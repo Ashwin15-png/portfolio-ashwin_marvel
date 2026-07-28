@@ -316,6 +316,16 @@ const DetailModal: React.FC<ModalProps> = ({ project, onClose }) => {
               {/* Left Column (Details, Challenges, Solutions, Timeline) */}
               <div className="md:col-span-8 space-y-10">
                 
+                {/* Section: Tagline & Problem Statement if present */}
+                {project.tagline && (
+                  <div className="p-6 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
+                    <h4 className="text-xs font-mono font-bold tracking-widest uppercase text-indigo-400 mb-2">// TAGLINE</h4>
+                    <blockquote className="text-white text-base md:text-lg italic font-light leading-relaxed">
+                      "{project.tagline}"
+                    </blockquote>
+                  </div>
+                )}
+
                 {/* Section: Overview */}
                 <div>
                   <h4 className="text-xs font-mono font-bold tracking-widest uppercase text-indigo-400 mb-3">// OVERVIEW</h4>
@@ -323,6 +333,51 @@ const DetailModal: React.FC<ModalProps> = ({ project, onClose }) => {
                     {project.modalDetails.overview}
                   </p>
                 </div>
+
+                {/* Problem Statement */}
+                {project.problemStatement && (
+                  <div className="p-6 rounded-2xl bg-amber-500/10 border border-amber-500/20">
+                    <h4 className="text-xs font-mono font-bold tracking-widest uppercase text-amber-400 mb-2">// PROBLEM STATEMENT</h4>
+                    <p className="text-slate-300 text-sm md:text-base leading-relaxed font-light">
+                      {project.problemStatement}
+                    </p>
+                  </div>
+                )}
+
+                {/* Engineering Highlights */}
+                {project.engineeringHighlights && project.engineeringHighlights.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-mono font-bold tracking-widest uppercase text-cyan-400 mb-4">// ENGINEERING HIGHLIGHTS</h4>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {project.engineeringHighlights.map((eh, idx) => (
+                        <div key={idx} className="p-5 rounded-2xl bg-white/[0.02] border border-cyan-500/20 hover:bg-white/[0.04] transition">
+                          <span className="text-[10px] font-mono text-cyan-400 font-bold uppercase tracking-wider block mb-1">{eh.subtitle}</span>
+                          <h5 className="text-white font-bold text-base mb-2">{eh.title}</h5>
+                          <p className="text-slate-400 text-xs leading-relaxed mb-3">{eh.description}</p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {eh.points.map((pt, pIdx) => (
+                              <span key={pIdx} className="px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20 text-[10px] font-mono text-cyan-300">
+                                {pt}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Resume Highlights */}
+                {project.resumeHighlights && project.resumeHighlights.length > 0 && (
+                  <div className="p-6 rounded-2xl bg-purple-500/10 border border-purple-500/20">
+                    <h4 className="text-xs font-mono font-bold tracking-widest uppercase text-purple-400 mb-4">// RESUME HIGHLIGHTS</h4>
+                    <ul className="space-y-2 text-slate-300 text-sm font-light list-disc pl-5">
+                      {project.resumeHighlights.map((rh, idx) => (
+                        <li key={idx} className="leading-relaxed">{rh}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Section: Unique Features */}
                 <div>
@@ -362,9 +417,6 @@ const DetailModal: React.FC<ModalProps> = ({ project, onClose }) => {
                         <div className="py-2 px-4 rounded-xl bg-white/[0.02] border border-white/5 text-slate-300 text-sm font-semibold font-mono uppercase tracking-wider select-none hover:bg-white/[0.04] transition">
                           {step}
                         </div>
-                        {idx < project.architecture.length - 1 && (
-                          <div className="absolute right-0 text-slate-650 text-xs"></div>
-                        )}
                       </motion.div>
                     ))}
                   </div>
@@ -490,6 +542,8 @@ const App: React.FC = () => {
   // Derive categories list dynamically
   const filterCategories = [
     "All",
+    "Industrial IoT",
+    "Predictive Maintenance",
     "AI",
     "Full Stack",
     "Computer Vision",
