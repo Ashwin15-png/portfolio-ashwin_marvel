@@ -82,94 +82,94 @@
             <!-- Left Side Details -->
             <div class="md:col-span-8 space-y-12">
 
-                <!-- Overview Section -->
+                <!-- Project Overview & Problem Statement -->
                 <section class="glass-card p-8 md:p-10 border-white/5" data-aos="fade-up">
                     <h2 class="text-xs font-mono font-bold tracking-widest text-purple-400 uppercase mb-4">// Project Overview</h2>
                     <p class="text-slate-300 text-lg leading-relaxed font-light mb-6">
-                        A dynamic clinical assistance application designed to read handwritten prescriptions, isolate drug configurations, extract dosages, and translate doctor metrics into clean JSON variables. Designed to minimize pharmaceutical errors and update records swiftly.
+                        Enterprise-grade AI healthcare SaaS platform that digitizes handwritten and printed medical prescriptions using OpenCV image preprocessing, Tesseract OCR, FastAPI, PostgreSQL, enterprise analytics, advanced medical field extraction, intelligent filtering, and automated reporting for hospitals, clinics, and pharmacies.
                     </p>
                     <div class="grid sm:grid-cols-2 gap-6 mt-8">
                         <div class="p-6 bg-red-500/5 border border-red-500/10 rounded-2xl">
-                            <span class="text-[9px] font-mono text-red-400 tracking-wider uppercase font-bold block mb-2">Technical Challenges</span>
+                            <span class="text-[9px] font-mono text-red-400 tracking-wider uppercase font-bold block mb-2">Problem Statement</span>
                             <p class="text-slate-400 text-sm leading-relaxed font-light">
-                                Poorly lit uploads, slanted images, and doctor shorthand patterns corrupted traditional character classification engines.
+                                Hospitals and pharmacies waste thousands of hours manually transcribing patient prescriptions, leading to human errors, lost data, and inefficient clinical workflows. Poorly lit images and doctor shorthand drastically corrupt traditional software.
                             </p>
                         </div>
                         <div class="p-6 bg-emerald-500/5 border border-emerald-500/10 rounded-2xl">
-                            <span class="text-[9px] font-mono text-emerald-400 tracking-wider uppercase font-bold block mb-2">Implemented Solutions</span>
+                            <span class="text-[9px] font-mono text-emerald-400 tracking-wider uppercase font-bold block mb-2">Solution Architecture</span>
                             <p class="text-slate-400 text-sm leading-relaxed font-light">
-                                Integrated OpenCV Deskew filters, Contrast adjustments and custom fuzzy matching scripts referencing standard pharmacopeia catalogs.
+                                Integrated OpenCV Deskew filters, Contrast enhancements, and Tesseract OCR with fuzzy matching algorithms mapped against a PostgreSQL core to confidently verify dosage and medicine interactions.
                             </p>
                         </div>
                     </div>
                 </section>
 
-                <!-- Features Details -->
+                <!-- Core Engine & Tech Specifications -->
                 <section class="glass-card p-8 md:p-10 border-white/5" data-aos="fade-up">
-                    <h2 class="text-xs font-mono font-bold tracking-widest text-[#a855f7] uppercase mb-8">// Core Features</h2>
+                    <h2 class="text-xs font-mono font-bold tracking-widest text-[#a855f7] uppercase mb-8">// Core Processing Pipeline</h2>
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div class="flex gap-4 items-start">
                             <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0 border border-purple-500/25">
-                                <i class="bi bi-file-earmark-medical-fill text-purple-400"></i>
+                                <i class="bi bi-cpu-fill text-purple-400"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-white text-base mb-1">AI OCR Engine</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed font-light">Handwriting scanner optimizing low resolution script formats.</p>
+                                <h3 class="font-bold text-white text-base mb-1">OpenCV Image Processing</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed font-light">Adaptive thresholding, Deskew filters, noise cancellation, and QR code detection for poor quality scans.</p>
                             </div>
                         </div>
                         <div class="flex gap-4 items-start">
                             <div class="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-500/25">
-                                <i class="bi bi-heart-pulse-fill text-indigo-400"></i>
+                                <i class="bi bi-fonts text-indigo-400"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-white text-base mb-1">Active Medicine Detection</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed font-light">Fuzzy dictionaries isolating exact chemical elements dynamically.</p>
+                                <h3 class="font-bold text-white text-base mb-1">Tesseract OCR & NLP</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed font-light">Fuzzy dictionary matching extracting 25+ structured fields including doctor metadata and active medicine.</p>
                             </div>
                         </div>
                         <div class="flex gap-4 items-start">
                             <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 border border-blue-500/25">
-                                <i class="bi bi-clock-history text-blue-400"></i>
+                                <i class="bi bi-funnel-fill text-blue-400"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-white text-base mb-1">Dosage tracking</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed font-light">Parsing hourly frequency tags and cycle rates for records.</p>
+                                <h3 class="font-bold text-white text-base mb-1">Enterprise Filter Engine</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed font-light">Full-text search, pagination, and multi-factor filtering built natively into the frontend and PostgreSQL DB.</p>
                             </div>
                         </div>
                         <div class="flex gap-4 items-start">
                             <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/25">
-                                <i class="bi bi-cloud-arrow-down-fill text-emerald-400"></i>
+                                <i class="bi bi-graph-up-arrow text-emerald-400"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-white text-base mb-1">JSON Export Interface</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed font-light">Immediate delivery of structured records to Hospital system queues.</p>
+                                <h3 class="font-bold text-white text-base mb-1">Analytics Dashboard</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed font-light">Clinical overview aggregating CSV, PDF, and Excel mass exports, confidence scoring flags, and duplicates.</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Architecture Section -->
+                <!-- System Architecture & DevOps Details -->
                 <section class="glass-card p-8 md:p-10 border-white/5" data-aos="fade-up">
-                    <h2 class="text-xs font-mono font-bold tracking-widest text-[#6366f1] uppercase mb-8">// Architecture Flow</h2>
+                    <h2 class="text-xs font-mono font-bold tracking-widest text-[#6366f1] uppercase mb-8">// DevOps & System Architecture</h2>
                     <div class="border-l border-white/10 pl-6 space-y-8 ml-2">
                         <div class="relative">
                             <div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-500/20"></div>
-                            <h4 class="font-bold text-white text-sm uppercase">1. Upload Image</h4>
-                            <p class="text-slate-400 text-xs mt-1">Prescription photo parsed via upload modules.</p>
-                        </div>
-                        <div class="relative">
-                            <div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-indigo-500/20"></div>
-                            <h4 class="font-bold text-white text-sm uppercase">2. Preprocessing & OpenCV Filters</h4>
-                            <p class="text-slate-400 text-xs mt-1">Applying Deskew, Contrast booster, and Noise cancellation.</p>
-                        </div>
-                        <div class="relative">
-                            <div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-purple-500 ring-4 ring-purple-500/20"></div>
-                            <h4 class="font-bold text-white text-sm uppercase">3. EasyOCR Text Scan & NLP Parser</h4>
-                            <p class="text-slate-400 text-xs mt-1">Scans visual text maps, translates shapes to characters, and matches with Entity libraries.</p>
+                            <h4 class="font-bold text-white text-sm uppercase">FastAPI Backend Endpoints</h4>
+                            <p class="text-slate-400 text-xs mt-1">High-performance REST APIs handle parallel asynchronous uploads, data validation routing, and automated structured reports (JSON/PDF).</p>
                         </div>
                         <div class="relative">
                             <div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></div>
-                            <h4 class="font-bold text-white text-sm uppercase">4. FastAPI JSON Service</h4>
-                            <p class="text-slate-400 text-xs mt-1">Routes categorized JSON attributes to the Clinic log screens.</p>
+                            <h4 class="font-bold text-white text-sm uppercase">PostgreSQL Database Layer</h4>
+                            <p class="text-slate-400 text-xs mt-1">Enterprise relational schema mapped with SQLAlchemy ORM handling rapid data retrieval and audit-ready data structures.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-purple-500 ring-4 ring-purple-500/20"></div>
+                            <h4 class="font-bold text-white text-sm uppercase">Docker Deployment & Optimization</h4>
+                            <p class="text-slate-400 text-xs mt-1">Containerized Python backend. Added async sub-process execution which slashed OCR processing time down to sub-2 second windows under max load.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-pink-500 ring-4 ring-pink-500/20"></div>
+                            <h4 class="font-bold text-white text-sm uppercase">Phase 6 Enterprise Testing & Future Roadmap</h4>
+                            <p class="text-slate-400 text-xs mt-1">Thorough load testing completed. Future pipeline plans cross-reference global drug interaction graphs for real-time risk alerts and direct HL7/FHIR EHR integrations.</p>
                         </div>
                     </div>
                 </section>
@@ -183,12 +183,12 @@
                     <h3 class="text-xs font-mono font-bold tracking-widest text-[#a1a1aa] uppercase mb-4">// Project Stats</h3>
                     <div class="space-y-4">
                         <div class="border-b border-white/5 pb-3">
-                            <span class="text-[10px] text-slate-500 font-mono uppercase block mb-1">OCR Precision</span>
-                            <span class="text-xl font-bold text-white font-mono bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">95% Accuracy</span>
+                            <span class="text-[10px] text-slate-500 font-mono uppercase block mb-1">Architecture Level</span>
+                            <span class="text-xl font-bold text-white font-mono bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Enterprise SaaS</span>
                         </div>
                         <div class="border-b border-white/5 pb-3">
-                            <span class="text-[10px] text-slate-500 font-mono uppercase block mb-1">API Backend</span>
-                            <span class="text-xl font-bold text-white font-mono bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">FastAPI Suite</span>
+                            <span class="text-[10px] text-slate-500 font-mono uppercase block mb-1">Pipeline Status</span>
+                            <span class="text-xl font-bold text-white font-mono bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Production Ready</span>
                         </div>
                         <div>
                             <span class="text-[10px] text-slate-500 font-mono uppercase block mb-1">Engine Category</span>
@@ -201,11 +201,11 @@
                 <div class="glass-card p-6 border-white/5" data-aos="fade-left" data-aos-delay="100">
                     <h3 class="text-xs font-mono font-bold tracking-widest text-[#a1a1aa] uppercase mb-4">// Technology Stack</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">Python</span>
                         <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">FastAPI</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">PostgreSQL</span>
                         <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">OpenCV</span>
-                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">EasyOCR</span>
-                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono font-mono">NLP</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">Tesseract</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">Docker</span>
                     </div>
                 </div>
 
