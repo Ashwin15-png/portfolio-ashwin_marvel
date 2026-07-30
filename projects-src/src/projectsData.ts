@@ -21,6 +21,7 @@ export interface Project {
     gallery: string[];
   };
   isFlagship?: boolean;
+  isNew?: boolean;
   tagline?: string;
   problemStatement?: string;
   engineeringHighlights?: { title: string; subtitle: string; description: string; points: string[] }[];
@@ -179,49 +180,79 @@ export const projectsData: Project[] = [
   },
   {
     id: "prescription-extractor",
-    title: "Prescription Extractor",
-    category: "AI / OCR",
-    categories: ["AI", "Healthcare", "OCR"],
-    description: "Built an AI-powered healthcare solution that extracts structured medical information from prescriptions using OCR, NLP, OpenCV, and FastAPI while improving data accessibility and accuracy.",
+    isFlagship: true,
+    isNew: true,
+    title: "Prescription Extractor SaaS (PrescriptionX)",
+    category: "HEALTHCARE AI / ENTERPRISE SAAS",
+    categories: ["Healthcare", "AI", "OCR", "Enterprise SaaS", "Computer Vision"],
+    tagline: "Enterprise-grade AI-powered healthcare platform that digitizes medical prescriptions.",
+    description: "Enterprise-grade AI-powered healthcare platform that digitizes handwritten and printed medical prescriptions using OpenCV image preprocessing, Tesseract OCR, FastAPI, PostgreSQL, and intelligent medical field extraction.",
+    problemStatement: "Hospitals and pharmacies waste thousands of hours manually transcribing patient prescriptions, leading to human errors, lost data, and inefficient clinical workflows.",
     features: [
-      "AI OCR Handwriting parsing",
-      "Active Medicine Detection",
-      "Dosage & Roster Parsing",
-      "Patient Info Isolation",
-      "FastAPI Endpoint Suite",
-      "Advanced Preprocessing Filters",
-      "Structured JSON Export",
-      "Medical Term Authentication",
-      "Prescription History Archival",
-      "High Recognition Efficiency"
+      "Enterprise Medical OCR",
+      "OpenCV Image Processing",
+      "Tesseract OCR Pipeline",
+      "FastAPI Backend",
+      "PostgreSQL Database",
+      "Enterprise Filter Engine",
+      "Advanced Analytics Dashboard",
+      "OCR Confidence Scoring",
+      "Duplicate Detection",
+      "Image Quality Analysis",
+      "Barcode & QR Detection",
+      "CSV / Excel / PDF Export",
+      "Responsive Dashboard",
+      "Docker Support",
+      "REST APIs"
+    ],
+    technicalFeatures: [
+      "Enterprise Medical OCR",
+      "OpenCV Image Processing",
+      "Tesseract OCR Pipeline",
+      "FastAPI Backend",
+      "PostgreSQL Database"
+    ],
+    engineeringHighlights: [
+      {
+        title: "Advanced OCR Pipeline",
+        subtitle: "Preprocessing & Extraction",
+        description: "Adaptive thresholding, Deskew filters, and noise cancellation combined with Tesseract OCR to read cursive writing securely.",
+        points: ["OpenCV", "Tesseract", "Deskew Filters", "Confidence Scoring"]
+      },
+      {
+        title: "Enterprise Filter Engine",
+        subtitle: "Dynamic Healthcare Analytics",
+        description: "High-performance PostgreSQL filtering allowing clinicians to search records instantly with multiple export options.",
+        points: ["PostgreSQL", "Full-Text Search", "Data Exports (PDF/CSV)", "Analytics"]
+      }
     ],
     architecture: [
-      "Prescription Image Input",
-      "OpenCV Adaptive Image Scaling",
-      "EasyOCR Scan Engine",
-      "Raw Extracted Text Stream",
-      "SpaCy Named Entity Recognition (NER)",
-      "Medicine and Dosage Matcher",
-      "FastAPI Rest Endpoint Service",
-      "JSON Response Output",
-      "Frontend Analytics Dashboard"
+      "Prescription Image Input & Quality Check",
+      "OpenCV Preprocessing (Deskew & Denoise)",
+      "Tesseract OCR Text Scan Engine",
+      "NLP Structured Entity Extraction (25+ Fields)",
+      "Confidence Scoring & Validation",
+      "FastAPI REST Endpoints",
+      "PostgreSQL Persistent Storage",
+      "Enterprise Analytics Dashboard"
     ],
-    technology: ["Python", "FastAPI", "OpenCV", "EasyOCR", "NLP", "JSON"],
+    technology: ["FastAPI", "PostgreSQL", "OpenCV", "Tesseract", "OCR", "Docker", "AI", "Python"],
     statistics: [
-      { label: "OCR Accuracy", value: "95%" },
-      { label: "Backend Engine", value: "FastAPI" },
-      { label: "Engine Type", value: "Healthcare AI" }
+      { label: "Extracted Fields", value: "25+" },
+      { label: "Pipeline Status", value: "Production Ready" },
+      { label: "Export Formats", value: "CSV/Excel/PDF" },
+      { label: "Backend Core", value: "FastAPI + DB" }
     ],
     image: "/projects/assets/images/prescription_extractor.jpg",
     links: {
-      demo: "https://github.com/Ashwin15-png",
-      github: "https://github.com/Ashwin15-png"
+      demo: "https://prescription-extractor-ocr.vercel.app/",
+      github: "https://github.com/Ashwin15-png/prescription-extractor-ocr"
     },
     modalDetails: {
-      overview: "A specialized healthcare text scanner extracting structured drug information, patient details, and dosing directions. This pipeline parses doctor notes and populates inventory sheets directly, reducing errors in pharmacy logs.",
-      challenges: "Poor light conditions, cursive writing variability, and low resolution sensor uploads from mobile devices corrupted character segmentation.",
-      solutions: "Created a pipeline of adaptive thresholding, denoisers, and Deskew filters to crop and clean images before passing to OCR. Implemented fuzzy matching against a standard pharmacopeia vocabulary library to automatically repair misspelled medicine titles.",
-      futureScope: "Cross-referencing global drug interaction tables to issue immediate warnings for dangerous allergy matches directly on the dashboard.",
+      overview: "Prescription Extractor SaaS is a specialized enterprise platform transforming unstructured prescription images into searchable structured medical records with enterprise analytics, advanced filtering, OCR confidence scoring, duplicate detection, and various data exports.",
+      challenges: "Poor lighting, extreme cursive writing variability, low-resolution uploads, and non-standard prescription formats aggressively corrupt standard OCR segmentations.",
+      solutions: "Implemented an advanced OpenCV image processing pipeline (Deskew, adaptive thresholding) paired with Tesseract OCR and fuzzy matching against standard pharmacopeia dictionaries to robustly parse 25+ medical fields with high confidence.",
+      futureScope: "Integrating cross-reference global drug interaction APIs for immediate risk warnings, AI-driven context corrections for dosages, and direct HL7/FHIR EHR integrations.",
       gallery: [
         "/projects/assets/images/prescription_details_1.jpg",
         "/projects/assets/images/prescription_details_2.jpg"

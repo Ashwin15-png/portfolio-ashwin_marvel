@@ -178,9 +178,23 @@ const ProjectCard: React.FC<CardProps> = ({ project, onOpenModal }) => {
               background: "radial-gradient(150px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(99, 102, 241, 0.15) 0%, transparent 80%)"
             }}
           />
-          {/* Category Pill overlay */}
-          <div className="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] font-semibold text-slate-330 tracking-wider uppercase font-mono">
-            {project.category}
+          {/* Top overlays */}
+          <div className="absolute top-4 left-4 flex gap-2 flex-wrap max-w-[85%] z-20">
+            {project.isFlagship && (
+              <div className="bg-indigo-500/20 backdrop-blur-md px-3 py-1 rounded-full border border-indigo-500/40 text-[10px] font-bold text-indigo-300 tracking-wider uppercase font-mono animate-pulse shadow-[0_0_10px_rgba(99,102,241,0.3)]">
+                ⭐ FLAGSHIP
+              </div>
+            )}
+            {project.isNew && (
+              <div className="bg-emerald-500/20 backdrop-blur-md px-3 py-1 rounded-full border border-emerald-500/40 text-[10px] font-bold text-emerald-400 tracking-wider uppercase font-mono shadow-[0_0_10px_rgba(16,185,129,0.3)]">
+                NEW
+              </div>
+            )}
+            {!project.isFlagship && (
+              <div className="bg-black/75 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] font-semibold text-slate-300 tracking-wider uppercase font-mono">
+                {project.category}
+              </div>
+            )}
           </div>
         </div>
 
@@ -576,6 +590,10 @@ const App: React.FC = () => {
 
   // Sort projects logic
   const sortedProjects = [...filteredProjects].sort((a, b) => {
+    // Flagships always on top
+    if (a.isFlagship && !b.isFlagship) return -1;
+    if (!a.isFlagship && b.isFlagship) return 1;
+
     if (sortBy === "Alphabetical") {
       return a.title.localeCompare(b.title);
     }
