@@ -42,7 +42,13 @@ const ProjectCard: React.FC<CardProps> = ({ project, onOpenModal }) => {
   return (
     <motion.div
       className="glass-card gradient-border-anim rounded-2xl relative flex flex-col justify-between overflow-hidden group cursor-pointer border border-white/10 hover:border-indigo-500/40 transition-all duration-300 shadow-xl hover:shadow-indigo-500/10"
-      onClick={() => onOpenModal(project)}
+      onClick={() => {
+        if (project.links.caseStudy && project.links.caseStudy.endsWith(".html")) {
+          window.location.href = project.links.caseStudy;
+        } else {
+          onOpenModal(project);
+        }
+      }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -62,12 +68,17 @@ const ProjectCard: React.FC<CardProps> = ({ project, onOpenModal }) => {
         <div className="absolute top-3 left-3 flex gap-2 flex-wrap max-w-[90%] z-10">
           {project.isFlagship && (
             <span className="bg-indigo-500/20 backdrop-blur-md px-3 py-1 rounded-full border border-indigo-500/40 text-[10px] font-bold text-indigo-300 tracking-wider uppercase font-mono shadow-[0_0_10px_rgba(99,102,241,0.3)]">
-              ⭐ FLAGSHIP
+              ⭐ FLAGSHIP #{project.flagshipRank}
             </span>
           )}
           {project.isOngoing && (
             <span className="bg-amber-500/20 backdrop-blur-md px-3 py-1 rounded-full border border-amber-500/40 text-[10px] font-bold text-amber-300 tracking-wider uppercase font-mono shadow-[0_0_10px_rgba(245,158,11,0.3)]">
-              ⚡ ONGOING
+              ● ACTIVE DEVELOPMENT
+            </span>
+          )}
+          {project.isComingSoon && (
+            <span className="bg-slate-500/20 backdrop-blur-md px-3 py-1 rounded-full border border-slate-500/40 text-[10px] font-bold text-slate-300 tracking-wider uppercase font-mono">
+              ● COMING SOON
             </span>
           )}
           <span className="bg-black/75 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] font-semibold text-slate-300 tracking-wider uppercase font-mono">
@@ -125,33 +136,43 @@ const ProjectCard: React.FC<CardProps> = ({ project, onOpenModal }) => {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              onOpenModal(project);
+              if (project.links.caseStudy && project.links.caseStudy.endsWith(".html")) {
+                window.location.href = project.links.caseStudy;
+              } else {
+                onOpenModal(project);
+              }
             }}
             className="flex-1 py-2 px-3 rounded-lg bg-indigo-600/20 border border-indigo-500/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-[11px] font-bold font-mono uppercase tracking-wider transition flex items-center justify-center gap-1 group/btn cursor-pointer"
           >
             <span>Case Study</span>
             <ExternalLink className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform" />
           </button>
-          <a
-            href={project.links.demo}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="py-2 px-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 text-[11px] font-bold font-mono uppercase tracking-wider transition flex items-center justify-center gap-1 cursor-pointer"
-          >
-            <span>Demo</span>
-            <ExternalLink className="w-3 h-3" />
-          </a>
-          <a
-            href={project.links.github}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 transition cursor-pointer"
-            title="GitHub Codebase"
-          >
-            <GithubIcon className="w-3.5 h-3.5" />
-          </a>
+
+          {project.links.demo && (
+            <a
+              href={project.links.demo}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="py-2 px-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 text-[11px] font-bold font-mono uppercase tracking-wider transition flex items-center justify-center gap-1 cursor-pointer"
+            >
+              <span>Demo</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          )}
+
+          {project.links.github && (
+            <a
+              href={project.links.github}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 transition cursor-pointer"
+              title="GitHub Codebase"
+            >
+              <GithubIcon className="w-3.5 h-3.5" />
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
@@ -267,7 +288,7 @@ const DetailModal: React.FC<ModalProps> = ({ project, onClose }) => {
                 <CheckCircle2 className="w-4 h-4" />
                 <span>// 2. MY TECHNICAL APPROACH</span>
               </div>
-              <h3 className="text-lg md:text-xl font-bold text-white">Engineering Strategy & Solution Design</h3>
+              <h3 className="text-lg md:text-xl font-bold text-white">Engineering Strategy &amp; Solution Design</h3>
               <p className="text-slate-300 text-sm md:text-base leading-relaxed font-light">
                 {project.myApproach || project.modalDetails.approach || project.modalDetails.solutions}
               </p>
@@ -356,27 +377,31 @@ const DetailModal: React.FC<ModalProps> = ({ project, onClose }) => {
             <div className="p-6 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="space-y-1">
                 <div className="text-xs font-mono text-indigo-400 font-bold uppercase tracking-wider">// 6. VERIFIED IMPLEMENTATION EVIDENCE</div>
-                <h4 className="text-lg font-bold text-white">Production-Ready & Fully Functional Codebase</h4>
+                <h4 className="text-lg font-bold text-white">Production-Ready &amp; Fully Functional Codebase</h4>
               </div>
               <div className="flex gap-3 w-full md:w-auto">
-                <a
-                  href={project.links.demo}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex-1 md:flex-initial py-3 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold font-mono tracking-wider uppercase transition shadow-lg flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <span>Launch Live Demo</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-                <a
-                  href={project.links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex-1 md:flex-initial py-3 px-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-slate-200 text-xs font-bold font-mono tracking-wider uppercase transition flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <GithubIcon className="w-3.5 h-3.5" />
-                  <span>Explore Repository</span>
-                </a>
+                {project.links.demo && (
+                  <a
+                    href={project.links.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 md:flex-initial py-3 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold font-mono tracking-wider uppercase transition shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>Launch Live Demo</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+                {project.links.github && (
+                  <a
+                    href={project.links.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 md:flex-initial py-3 px-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-slate-200 text-xs font-bold font-mono tracking-wider uppercase transition flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <GithubIcon className="w-3.5 h-3.5" />
+                    <span>Explore Repository</span>
+                  </a>
+                )}
               </div>
             </div>
 
@@ -403,7 +428,7 @@ const App: React.FC = () => {
     "Computer Vision",
     "Cloud",
     "Healthcare",
-    "Audio Security"
+    "Speech ML"
   ];
 
   const cleanQuery = searchQuery.trim().toLowerCase();
@@ -423,6 +448,9 @@ const App: React.FC = () => {
   });
 
   const sortedProjects = [...filteredProjects].sort((a, b) => {
+    if (a.isFlagship && b.isFlagship) {
+      return (a.flagshipRank || 99) - (b.flagshipRank || 99);
+    }
     if (a.isFlagship && !b.isFlagship) return -1;
     if (!a.isFlagship && b.isFlagship) return 1;
 

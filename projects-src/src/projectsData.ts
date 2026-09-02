@@ -15,8 +15,9 @@ export interface Project {
   metricBlocks: { label: string; value: string }[];
   image: string;
   links: {
-    demo: string;
-    github: string;
+    demo?: string;
+    github?: string;
+    caseStudy?: string;
   };
   modalDetails: {
     overview: string;
@@ -29,8 +30,11 @@ export interface Project {
     evidenceMetrics?: { label: string; value: string }[];
   };
   isFlagship?: boolean;
+  flagshipRank?: number;
   isNew?: boolean;
   isOngoing?: boolean;
+  isComingSoon?: boolean;
+  statusText?: string;
   tagline?: string;
   engineeringHighlights?: { title: string; subtitle: string; description: string; points: string[] }[];
   resumeHighlights?: string[];
@@ -41,6 +45,7 @@ export const projectsData: Project[] = [
   {
     id: "vibeguard-ai",
     isFlagship: true,
+    flagshipRank: 1,
     title: "VibeGuard AI — Real-Time Machine Condition Monitoring & Industrial IoT Predictive Maintenance System",
     category: "INDUSTRIAL IOT / PREDICTIVE MAINTENANCE",
     categories: ["Industrial IoT", "Predictive Maintenance", "AI", "Full Stack", "WebSocket"],
@@ -128,6 +133,7 @@ export const projectsData: Project[] = [
     ],
     image: "/projects/assets/images/vibeguard_ai.jpg",
     links: {
+      caseStudy: "/vibeguard-ai.html",
       demo: "https://machine-condition-monitoring-vibe-g.vercel.app",
       github: "https://github.com/Ashwin15-png/Machine-Condition-Monitoring-VibeGuardAI"
     },
@@ -151,6 +157,7 @@ export const projectsData: Project[] = [
   {
     id: "prescription-extractor",
     isFlagship: true,
+    flagshipRank: 2,
     isNew: true,
     title: "Prescription Extractor SaaS (PrescriptionX)",
     category: "HEALTHCARE AI / ENTERPRISE SAAS",
@@ -228,6 +235,7 @@ export const projectsData: Project[] = [
     ],
     image: "/projects/assets/images/prescription_extractor.jpg",
     links: {
+      caseStudy: "/prescription-extractor.html",
       demo: "https://prescription-extractor-ocr.vercel.app/",
       github: "https://github.com/Ashwin15-png/prescription-extractor-ocr"
     },
@@ -250,75 +258,81 @@ export const projectsData: Project[] = [
   },
   {
     id: "vigil-voice",
-    isFlagship: false,
+    isFlagship: true,
+    flagshipRank: 3,
     isOngoing: true,
-    title: "VIGIL-VOICE — AI Voice Anti-Spoofing & Deepfake Detection System",
-    category: "AUDIO AI / ANTI-SPOOFING",
-    categories: ["AI", "Audio Security", "Deepfake Detection", "PyTorch"],
-    tagline: "Real-time AI voice anti-spoofing and deepfake detection engine.",
+    statusText: "ACTIVE DEVELOPMENT",
+    title: "VIGIL-VOICE — Real-Time Voice Trust & Fraud Prevention Engine",
+    category: "AI SECURITY / SPEECH ML",
+    categories: ["AI", "Speech ML", "Real-Time Systems", "Risk Engine", "PyTorch"],
+    tagline: "An AI-powered voice security system evaluating synthetic speech, speaker identity, replay attacks, and contextual risk.",
     description: "Real-time multi-model voice anti-spoofing and speaker verification system leveraging AASIST-L, ECAPA-TDNN, and LFCC-LCNN architectures for deepfake defense.",
-    problemStatement: "Voice synthesis and AI deepfake audio tools bypass conventional voice authentication systems, creating security vulnerabilities in voice channels.",
-    myApproach: "Architected a multi-stage audio inference pipeline that captures raw voice streams, performs LFCC feature extraction, routes tensors across parallel AASIST-L and ECAPA-TDNN models, and enforces policy decisions via a centralized risk engine.",
+    problemStatement: "Generative AI and voice cloning allow synthetic speech, voice impersonation, and replay attacks to bypass legacy biometric voice authentication.",
+    myApproach: "Architected a multi-signal risk fusion engine combining AASIST-L graph neural networks, ECAPA-TDNN 192D speaker embeddings, and LFCC-LCNN presentation attack detection with temporal EMA smoothing.",
     architectureDiagram: [
-      "AUDIO INPUT",
-      "AUDIO PROCESSING",
-      "┌────────────┬────────────┬────────────┐\n│ AASIST-L   │ ECAPA-TDNN │ LFCC-LCNN  │\n│ SPOOF      │ SPEAKER    │ REPLAY/PAD │\n└────────────┴────────────┴────────────┘",
-      "RISK PROCESSING",
+      "VOICE INPUT",
+      "AUDIO DECODE / RESAMPLE / VAD",
+      "ROLLING AUDIO BUFFER",
+      "┌────────────────┬────────────────┬─────────────────┐\n│ AASIST-L       │ ECAPA-TDNN     │ LFCC-LCNN       │\n│ SPOOF          │ SPEAKER        │ REPLAY / PAD    │\n└────────────────┴────────────────┴─────────────────┘",
+      "TEMPORAL EMA SMOOTHING",
+      "RISK FUSION ENGINE",
       "POLICY ENGINE",
-      "ALLOW / VERIFY / HOLD / BLOCK"
+      "ALLOW / VERIFY / HOLD / ESCALATE / BLOCK"
     ],
     features: [
       "Multi-Model Spoof Classification",
       "AASIST-L Graph Neural Network",
-      "ECAPA-TDNN Speaker Verification",
+      "ECAPA-TDNN 192D Embeddings",
       "LFCC Feature Extraction",
-      "Real-Time WebSocket Ingestion",
-      "Risk Score Calculation Engine",
-      "Automated Policy Decisioning",
-      "Low-Latency Audio Streaming"
+      "Real-Time WebSocket Stream",
+      "Temporal EMA Noise Filtering",
+      "Multi-Signal Risk Fusion",
+      "Policy Engine Action Rules"
     ],
     architecture: [
-      "AUDIO INPUT",
-      "AUDIO PROCESSING",
+      "VOICE INPUT",
+      "AUDIO DECODE / VAD",
+      "ROLLING BUFFER",
       "AASIST-L / ECAPA-TDNN / LFCC-LCNN",
-      "RISK PROCESSING",
+      "TEMPORAL EMA SMOOTHING",
+      "RISK FUSION ENGINE",
       "POLICY ENGINE",
-      "ALLOW / VERIFY / HOLD / BLOCK"
+      "DECISION OUTPUT"
     ],
     technologyCategorized: [
       { category: "AI / ML MODELS", items: ["AASIST-L", "ECAPA-TDNN", "LFCC-LCNN", "PyTorch", "SpeechBrain"] },
-      { category: "BACKEND & PIPELINE", items: ["FastAPI", "WebSockets", "Python", "NumPy"] },
-      { category: "SECURITY", items: ["Risk Engine", "Policy Enforcement", "Biometric Verification"] }
+      { category: "BACKEND & STREAMING", items: ["FastAPI", "WebSockets", "Python", "NumPy"] },
+      { category: "SECURITY & RISK", items: ["Risk Fusion Engine", "Policy Engine", "Biometric Verification"] }
     ],
-    technology: ["PyTorch", "SpeechBrain", "FastAPI", "WebSockets", "Python", "NumPy", "AASIST-L"],
+    technology: ["AASIST-L", "ECAPA-TDNN", "LFCC-LCNN", "FastAPI", "WebSockets", "PyTorch", "SpeechBrain"],
     statistics: [
-      { label: "Audio Pipeline", value: "Real-Time" },
-      { label: "Inference Stack", value: "AASIST-L + ECAPA" },
-      { label: "Policy Engine", value: "Dynamic Risk" },
-      { label: "System State", value: "Ongoing R&D" }
+      { label: "ROC-AUC", value: "0.9116" },
+      { label: "EER", value: "16.67%" },
+      { label: "BPCER", value: "0%" },
+      { label: "Status", value: "Active Dev" }
     ],
     metricBlocks: [
-      { value: "REAL-TIME AUDIO", label: "STREAM INFERENCE" },
-      { value: "AASIST-L MODEL", label: "DEEPFAKE DETECTION" },
-      { value: "RISK POLICY ENGINE", label: "ALLOW / HOLD / BLOCK" },
-      { value: "ANTI-SPOOFING", label: "MULTI-MODEL GUARD" }
+      { value: "0.9116 ROC-AUC", label: "LOCAL EVALUATION" },
+      { value: "16.67% EER", label: "EQUAL ERROR RATE" },
+      { value: "AASIST-L MODEL", label: "GRAPH NEURAL NET" },
+      { value: "RISK SCORE", label: "POLICY ENGINE" }
     ],
     image: "/projects/assets/images/face_recognition.jpg",
     links: {
-      demo: "https://github.com/Ashwin15-png",
+      caseStudy: "/vigil-voice.html",
       github: "https://github.com/Ashwin15-png"
     },
     modalDetails: {
-      overview: "VIGIL-VOICE is an audio AI anti-spoofing system that analyzes streaming voice data to detect synthetic deepfake audio, replay attacks, and spoofed voice signatures before executing high-risk policy actions.",
-      problem: "Generative AI voice clones can impersonate speakers with high fidelity, trivializing traditional single-factor acoustic voice authentication.",
-      approach: "Built a parallel inference framework where AASIST-L evaluates spectral artifact graphs, ECAPA-TDNN verifies speaker identity embeddings, and LFCC-LCNN scans for replay padding.",
+      overview: "VIGIL-VOICE is an AI voice security system evaluating synthetic speech, speaker identity, replay attacks, and contextual risk to make real-time policy decisions.",
+      problem: "Single-signal voice verification fails against modern deepfake clones and replayed acoustic audio.",
+      approach: "Built a multi-signal risk fusion engine combining AASIST-L, ECAPA-TDNN, and LFCC-LCNN models evaluated through temporal EMA smoothing.",
       challenges: [
-        { title: "Real-Time Audio Latency", desc: "Streaming raw audio buffers and executing triple model inference within sub-200ms windows." },
-        { title: "Codec Distortion Rejection", desc: "Telephony compression artifacts triggering false positive spoof flags." },
-        { title: "Multi-Model Consensus", desc: "Reconciling score variances between speaker embedding match and anti-spoof classifiers." }
+        { title: "Real-Time Audio Streaming", desc: "Streaming continuous audio over WebSockets while maintaining sub-200ms model inference queues." },
+        { title: "Parallel Model Inference", desc: "Integrating graph neural networks and speaker embedding extractors asynchronously." },
+        { title: "Temporal EMA Smoothing", desc: "Filtering transient frame-to-frame classification noise across rolling window buffers." }
       ],
-      solutions: "Implemented streaming frame buffer chunking and normalized confidence scoring across the risk evaluation engine.",
-      futureScope: "Deploying model quantizations to edge mobile SDKs and supporting live SIP VoIP telephony gateways.",
+      solutions: "Formulated Temporal EMA smoothing over windowed frame predictions before submitting risk vectors to the policy engine.",
+      futureScope: "PostgreSQL persistence, Indian-language acoustic robustness calibration, and telephony gateway integration.",
       gallery: [
         "/projects/assets/images/face_recognition.jpg"
       ]
@@ -326,6 +340,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "attendance-system",
+    isComingSoon: true,
     title: "Smart Attendance & Visitor Management System",
     category: "AI / COMPUTER VISION",
     categories: ["AI", "Computer Vision", "Cloud", "DevSecOps"],
@@ -377,7 +392,6 @@ export const projectsData: Project[] = [
     ],
     image: "/projects/assets/images/attendance_system.jpg",
     links: {
-      demo: "https://github.com/Ashwin15-png",
       github: "https://github.com/Ashwin15-png"
     },
     modalDetails: {
@@ -397,6 +411,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "sign-language",
+    isComingSoon: true,
     title: "Sign Language Translation System",
     category: "COMPUTER VISION",
     categories: ["Computer Vision", "Accessibility", "AI"],
@@ -445,7 +460,6 @@ export const projectsData: Project[] = [
     ],
     image: "/projects/assets/images/sign_language.jpg",
     links: {
-      demo: "https://github.com/Ashwin15-png",
       github: "https://github.com/Ashwin15-png"
     },
     modalDetails: {
@@ -465,6 +479,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "face-recognition-ml",
+    isComingSoon: true,
     title: "Face Recognition System",
     category: "COMPUTER VISION / MACHINE LEARNING",
     categories: ["Computer Vision", "Machine Learning", "Security"],
@@ -513,7 +528,6 @@ export const projectsData: Project[] = [
     ],
     image: "/projects/assets/images/face_recognition.jpg",
     links: {
-      demo: "https://github.com/Ashwin15-png",
       github: "https://github.com/Ashwin15-png"
     },
     modalDetails: {
@@ -533,6 +547,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "hospital-portal",
+    isComingSoon: true,
     title: "Hospital Management Portal",
     category: "FULL STACK",
     categories: ["Full Stack", "Healthcare", "Databases"],
@@ -581,7 +596,6 @@ export const projectsData: Project[] = [
     ],
     image: "/projects/assets/images/hospital_portal.jpg",
     links: {
-      demo: "https://github.com/Ashwin15-png",
       github: "https://github.com/Ashwin15-png"
     },
     modalDetails: {
@@ -601,6 +615,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "hotel-reservation",
+    isComingSoon: true,
     title: "Hotel Reservation System",
     category: "FULL STACK",
     categories: ["Full Stack", "Booking", "Databases"],
@@ -648,7 +663,6 @@ export const projectsData: Project[] = [
     ],
     image: "/projects/assets/images/hotel_reservation.jpg",
     links: {
-      demo: "https://github.com/Ashwin15-png",
       github: "https://github.com/Ashwin15-png"
     },
     modalDetails: {
