@@ -196,7 +196,7 @@ export default async function handler(req, res) {
         }
 
         // 5. Send Auto-Reply Visitor Email (Non-Critical)
-        const visitorMailSubject = subject ? `Re: ${subject} · Ashwin Kumar` : `Thanks for reaching out, ${name} — Ashwin Kumar`;
+        const visitorMailSubject = subject ? `Re: ${subject} · Ashwin Kumar S` : `Thanks for reaching out, ${name} — Ashwin Kumar S`;
         const visitorMailHtml = `
 <!DOCTYPE html>
 <html>
@@ -226,7 +226,7 @@ export default async function handler(req, res) {
     <div class="card">
         <!-- Header -->
         <div class="header">
-            <div class="brand">ASHWIN KUMAR</div>
+            <div class="brand">ASHWIN KUMAR S</div>
             <div class="brand-sub">SOFTWARE ENGINEER · FULL STACK · AI/ML · CLOUD</div>
         </div>
 
@@ -266,9 +266,9 @@ export default async function handler(req, res) {
 
         <!-- Footer -->
         <div class="footer">
-            <strong style="color: #cbd5e1;">Ashwin Kumar</strong> · Software Engineer<br>
+            <strong style="color: #cbd5e1;">Ashwin Kumar S</strong> · Software Engineer<br>
             Full Stack · AI/ML · Cloud Systems<br><br>
-            © ${currentYear} Ashwin Kumar. All rights reserved.<br>
+            © ${currentYear} Ashwin Kumar S. All rights reserved.<br>
             <span style="font-size: 10px; color: #475569;">This message was automatically generated because you submitted the contact form on my portfolio.</span>
         </div>
     </div>
@@ -279,12 +279,12 @@ export default async function handler(req, res) {
         try {
             console.log(`📧 Attempting Auto-Reply to: ${email}`);
             await transporter.sendMail({
-                from: `"Ashwin Kumar" <${ownerEmail}>`,
+                from: `"Ashwin Kumar S" <${ownerEmail}>`,
                 to: email,
                 replyTo: ownerEmail,
                 subject: visitorMailSubject,
                 html: visitorMailHtml,
-                text: `Hi ${name},\n\nThanks for reaching out! I've received your message and will review it shortly.\n\nMessage Received:\n${rawMessage}\n\nI'll get back to you as soon as possible.\n\nConnect with me:\nLinkedIn: ${linkedinUrl}\nInstagram: ${instagramUrl}\nX: ${xUrl}\nPortfolio: ${portfolioUrl}\n\nBest regards,\nAshwin Kumar\nSoftware Engineer`,
+                text: `Hi ${name},\n\nThanks for reaching out! I've received your message and will review it shortly.\n\nMessage Received:\n${rawMessage}\n\nI'll get back to you as soon as possible.\n\nConnect with me:\nLinkedIn: ${linkedinUrl}\nInstagram: ${instagramUrl}\nX: ${xUrl}\nPortfolio: ${portfolioUrl}\n\nBest regards,\nAshwin Kumar S\nSoftware Engineer`,
             });
             console.log("✉️ Visitor Auto-Reply Sent");
         } catch (autoReplyError) {
