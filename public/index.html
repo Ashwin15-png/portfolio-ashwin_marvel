@@ -83,61 +83,115 @@
         <!-- Subtle Technical Glow background -->
         <div class="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_50%_30%,rgba(99,102,241,0.25),transparent_70%)]"></div>
 
-        <div class="z-10 text-center px-4 max-w-5xl mx-auto" data-aos="zoom-out" data-aos-duration="1000">
-            
-            <!-- Live engineering status indicator -->
-            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-mono text-xs font-semibold mb-8 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                ● AVAILABLE FOR SOFTWARE ENGINEERING OPPORTUNITIES
-            </div>
+        <div class="z-10 px-4 max-w-7xl mx-auto w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- LEFT COLUMN: Messaging & CTAs -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
+                    
+                    <!-- Live Status Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-mono text-xs font-semibold shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>● AVAILABLE FOR SOFTWARE ENGINEERING OPPORTUNITIES</span>
+                    </div>
 
-            <!-- NAME & HEADLINE -->
-            <div class="mb-6">
-                <span class="block text-slate-400 font-mono text-xs md:text-sm tracking-[0.25em] uppercase mb-3 font-semibold">
-                    S. ASHWIN KUMAR
-                </span>
-                <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-[1.08] max-w-5xl mx-auto">
-                    I engineer <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">AI-powered systems</span> that solve real-world problems.
-                </h1>
-            </div>
+                    <!-- Name & Subtitle -->
+                    <div>
+                        <span class="block text-indigo-400 font-mono text-xs sm:text-sm tracking-[0.3em] uppercase font-bold mb-2">
+                            S. ASHWIN KUMAR
+                        </span>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+                            I engineer <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">AI-powered systems</span> that solve real-world problems.
+                        </h1>
+                    </div>
 
-            <!-- SUPPORTING TEXT & SECOND LINE -->
-            <div class="max-w-3xl mx-auto mb-8 space-y-2">
-                <p class="text-lg sm:text-xl md:text-2xl text-slate-200 font-semibold leading-relaxed">
-                    Software Engineer specializing in Full Stack, AI Engineering & Cloud Systems.
-                </p>
-                <p class="text-base sm:text-lg text-indigo-300/90 font-mono font-normal">
-                    Turning complex ideas into production-ready systems.
-                </p>
-            </div>
+                    <!-- Supporting Text -->
+                    <div class="space-y-2 max-w-2xl mx-auto lg:mx-0">
+                        <p class="text-base sm:text-xl text-slate-200 font-semibold leading-relaxed">
+                            Software Engineer specializing in Full Stack, AI Engineering &amp; Cloud Systems.
+                        </p>
+                        <p class="text-xs sm:text-sm text-slate-400 font-mono font-normal">
+                            Full Stack Engineer · AI/ML Builder · Cloud &amp; DevSecOps
+                        </p>
+                    </div>
 
-            <!-- SPECIALIZATION ROW -->
-            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-mono font-bold tracking-widest uppercase mb-10 text-slate-300">
-                <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-indigo-300 shadow-sm">FULL STACK</span>
-                <span class="text-indigo-500">•</span>
-                <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-purple-300 shadow-sm">AI/ML</span>
-                <span class="text-indigo-500">•</span>
-                <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-blue-300 shadow-sm">CLOUD</span>
-                <span class="text-indigo-500">•</span>
-                <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-emerald-300 shadow-sm">DEVSECOPS</span>
-            </div>
+                    <!-- Specialization Domain Pills -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs font-mono font-bold tracking-wider uppercase text-slate-300 pt-2">
+                        <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-indigo-300">FULL STACK</span>
+                        <span class="text-indigo-500">•</span>
+                        <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-purple-300">AI/ML</span>
+                        <span class="text-indigo-500">•</span>
+                        <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-blue-300">CLOUD</span>
+                        <span class="text-indigo-500">•</span>
+                        <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-emerald-300">DEVSECOPS</span>
+                    </div>
 
-            <!-- EXACTLY 3 CTAS -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
-                <a href="#projects" class="w-full sm:w-auto btn-premium btn-premium-primary text-black font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-full shadow-[0_10px_30px_rgba(59,130,246,0.3)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.4)] transition-all cursor-none flex items-center justify-center gap-2">
-                    <span>VIEW MY WORK</span>
-                    <i class="bi bi-arrow-down-right"></i>
-                </a>
-                <a href="assets/Resume_CV_-Ashwin Kumar S.pdf" download="Resume_CV_-Ashwin Kumar S.pdf" class="w-full sm:w-auto btn-premium btn-premium-secondary font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-full border border-white/15 hover:bg-white/10 transition-all cursor-none flex items-center justify-center gap-2">
-                    <span>DOWNLOAD RESUME</span>
-                    <i class="bi bi-download"></i>
-                </a>
-                <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-indigo-600/30 border border-indigo-500/50 hover:bg-indigo-600 text-indigo-200 hover:text-white font-bold text-xs font-mono uppercase tracking-wider transition-all cursor-none flex items-center justify-center gap-2 shadow-lg">
-                    <span>LET'S CONNECT</span>
-                    <i class="bi bi-chat-text-fill"></i>
-                </a>
-            </div>
+                    <!-- 3 CTAs -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#projects" class="w-full sm:w-auto btn-premium btn-premium-primary text-black font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-full shadow-[0_10px_30px_rgba(59,130,246,0.3)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.4)] transition-all cursor-pointer flex items-center justify-center gap-2">
+                            <span>VIEW MY WORK</span>
+                            <i class="bi bi-arrow-down-right"></i>
+                        </a>
+                        <a href="assets/Resume_CV_-Ashwin Kumar S.pdf" download="Resume_CV_-Ashwin Kumar S.pdf" class="w-full sm:w-auto btn-premium btn-premium-secondary font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-full border border-white/15 hover:bg-white/10 transition-all cursor-pointer flex items-center justify-center gap-2">
+                            <span>DOWNLOAD RESUME</span>
+                            <i class="bi bi-download"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-indigo-600/30 border border-indigo-500/50 hover:bg-indigo-600 text-indigo-200 hover:text-white font-bold text-xs font-mono uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2 shadow-lg">
+                            <span>LET'S CONNECT</span>
+                            <i class="bi bi-chat-text-fill"></i>
+                        </a>
+                    </div>
 
+                </div>
+
+                <!-- RIGHT COLUMN: Profile Photo Frame & Anchor -->
+                <div class="lg:col-span-5 flex justify-center order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative group">
+                        
+                        <!-- Outer Ambient Glow -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-700"></div>
+
+                        <!-- Technical Top Label -->
+                        <div class="flex justify-between items-center px-4 py-2 bg-black/60 border-t border-x border-white/10 rounded-t-2xl font-mono text-[10px] text-slate-400 uppercase tracking-widest">
+                            <span>01 / PROFILE</span>
+                            <span class="text-indigo-400 font-bold">ENGINEERING / ACTIVE</span>
+                        </div>
+
+                        <!-- Glass Container Frame -->
+                        <div class="relative w-[260px] h-[320px] sm:w-[300px] sm:h-[370px] lg:w-[380px] lg:h-[460px] bg-black/80 backdrop-blur-xl border border-white/15 rounded-b-3xl p-3 shadow-2xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
+                            
+                            <!-- Profile Photo Image -->
+                            <img src="assets/ashwin-profile.png" alt="Portrait of S. Ashwin Kumar" class="w-full h-full object-cover object-top rounded-2xl filter contrast-105">
+
+                            <!-- Corner Framing Overlay Elements -->
+                            <div class="absolute top-5 left-5 w-4 h-4 border-t-2 border-l-2 border-indigo-400/80 pointer-events-none"></div>
+                            <div class="absolute top-5 right-5 w-4 h-4 border-t-2 border-r-2 border-indigo-400/80 pointer-events-none"></div>
+                            <div class="absolute bottom-5 left-5 w-4 h-4 border-b-2 border-l-2 border-indigo-400/80 pointer-events-none"></div>
+                            <div class="absolute bottom-5 right-5 w-4 h-4 border-b-2 border-r-2 border-indigo-400/80 pointer-events-none"></div>
+
+                            <!-- Bottom Glass Overlay Label -->
+                            <div class="absolute bottom-6 left-6 right-6 p-3 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 text-center pointer-events-none">
+                                <div class="font-mono text-xs font-bold text-white tracking-wider">S. ASHWIN KUMAR</div>
+                                <div class="font-mono text-[9px] text-indigo-300 uppercase tracking-widest">SOFTWARE ENGINEER</div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Available Status Badge -->
+                        <div class="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 px-4 py-2.5 rounded-2xl bg-black/90 border border-emerald-500/40 text-left shadow-2xl backdrop-blur-md flex items-center gap-3">
+                            <span class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                            </span>
+                            <div>
+                                <div class="font-mono text-[9px] font-bold text-emerald-400 uppercase tracking-wider">● AVAILABLE</div>
+                                <div class="font-mono text-[9px] text-slate-300 uppercase tracking-widest">SOFTWARE ENGINEERING</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
 
         <!-- Subtle Scroll Indicator -->
