@@ -1,273 +1,299 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prescription Extractor | S. Ashwin Kumar</title>
-    <!-- Tailwind -->
+    
+    <!-- Primary Meta Tags -->
+    <title>PrescriptionX — Enterprise Medical OCR & Healthcare Analytics Platform | Flagship #2</title>
+    <meta name="title" content="PrescriptionX — Enterprise Medical OCR & Healthcare Analytics Platform">
+    <meta name="description" content="Enterprise-grade AI healthcare SaaS platform digitizing handwritten prescriptions using OpenCV image preprocessing, Tesseract OCR, FastAPI, PostgreSQL, and 25+ medical field extraction.">
+    <meta name="keywords" content="PrescriptionX, Prescription Extractor, Medical OCR, OpenCV, Tesseract OCR, FastAPI, PostgreSQL, Healthcare AI, Enterprise SaaS, S. Ashwin Kumar">
+    <meta name="author" content="S. Ashwin Kumar">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- AOS Animation -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
                     colors: {
-                        darkBg: '#09090b',
-                        darkCard: 'rgba(20, 20, 25, 0.6)',
-                        accentBlue: '#3b82f6',
+                        darkBg: '#07070a',
                         accentPurple: '#a855f7',
+                        accentPink: '#ec4899',
                         accentIndigo: '#6366f1',
+                        accentBlue: '#3b82f6',
+                        accentEmerald: '#10b981'
                     }
                 }
             }
         }
     </script>
+
+    <style>
+        body {
+            background-color: #07070a;
+            color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .glass-card {
+            background: rgba(13, 14, 20, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+        .glow-purple {
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #07070a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a855f7;
+        }
+    </style>
 </head>
-<body class="selection:bg-indigo-500/30 selection:text-white bg-darkBg text-slate-100">
+<body class="selection:bg-purple-500/30 selection:text-purple-200">
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor" id="customCursor"></div>
-    <div class="custom-cursor-follower" id="customCursorFollower"></div>
+    <!-- Background Gradients -->
+    <div class="fixed inset-0 pointer-events-none z-0 opacity-30 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(168,85,247,0.15),rgba(255,255,255,0))]"></div>
+    <div class="fixed inset-0 pointer-events-none z-0 opacity-20 bg-[radial-gradient(ellipse_60%_60%_at_80%_60%,rgba(236,72,153,0.15),rgba(255,255,255,0))]"></div>
 
-    <!-- Noise Overlay -->
-    <div class="noise-overlay"></div>
-
-    <!-- Drifting Blobs -->
-    <div class="bg-blobs bg-opacity-30">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
-
-    <!-- Sticky Nav -->
-    <nav class="fixed w-full z-[1000] px-6 py-6 transition-all duration-300">
-        <div class="max-w-7xl mx-auto flex justify-between items-center glass-card px-8 py-4 bg-black/40 border-white/5">
-            <a href="/#projects" class="text-xs font-mono font-bold tracking-widest text-[#a1a1aa] hover:text-white transition cursor-none">
-                <i class="bi bi-arrow-left mr-2"></i> // BACK TO PORTFOLIO
+    <!-- Navigation Header -->
+    <nav class="fixed w-full top-0 left-0 z-50 px-4 sm:px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center bg-black/70 backdrop-blur-xl border border-white/10 px-5 py-3 rounded-full shadow-2xl">
+            <a href="/" class="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-slate-300 hover:text-purple-400 transition cursor-pointer">
+                <i class="bi bi-arrow-left"></i>
+                <span>← BACK TO PORTFOLIO</span>
             </a>
-            <div class="text-sm font-extrabold tracking-tighter uppercase mono neon-text">
-                S <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Ashwin Kumar</span>
+            
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 font-mono text-[10px] font-bold tracking-wider uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                    ⭐ FLAGSHIP PROJECT #2
+                </span>
+                <span class="text-xs font-mono font-bold tracking-tight text-white hidden sm:inline-block">
+                    S <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">ASHWIN KUMAR</span>
+                </span>
             </div>
         </div>
     </nav>
 
     <!-- Main Container -->
-    <main class="pt-32 pb-24 px-6 max-w-7xl mx-auto relative z-10">
+    <main class="pt-28 sm:pt-36 pb-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 space-y-20">
 
-        <!-- Hero Header -->
-        <header class="text-center max-w-4xl mx-auto mb-16" data-aos="fade-down">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/20 bg-purple-500/5 text-purple-400 mono text-xs mb-6 select-none">
-                <span class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse"></span>
-                ARTIFICIAL INTELLIGENCE • HEALTHCARE • OCR
+        <!-- HERO SECTION -->
+        <header class="text-center max-w-5xl mx-auto space-y-6 pt-4">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 font-mono text-xs font-semibold tracking-wider uppercase">
+                <i class="bi bi-hospital-fill"></i>
+                <span>HEALTHCARE AI · MEDICAL OCR · ENTERPRISE SAAS</span>
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 uppercase">
-                Prescription Extractor SaaS
+
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white uppercase leading-none font-mono">
+                PRESCRIPTIONX
             </h1>
-            <p class="text-slate-400 text-lg md:text-xl font-light leading-relaxed">
-                Built an AI-powered healthcare solution that extracts structured medical information from prescriptions using OCR, NLP, OpenCV, and FastAPI while improving data accessibility and accuracy.
+
+            <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-gradient bg-gradient-to-r from-purple-300 via-pink-200 to-indigo-300 bg-clip-text text-transparent max-w-4xl mx-auto leading-tight">
+                Enterprise Medical OCR &amp; Healthcare Analytics Platform
+            </h2>
+
+            <p class="text-slate-300 text-base sm:text-lg font-light leading-relaxed max-w-3xl mx-auto">
+                Enterprise-grade AI healthcare SaaS platform digitizing handwritten prescriptions using OpenCV image preprocessing, Tesseract OCR, FastAPI REST endpoints, PostgreSQL, and 25+ medical field extraction.
             </p>
+
+            <!-- Capabilities -->
+            <div class="flex flex-wrap items-center justify-center gap-2 pt-2 text-xs font-mono font-bold uppercase">
+                <span class="px-3 py-1.5 rounded-lg bg-purple-500/15 border border-purple-500/30 text-purple-300">ENTERPRISE OCR</span>
+                <span class="px-3 py-1.5 rounded-lg bg-pink-500/15 border border-pink-500/30 text-pink-300">OPENCV DESKEW</span>
+                <span class="px-3 py-1.5 rounded-lg bg-indigo-500/15 border border-indigo-500/30 text-indigo-300">TESSERACT SCANNER</span>
+                <span class="px-3 py-1.5 rounded-lg bg-blue-500/15 border border-blue-500/30 text-blue-300">FASTAPI BACKEND</span>
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300">POSTGRESQL DB</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                <a href="/" class="px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-slate-200 font-mono text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 cursor-pointer">
+                    <i class="bi bi-arrow-left"></i>
+                    <span>← BACK TO PORTFOLIO</span>
+                </a>
+                <a href="https://prescription-extractor-ocr.vercel.app/" target="_blank" class="px-6 py-3 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-mono text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 cursor-pointer shadow-lg shadow-purple-500/20">
+                    <span>LAUNCH LIVE DEMO</span>
+                    <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+                <a href="https://github.com/Ashwin15-png/prescription-extractor-ocr" target="_blank" class="px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-slate-200 font-mono text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 cursor-pointer">
+                    <i class="bi bi-github"></i>
+                    <span>GITHUB REPOSITORY</span>
+                </a>
+            </div>
         </header>
 
-        <!-- Graphic Cover Image -->
-        <div class="w-full h-64 md:h-[480px] rounded-2xl overflow-hidden border border-white/5 mb-16 shadow-[0_20px_50px_rgba(0,0,0,0.8)]" data-aos="zoom-in">
-            <img src="/projects/assets/images/prescription_extractor.jpg" alt="AI OCR Medical Reader Screen" class="w-full h-full object-cover">
+        <!-- Real Screenshot Display -->
+        <div class="rounded-3xl overflow-hidden border border-purple-500/30 shadow-[0_25px_60px_rgba(168,85,247,0.2)] bg-slate-950 max-w-5xl mx-auto aspect-[16/9] relative group">
+            <img src="/projects/assets/images/prescription_extractor.jpg" alt="PrescriptionX Interface" class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-500">
+            <div class="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/10 flex justify-between items-center text-xs font-mono">
+                <span class="text-purple-400 font-bold">● ENTERPRISE MEDICAL OCR PIPELINE</span>
+                <span class="text-pink-400 font-bold">25+ EXTRACTED JSON FIELDS</span>
+            </div>
         </div>
 
-        <div class="grid md:grid-cols-12 gap-12">
-            <!-- Left Side Details -->
-            <div class="md:col-span-8 space-y-12">
+        <!-- HERO METRICS ROW -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto font-mono text-center">
+            <div class="p-5 rounded-2xl glass-card space-y-1 border-purple-500/30">
+                <div class="text-2xl font-extrabold text-purple-300">25+</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider">EXTRACTED MEDICAL FIELDS</div>
+            </div>
+            <div class="p-5 rounded-2xl glass-card space-y-1 border-pink-500/30">
+                <div class="text-2xl font-extrabold text-pink-300">OPENCV</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider">DESKEW &amp; THRESHOLD</div>
+            </div>
+            <div class="p-5 rounded-2xl glass-card space-y-1 border-indigo-500/30">
+                <div class="text-2xl font-extrabold text-indigo-300">FASTAPI</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider">REST SERVICE ENGINE</div>
+            </div>
+            <div class="p-5 rounded-2xl glass-card space-y-1 border-emerald-500/30">
+                <div class="text-2xl font-extrabold text-emerald-400">POSTGRESQL</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider">RELATIONAL ARCHIVE</div>
+            </div>
+        </section>
 
-                <!-- Project Overview & Problem Statement -->
-                <section class="glass-card p-8 md:p-10 border-white/5" data-aos="fade-up">
-                    <h2 class="text-xs font-mono font-bold tracking-widest text-purple-400 uppercase mb-4">// Project Overview</h2>
-                    <p class="text-slate-300 text-lg leading-relaxed font-light mb-6">
-                        Enterprise-grade AI healthcare SaaS platform that digitizes handwritten and printed medical prescriptions using OpenCV image preprocessing, Tesseract OCR, FastAPI, PostgreSQL, enterprise analytics, advanced medical field extraction, intelligent filtering, and automated reporting for hospitals, clinics, and pharmacies.
+        <!-- 01 — THE PROBLEM -->
+        <section class="p-6 sm:p-10 rounded-3xl glass-card border-red-500/20 space-y-6">
+            <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-red-400">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <span>01 — THE PROBLEM</span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Manual prescription transcription wastes time &amp; causes clinical errors.</h2>
+            <div class="grid sm:grid-cols-2 gap-6 pt-2">
+                <div class="p-5 rounded-2xl bg-black/50 border border-red-500/20 space-y-2">
+                    <div class="text-xs font-mono font-bold text-red-400 uppercase">// CURSIVE SCRIPT &amp; SHORTHAND</div>
+                    <p class="text-slate-300 text-xs leading-relaxed font-light">
+                        Doctor shorthand, variable stroke widths, and non-standard prescription formats corrupt traditional OCR tools, leading to missing dosage instructions.
                     </p>
-                    <div class="grid sm:grid-cols-2 gap-6 mt-8">
-                        <div class="p-6 bg-red-500/5 border border-red-500/10 rounded-2xl">
-                            <span class="text-[9px] font-mono text-red-400 tracking-wider uppercase font-bold block mb-2">Problem Statement</span>
-                            <p class="text-slate-400 text-sm leading-relaxed font-light">
-                                Hospitals and pharmacies waste thousands of hours manually transcribing patient prescriptions, leading to human errors, lost data, and inefficient clinical workflows. Poorly lit images and doctor shorthand drastically corrupt traditional software.
-                            </p>
-                        </div>
-                        <div class="p-6 bg-emerald-500/5 border border-emerald-500/10 rounded-2xl">
-                            <span class="text-[9px] font-mono text-emerald-400 tracking-wider uppercase font-bold block mb-2">Solution Architecture</span>
-                            <p class="text-slate-400 text-sm leading-relaxed font-light">
-                                Integrated OpenCV Deskew filters, Contrast enhancements, and Tesseract OCR with fuzzy matching algorithms mapped against a PostgreSQL core to confidently verify dosage and medicine interactions.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Core Engine & Tech Specifications -->
-                <section class="glass-card p-8 md:p-10 border-white/5" data-aos="fade-up">
-                    <h2 class="text-xs font-mono font-bold tracking-widest text-[#a855f7] uppercase mb-8">// Core Processing Pipeline</h2>
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div class="flex gap-4 items-start">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0 border border-purple-500/25">
-                                <i class="bi bi-cpu-fill text-purple-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white text-base mb-1">OpenCV Image Processing</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed font-light">Adaptive thresholding, Deskew filters, noise cancellation, and QR code detection for poor quality scans.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-500/25">
-                                <i class="bi bi-fonts text-indigo-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white text-base mb-1">Tesseract OCR & NLP</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed font-light">Fuzzy dictionary matching extracting 25+ structured fields including doctor metadata and active medicine.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 border border-blue-500/25">
-                                <i class="bi bi-funnel-fill text-blue-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white text-base mb-1">Enterprise Filter Engine</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed font-light">Full-text search, pagination, and multi-factor filtering built natively into the frontend and PostgreSQL DB.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/25">
-                                <i class="bi bi-graph-up-arrow text-emerald-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white text-base mb-1">Analytics Dashboard</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed font-light">Clinical overview aggregating CSV, PDF, and Excel mass exports, confidence scoring flags, and duplicates.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- System Architecture & DevOps Details -->
-                <section class="glass-card p-8 md:p-10 border-white/5" data-aos="fade-up">
-                    <h2 class="text-xs font-mono font-bold tracking-widest text-[#6366f1] uppercase mb-8">// DevOps & System Architecture</h2>
-                    <div class="border-l border-white/10 pl-6 space-y-8 ml-2">
-                        <div class="relative">
-                            <div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-500/20"></div>
-                            <h4 class="font-bold text-white text-sm uppercase">FastAPI Backend Endpoints</h4>
-                            <p class="text-slate-400 text-xs mt-1">High-performance REST APIs handle parallel asynchronous uploads, data validation routing, and automated structured reports (JSON/PDF).</p>
-                        </div>
-                        <div class="relative">
-                            <div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></div>
-                            <h4 class="font-bold text-white text-sm uppercase">PostgreSQL Database Layer</h4>
-                            <p class="text-slate-400 text-xs mt-1">Enterprise relational schema mapped with SQLAlchemy ORM handling rapid data retrieval and audit-ready data structures.</p>
-                        </div>
-                        <div class="relative">
-                            <div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-purple-500 ring-4 ring-purple-500/20"></div>
-                            <h4 class="font-bold text-white text-sm uppercase">Docker Deployment & Optimization</h4>
-                            <p class="text-slate-400 text-xs mt-1">Containerized Python backend. Added async sub-process execution which slashed OCR processing time down to sub-2 second windows under max load.</p>
-                        </div>
-                        <div class="relative">
-                            <div class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-pink-500 ring-4 ring-pink-500/20"></div>
-                            <h4 class="font-bold text-white text-sm uppercase">Phase 6 Enterprise Testing & Future Roadmap</h4>
-                            <p class="text-slate-400 text-xs mt-1">Thorough load testing completed. Future pipeline plans cross-reference global drug interaction graphs for real-time risk alerts and direct HL7/FHIR EHR integrations.</p>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-
-            <!-- Right Sidebar -->
-            <div class="md:col-span-4 space-y-8">
-                <!-- Statistics Card -->
-                <div class="glass-card p-6 border-white/5" data-aos="fade-left">
-                    <h3 class="text-xs font-mono font-bold tracking-widest text-[#a1a1aa] uppercase mb-4">// Project Stats</h3>
-                    <div class="space-y-4">
-                        <div class="border-b border-white/5 pb-3">
-                            <span class="text-[10px] text-slate-500 font-mono uppercase block mb-1">Architecture Level</span>
-                            <span class="text-xl font-bold text-white font-mono bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Enterprise SaaS</span>
-                        </div>
-                        <div class="border-b border-white/5 pb-3">
-                            <span class="text-[10px] text-slate-500 font-mono uppercase block mb-1">Pipeline Status</span>
-                            <span class="text-xl font-bold text-white font-mono bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Production Ready</span>
-                        </div>
-                        <div>
-                            <span class="text-[10px] text-slate-500 font-mono uppercase block mb-1">Engine Category</span>
-                            <span class="text-xl font-bold text-white font-mono bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Healthcare AI</span>
-                        </div>
-                    </div>
                 </div>
-
-                <!-- Technologies Used -->
-                <div class="glass-card p-6 border-white/5" data-aos="fade-left" data-aos-delay="100">
-                    <h3 class="text-xs font-mono font-bold tracking-widest text-[#a1a1aa] uppercase mb-4">// Technology Stack</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">FastAPI</span>
-                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">PostgreSQL</span>
-                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">OpenCV</span>
-                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">Tesseract</span>
-                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300 font-mono">Docker</span>
-                    </div>
-                </div>
-
-                <!-- Actions buttons -->
-                <div class="space-y-3" data-aos="fade-left" data-aos-delay="200">
-                    <a href="https://prescription-extractor-ocr.vercel.app/" target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold tracking-wider text-center uppercase text-sm block cursor-none shadow-[0_8px_30px_rgba(168,85,247,0.3)] hover:scale-[1.02] transition">
-                        Launch Project Demo <i class="bi bi-box-arrow-up-right ml-2 text-xs"></i>
-                    </a>
-                    <a href="https://github.com/Ashwin15-png/prescription-extractor-ocr" target="_blank" class="w-full py-4 rounded-xl bg-white/5 border border-white/15 text-slate-200 font-bold tracking-wider text-center uppercase text-sm block cursor-none hover:bg-white/10 hover:border-white/20 transition">
-                        <i class="bi bi-github mr-2"></i> View Codebase
-                    </a>
+                <div class="p-5 rounded-2xl bg-black/50 border border-red-500/20 space-y-2">
+                    <div class="text-xs font-mono font-bold text-red-400 uppercase">// CAMERA SKEW &amp; ILLUMINATION</div>
+                    <p class="text-slate-300 text-xs leading-relaxed font-light">
+                        Mobile phone uploads arrive rotated, shadow-occluded, or low-resolution, confusing standard OCR bounding box classifiers.
+                    </p>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- 02 — THE SOLUTION -->
+        <section class="p-6 sm:p-10 rounded-3xl glass-card border-emerald-500/20 space-y-6">
+            <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>02 — THE SOLUTION</span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-white">OpenCV Preprocessing + Tesseract Scan Engine</h2>
+            <p class="text-slate-300 text-base leading-relaxed font-light max-w-4xl">
+                Engineered an adaptive computer vision pipeline using OpenCV deskewing, noise reduction, and bilateral threshold filtering paired with Tesseract OCR scanning and fuzzy pharmacopeia dictionary matching to parse 25+ medical fields with high confidence.
+            </p>
+        </section>
+
+        <!-- 03 — SYSTEM ARCHITECTURE -->
+        <section class="p-6 sm:p-10 rounded-3xl glass-card border-purple-500/20 space-y-6">
+            <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-purple-400">
+                <i class="bi bi-diagram-3-fill"></i>
+                <span>03 — SYSTEM ARCHITECTURE</span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Visual End-to-End OCR Pipeline</h2>
+            <div class="space-y-3 font-mono text-xs max-w-4xl mx-auto pt-2">
+                <div class="p-4 rounded-2xl bg-black/60 border border-white/10 flex justify-between items-center">
+                    <span class="text-purple-400 font-bold">STAGE 01</span>
+                    <span class="text-white font-bold">Prescription Image Upload</span>
+                    <span class="text-slate-500">Quality &amp; Format Validation</span>
+                </div>
+                <div class="text-center text-purple-400">↓</div>
+                <div class="p-4 rounded-2xl bg-black/60 border border-white/10 flex justify-between items-center">
+                    <span class="text-purple-400 font-bold">STAGE 02</span>
+                    <span class="text-white font-bold">OpenCV Preprocessing (Deskew &amp; Denoise)</span>
+                    <span class="text-slate-500">Bilateral Thresholding</span>
+                </div>
+                <div class="text-center text-purple-400">↓</div>
+                <div class="p-4 rounded-2xl bg-black/60 border border-white/10 flex justify-between items-center">
+                    <span class="text-purple-400 font-bold">STAGE 03</span>
+                    <span class="text-pink-300 font-bold">Tesseract OCR Text Scan Engine</span>
+                    <span class="text-slate-500">Text Block Segmentation</span>
+                </div>
+                <div class="text-center text-purple-400">↓</div>
+                <div class="p-4 rounded-2xl bg-black/60 border border-white/10 flex justify-between items-center">
+                    <span class="text-purple-400 font-bold">STAGE 04</span>
+                    <span class="text-white font-bold">NLP Entity Extractor (25+ Fields)</span>
+                    <span class="text-slate-500">Confidence Scoring</span>
+                </div>
+                <div class="text-center text-purple-400">↓</div>
+                <div class="p-5 rounded-2xl bg-purple-500/20 border border-purple-500/40 text-center font-bold text-white text-sm">
+                    FastAPI REST Routing → PostgreSQL Clinical Archive &amp; CSV/PDF Export
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 — ENGINEERING CHALLENGES -->
+        <section class="p-6 sm:p-10 rounded-3xl glass-card border-pink-500/20 space-y-6">
+            <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-pink-400">
+                <i class="bi bi-tools"></i>
+                <span>04 — ENGINEERING CHALLENGES RESOLVED</span>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="p-5 rounded-2xl bg-black/40 border border-white/10 space-y-2">
+                    <div class="text-xs font-mono font-bold text-purple-400 uppercase">CHALLENGE 01</div>
+                    <h3 class="text-white font-bold text-sm">Cursive Script Variability</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">Cross-referenced OCR token outputs against standardized pharmacopeia dictionaries to resolve ambiguous handwriting.</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-black/40 border border-white/10 space-y-2">
+                    <div class="text-xs font-mono font-bold text-purple-400 uppercase">CHALLENGE 02</div>
+                    <h3 class="text-white font-bold text-sm">Automatic Deskew Transform</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">Computed projection profile angles to dynamically rotate skewed mobile uploads back to zero degrees.</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-black/40 border border-white/10 space-y-2">
+                    <div class="text-xs font-mono font-bold text-purple-400 uppercase">CHALLENGE 03</div>
+                    <h3 class="text-white font-bold text-sm">Structured Field Parsing</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">Formulated Pydantic schema validators converting raw OCR text blocks into 25+ structured JSON medical fields.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER CTA -->
+        <section class="text-center p-10 rounded-3xl glass-card border-purple-500/30 space-y-6 glow-purple">
+            <h2 class="text-3xl font-black text-white font-mono uppercase">PRESCRIPTIONX — PRODUCTION LIVE</h2>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="/" class="px-8 py-3.5 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-mono text-xs font-bold uppercase tracking-wider transition shadow-lg">
+                    ← BACK TO PORTFOLIO
+                </a>
+                <a href="https://prescription-extractor-ocr.vercel.app/" target="_blank" class="px-8 py-3.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white font-mono text-xs font-bold uppercase tracking-wider transition">
+                    LAUNCH LIVE DEMO <i class="bi bi-box-arrow-up-right ml-1"></i>
+                </a>
+            </div>
+        </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-[10px] mono tracking-[0.2em] relative z-10 bg-darkBg/80">
-        <p>© 2026 S. ASHWIN KUMAR • ALL RIGHTS RESERVED • CHENNAI, INDIA</p>
-    </footer>
-
-    <!-- Scripting for custom cursor -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        // Custom Cursor
-        const cursor = document.getElementById('customCursor');
-        const follower = document.getElementById('customCursorFollower');
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-        let followerX = 0, followerY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        const tick = () => {
-            cursorX += (mouseX - cursorX) * 0.15;
-            cursorY += (mouseY - cursorY) * 0.15;
-            followerX += (mouseX - followerX) * 0.08;
-            followerY += (mouseY - followerY) * 0.08;
-
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-            follower.style.left = followerX + 'px';
-            follower.style.top = followerY + 'px';
-
-            requestAnimationFrame(tick);
-        };
-        tick();
-
-        document.querySelectorAll('a, button').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                document.body.classList.add('cursor-hover');
-            });
-            item.addEventListener('mouseleave', () => {
-                document.body.classList.remove('cursor-hover');
-            });
-        });
-    </script>
 </body>
 </html>
