@@ -982,28 +982,29 @@
             <form id="contactForm" class="space-y-6 text-left max-w-2xl mx-auto">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-500 mb-2 font-bold mono">Your
-                            Name</label>
+                        <label class="block text-xs uppercase tracking-wider text-slate-500 mb-2 font-bold mono">Your Name</label>
                         <input type="text" name="name" required placeholder="John Doe"
-                            class="w-full px-5 py-4 bg-black/40 border border-white/5 rounded-2xl text-white text-sm cursor-none">
+                            class="w-full px-5 py-4 bg-black/40 border border-white/5 rounded-2xl text-white text-sm outline-none focus:border-blue-500/50 transition">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-500 mb-2 font-bold mono">Your
-                            Email</label>
+                        <label class="block text-xs uppercase tracking-wider text-slate-500 mb-2 font-bold mono">Your Email</label>
                         <input type="email" name="email" required placeholder="john@example.com"
-                            class="w-full px-5 py-4 bg-black/40 border border-white/5 rounded-2xl text-white text-sm cursor-none">
+                            class="w-full px-5 py-4 bg-black/40 border border-white/5 rounded-2xl text-white text-sm outline-none focus:border-blue-500/50 transition">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs uppercase tracking-wider text-slate-500 mb-2 font-bold mono">Message
-                        Details</label>
+                    <label class="block text-xs uppercase tracking-wider text-slate-500 mb-2 font-bold mono">Message Details</label>
                     <textarea name="message" rows="5" required placeholder="Let's build together..."
-                        class="w-full px-5 py-4 bg-black/40 border border-white/5 rounded-2xl text-white text-sm cursor-none"></textarea>
+                        class="w-full px-5 py-4 bg-black/40 border border-white/5 rounded-2xl text-white text-sm outline-none focus:border-blue-500/50 transition"></textarea>
                 </div>
+                
+                <!-- Status Banner -->
+                <div id="contactStatus" class="hidden p-4 rounded-2xl text-center text-xs font-mono transition-all"></div>
+
                 <div class="text-center pt-4">
-                    <button type="submit"
-                        class="btn-premium btn-premium-accent px-12 py-4 rounded-full text-sm font-extrabold cursor-none">
-                        Send Message <i class="bi bi-chevron-right ml-1"></i>
+                    <button type="submit" id="contactSubmitBtn"
+                        class="btn-premium btn-premium-accent px-12 py-4 rounded-full text-sm font-extrabold cursor-pointer transition flex items-center justify-center gap-2 mx-auto">
+                        <span id="contactBtnText">Send Message <i class="bi bi-chevron-right ml-1"></i></span>
                     </button>
                 </div>
             </form>
@@ -1227,8 +1228,27 @@
         document.getElementById("contactForm").addEventListener("submit", async function (e) {
             e.preventDefault();
 
+            const submitBtn = document.getElementById("contactSubmitBtn");
+            const btnText = document.getElementById("contactBtnText");
+            const statusBox = document.getElementById("contactStatus");
+
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
+
+            // Clear previous status
+            statusBox.className = "hidden p-4 rounded-2xl text-center text-xs font-mono transition-all";
+            statusBox.innerHTML = "";
+
+            // Client-side Validation
+            if (!data.name || !data.email || !data.message) {
+                statusBox.className = "p-4 rounded-2xl text-center text-xs font-mono bg-red-500/10 border border-red-500/30 text-red-300 block";
+                statusBox.innerHTML = "<strong>MESSAGE NOT SENT:</strong> Please fill in all required fields.";
+                return;
+            }
+
+            // Set loading state
+            submitBtn.disabled = true;
+            btnText.innerHTML = `<span class="inline-block animate-spin mr-2">⚡</span> Sending Message...`;
 
             try {
                 const response = await fetch("/api/contact", {
@@ -1243,11 +1263,23 @@
                     window.location.href = "/success.html";
                 } else {
                     const result = await response.json();
-                    alert("Error: " + (result.error || "Something went wrong"));
+                    statusBox.className = "p-4 rounded-2xl text-center text-xs font-mono bg-red-500/10 border border-red-500/30 text-red-300 block space-y-2";
+                    statusBox.innerHTML = `
+                        <div><strong class="text-red-400 font-bold uppercase">MESSAGE NOT SENT</strong></div>
+                        <div class="text-slate-300">${result.error || "Something went wrong while sending your message. Please try again or contact me directly at ashwinkumarsarkar15@gmail.com."}</div>
+                    `;
+                    submitBtn.disabled = false;
+                    btnText.innerHTML = `Send Message <i class="bi bi-chevron-right ml-1"></i>`;
                 }
 
             } catch (error) {
-                alert("Server error. Please try again later.");
+                statusBox.className = "p-4 rounded-2xl text-center text-xs font-mono bg-red-500/10 border border-red-500/30 text-red-300 block space-y-2";
+                statusBox.innerHTML = `
+                    <div><strong class="text-red-400 font-bold uppercase">MESSAGE NOT SENT</strong></div>
+                    <div class="text-slate-300">Something went wrong while sending your message. Please try again or contact me directly at <a href="mailto:ashwinkumarsarkar15@gmail.com" class="underline text-blue-400">ashwinkumarsarkar15@gmail.com</a>.</div>
+                `;
+                submitBtn.disabled = false;
+                btnText.innerHTML = `Send Message <i class="bi bi-chevron-right ml-1"></i>`;
             }
         });
     </script>
