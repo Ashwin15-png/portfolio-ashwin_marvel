@@ -4,10 +4,15 @@ export interface Project {
   category: string;
   categories: string[];
   description: string;
+  problemStatement?: string;
+  myApproach?: string;
+  architectureDiagram?: string[];
   features: string[];
   architecture: string[];
+  technologyCategorized?: { category: string; items: string[] }[];
   technology: string[];
   statistics: { label: string; value: string }[];
+  metricBlocks: { label: string; value: string }[];
   image: string;
   links: {
     demo: string;
@@ -15,15 +20,18 @@ export interface Project {
   };
   modalDetails: {
     overview: string;
-    challenges: string;
+    problem: string;
+    approach: string;
+    challenges: { title: string; desc: string }[] | string;
     solutions: string;
     futureScope: string;
     gallery: string[];
+    evidenceMetrics?: { label: string; value: string }[];
   };
   isFlagship?: boolean;
   isNew?: boolean;
+  isOngoing?: boolean;
   tagline?: string;
-  problemStatement?: string;
   engineeringHighlights?: { title: string; subtitle: string; description: string; points: string[] }[];
   resumeHighlights?: string[];
   technicalFeatures?: string[];
@@ -38,7 +46,16 @@ export const projectsData: Project[] = [
     categories: ["Industrial IoT", "Predictive Maintenance", "AI", "Full Stack", "WebSocket"],
     tagline: "An enterprise-grade Industrial IoT platform leveraging real-time sensor processing, noise-filtered anomaly detection algorithms, and WebSocket telemetry to minimise costly machinery downtime.",
     description: "Enterprise-grade real-time machine condition monitoring and predictive maintenance solution for industrial IoT infrastructure featuring sustained anomaly verification, Socket.IO live telemetry, signal processing algorithms, and MongoDB Atlas persistence.",
-    problemStatement: "Manufacturing machines often fail unexpectedly due to vibration spikes, overheating, abnormal current, and speed fluctuations. Traditional monitoring systems trigger excessive false alarms. VibeGuard AI solves this using mathematical filtering and sustained anomaly validation.",
+    problemStatement: "Manufacturing machines often fail unexpectedly due to vibration spikes, overheating, abnormal current, and speed fluctuations. Traditional monitoring systems trigger excessive false alarms due to transient noise spikes, inflating operational downtime costs.",
+    myApproach: "Engineered a multi-stage signal processing pipeline using Exponential Moving Average (EMA) and Median Filtering paired with a Consecutive Reading Anomaly Engine (CONSECUTIVE_READINGS_THRESHOLD = 3). Telemetry flows over Socket.IO WebSockets to a Node.js/Express backend and MongoDB Atlas persistence layer.",
+    architectureDiagram: [
+      "IoT Industrial Sensors & Telemetry Simulator",
+      "Signal Processing Pipeline (EMA + Median Filter)",
+      "Consecutive Reading Anomaly Validation Engine (Threshold = 3)",
+      "Node.js & Express REST Backend + Socket.IO Telemetry Router",
+      "MongoDB Atlas Mongoose Persistence Layer",
+      "React + Vite High-Performance Industrial Fleet Dashboard"
+    ],
     features: [
       "Live Sensor Telemetry",
       "WebSocket Communication",
@@ -47,21 +64,14 @@ export const projectsData: Project[] = [
       "Predictive Alerts",
       "Fleet Dashboard",
       "Manual Simulation Controls",
-      "Historical Data",
-      "Responsive UI",
-      "Automated Test Suite"
+      "Historical Data Analytics"
     ],
     technicalFeatures: [
       "Live Sensor Telemetry",
       "WebSocket Communication",
       "MongoDB Persistence",
       "Machine Health Monitoring",
-      "Predictive Alerts",
-      "Fleet Dashboard",
-      "Manual Simulation Controls",
-      "Historical Data",
-      "Responsive UI",
-      "Automated Test Suite"
+      "Predictive Alerts"
     ],
     engineeringHighlights: [
       {
@@ -72,7 +82,7 @@ export const projectsData: Project[] = [
       },
       {
         title: "Consecutive Reading Anomaly Engine",
-        subtitle: "Sustained Anomaly Validation (CONSECUTIVE_READINGS_THRESHOLD = 3)",
+        subtitle: "Sustained Anomaly Validation (Threshold = 3)",
         description: "Alerts trigger strictly after 3 consecutive abnormal sensor readings to eliminate transient noise and false positives.",
         points: ["CONSECUTIVE_READINGS_THRESHOLD = 3", "Zero False Positives", "Sustained Validation", "Instant Alert Triggering"]
       },
@@ -81,12 +91,6 @@ export const projectsData: Project[] = [
         subtitle: "Mathematical Noise Filtering & Verification",
         description: "Applied moving averages, median filters, and spike rejection to transform raw sensor noise into clean telemetry signals.",
         points: ["Exponential Moving Average (EMA)", "Median Filter", "Range Validation", "Noise Reduction"]
-      },
-      {
-        title: "Industrial Control Dashboard",
-        subtitle: "Comprehensive Fleet Operations Center",
-        description: "Recruiter-focused, high-contrast industrial control suite with dynamic charts, dark/light theme, and live telemetry control.",
-        points: ["Dark/Light Mode", "Responsive UI", "Machine Status", "KPI Cards", "Fleet Health", "Charts", "Live Alerts"]
       }
     ],
     resumeHighlights: [
@@ -96,19 +100,31 @@ export const projectsData: Project[] = [
       "Built automated integration tests validating anomaly logic and alert generation."
     ],
     architecture: [
-      "IoT Industrial Sensors & Telemetry Simulator",
-      "Signal Processing Engine (EMA + Median Filter + Spike Rejection)",
-      "Consecutive Reading Anomaly Validation Engine (Threshold = 3)",
-      "Node.js & Express REST Backend & Socket.IO Telemetry Router",
-      "MongoDB Atlas Mongoose Persistence Layer",
-      "React + Vite High-Performance Industrial Fleet Dashboard"
+      "IoT Sensors & Simulator",
+      "Signal Processing (EMA)",
+      "Anomaly Validation (Thresh = 3)",
+      "Socket.IO Router",
+      "MongoDB Persistence",
+      "React Fleet Dashboard"
     ],
-    technology: ["React", "Vite", "Node.js", "Express.js", "Socket.IO", "MongoDB Atlas", "Mongoose", "JavaScript ES6+", "CSS Variables", "Vercel"],
+    technologyCategorized: [
+      { category: "FRONTEND & UI", items: ["React", "Vite", "CSS Variables", "Recharts"] },
+      { category: "BACKEND & TELEMETRY", items: ["Node.js", "Express.js", "Socket.IO WebSockets"] },
+      { category: "SIGNAL & ANOMALY ENGINE", items: ["EMA Filter", "Median Noise Cancellation", "Consecutive Spike Validator"] },
+      { category: "DATABASE & CLOUD", items: ["MongoDB Atlas", "Mongoose", "Vercel"] }
+    ],
+    technology: ["React", "Vite", "Node.js", "Express.js", "Socket.IO", "MongoDB Atlas", "Mongoose", "JavaScript ES6+", "Vercel"],
     statistics: [
       { label: "Industrial Parameters", value: "5+" },
       { label: "Streaming Pipeline", value: "Real-Time WebSocket" },
       { label: "UI Responsiveness", value: "100%" },
       { label: "System Design", value: "Enterprise" }
+    ],
+    metricBlocks: [
+      { value: "5+ SENSOR PARAMETERS", label: "REAL-TIME METRICS" },
+      { value: "REAL-TIME TELEMETRY", label: "SOCKET.IO PIPELINE" },
+      { value: "SOCKET.IO STREAMING", label: "BIDIRECTIONAL FEED" },
+      { value: "MONGODB ATLAS", label: "TIMERSERIES STORE" }
     ],
     image: "/projects/assets/images/vibeguard_ai.jpg",
     links: {
@@ -116,65 +132,19 @@ export const projectsData: Project[] = [
       github: "https://github.com/Ashwin15-png/Machine-Condition-Monitoring-VibeGuardAI"
     },
     modalDetails: {
-      overview: "VibeGuard AI is a real-time predictive maintenance platform engineered for industrial machine condition monitoring. It delivers continuous sensor monitoring, live telemetry streaming, early anomaly detection, fleet monitoring, false alarm reduction, and an intuitive industrial control dashboard.",
-      challenges: "Manufacturing machines experience frequent environmental noise, electrical interference, and single-point sensor spikes that cause traditional threshold alarms to flood engineers with false alerts and costly unnecessary downtime.",
-      solutions: "Formulated a multi-stage signal processing pipeline using Exponential Moving Average (EMA) and Median Filtering alongside a Consecutive Reading Anomaly Engine (CONSECUTIVE_READINGS_THRESHOLD = 3) that verifies abnormal metrics across 3 consecutive cycles before escalating alerts.",
+      overview: "VibeGuard AI is a real-time predictive maintenance platform engineered for industrial machine condition monitoring. It delivers continuous sensor monitoring, live telemetry streaming, early anomaly detection, false alarm reduction, and an intuitive industrial control dashboard.",
+      problem: "Manufacturing machines experience frequent environmental noise, electrical interference, and single-point sensor spikes that cause traditional threshold alarms to flood engineers with false alerts and costly unnecessary downtime.",
+      approach: "Formulated a multi-stage signal processing pipeline using Exponential Moving Average (EMA) and Median Filtering alongside a Consecutive Reading Anomaly Engine (CONSECUTIVE_READINGS_THRESHOLD = 3) that verifies abnormal metrics across 3 consecutive cycles before escalating alerts.",
+      challenges: [
+        { title: "Transient Electrical Sensor Noise", desc: "Single-frame sensor spikes triggered continuous false alarms during normal operations." },
+        { title: "Low-Latency WebSocket Streaming", desc: "High-frequency sensor payloads overloaded frontend state rendering when broadcast unthrottled." },
+        { title: "Stateful Anomaly Verification", desc: "Tracking consecutive threshold breaches per machine across async node threads without memory leaks." }
+      ],
+      solutions: "Implemented EMA signal smoothing and consecutive reading verification thresholds to filter single-point noise spikes, streaming validated telemetry via Socket.IO.",
       futureScope: "Integrating edge-AI microcontrollers (ESP32/Raspberry Pi) with MQTT protocol support, automated maintenance work-order generation, and deep-learning predictive time-to-failure forecasting models.",
       gallery: [
         "/projects/assets/images/vibeguard_ai.jpg",
         "/projects/assets/images/vibeguard_details_1.jpg"
-      ]
-    }
-  },
-  {
-    id: "attendance-system",
-    title: "Smart Attendance & Visitor Management System",
-    category: "AI / COMPUTER VISION",
-    categories: ["AI", "Computer Vision", "Cloud"],
-    description: "Developed a secure attendance and visitor management platform featuring authentication, facial recognition, Dockerized deployment, CI/CD automation, and cloud-ready architecture to streamline institutional operations.",
-    features: [
-      "Facial Recognition Attendance",
-      "Visitor Registration",
-      "Secure Authentication",
-      "Attendance Analytics",
-      "Role Based Access",
-      "Admin Dashboard",
-      "Dockerized Deployment",
-      "CI/CD Automation",
-      "Cloud Ready Architecture",
-      "Secure Database Operations"
-    ],
-    architecture: [
-      "User / Visitor Entry",
-      "Secure Authentication Guard",
-      "Flask Backend API Router",
-      "OpenCV Facial Landmark recognition Engine",
-      "Visitor Query Controller",
-      "SQLite Persistent DB Store",
-      "Admin Dashboard Analytical Module",
-      "Docker Containerization",
-      "GitHub Actions CI/CD pipeline",
-      "Cloud Instance Deployment (AWS)"
-    ],
-    technology: ["Python", "Flask", "OpenCV", "SQLite", "Docker", "GitHub Actions", "HTML", "CSS", "JavaScript"],
-    statistics: [
-      { label: "Recognition Accuracy", value: "99%" },
-      { label: "Deployment Structure", value: "Docker Enabled" },
-      { label: "Infrastructure State", value: "Cloud Ready" }
-    ],
-    image: "/projects/assets/images/attendance_system.jpg",
-    links: {
-      demo: "https://github.com/Ashwin15-png",
-      github: "https://github.com/Ashwin15-png"
-    },
-    modalDetails: {
-      overview: "An automated biometric check-in solution for schools, universities, or secure checkpoints. Users pass in front of a camera system and are authenticated in sub-second latency using pre-computed face embedding indexes, preventing attendance proxy issues and minimizing visitor bottlenecks.",
-      challenges: "Varying illumination in the lobby area drastically reduced OpenCV classification rates. Loading and processing thousands of High Resolution face images in real-time caused heavy CPU utilization spikes.",
-      solutions: "Implemented image preprocessing including Bilateral Filtering and Histogram Equalization. Face crops were transformed into 128-dimensional encodings and matched using optimized matrix dot-products rather than repeatedly parsing source media.",
-      futureScope: "Integrating stereo-vision and depth-sensing arrays to prevent spoofing using static images, and deploying the solution as a Kubernetes cluster on AWS EKS.",
-      gallery: [
-        "/projects/assets/images/attendance_details_1.jpg",
-        "/projects/assets/images/attendance_details_2.jpg"
       ]
     }
   },
@@ -188,6 +158,17 @@ export const projectsData: Project[] = [
     tagline: "Enterprise-grade AI-powered healthcare platform that digitizes medical prescriptions.",
     description: "Enterprise-grade AI-powered healthcare platform that digitizes handwritten and printed medical prescriptions using OpenCV image preprocessing, Tesseract OCR, FastAPI, PostgreSQL, and intelligent medical field extraction.",
     problemStatement: "Hospitals and pharmacies waste thousands of hours manually transcribing patient prescriptions, leading to human errors, lost data, and inefficient clinical workflows.",
+    myApproach: "Developed an enterprise OCR pipeline combining OpenCV adaptive thresholding, deskew filters, and Tesseract OCR with fuzzy medical dictionary matching. Built using FastAPI for backend REST services and PostgreSQL for persistent clinical records.",
+    architectureDiagram: [
+      "Prescription Image Input & Quality Check",
+      "OpenCV Preprocessing (Deskew & Denoise)",
+      "Tesseract OCR Text Scan Engine",
+      "NLP Structured Entity Extraction (25+ Fields)",
+      "Confidence Scoring & Validation",
+      "FastAPI REST Endpoints",
+      "PostgreSQL Persistent Storage",
+      "Enterprise Analytics Dashboard"
+    ],
     features: [
       "Enterprise Medical OCR",
       "OpenCV Image Processing",
@@ -196,14 +177,7 @@ export const projectsData: Project[] = [
       "PostgreSQL Database",
       "Enterprise Filter Engine",
       "Advanced Analytics Dashboard",
-      "OCR Confidence Scoring",
-      "Duplicate Detection",
-      "Image Quality Analysis",
-      "Barcode & QR Detection",
-      "CSV / Excel / PDF Export",
-      "Responsive Dashboard",
-      "Docker Support",
-      "REST APIs"
+      "CSV / Excel / PDF Export"
     ],
     technicalFeatures: [
       "Enterprise Medical OCR",
@@ -227,14 +201,17 @@ export const projectsData: Project[] = [
       }
     ],
     architecture: [
-      "Prescription Image Input & Quality Check",
-      "OpenCV Preprocessing (Deskew & Denoise)",
-      "Tesseract OCR Text Scan Engine",
-      "NLP Structured Entity Extraction (25+ Fields)",
-      "Confidence Scoring & Validation",
-      "FastAPI REST Endpoints",
-      "PostgreSQL Persistent Storage",
-      "Enterprise Analytics Dashboard"
+      "Prescription Input",
+      "OpenCV Deskew",
+      "Tesseract OCR Scan",
+      "Entity Extraction (25+ Fields)",
+      "FastAPI REST Router",
+      "PostgreSQL Storage"
+    ],
+    technologyCategorized: [
+      { category: "AI / COMPUTER VISION", items: ["OpenCV", "Tesseract OCR", "Image Preprocessing", "Fuzzy Dictionary"] },
+      { category: "BACKEND API", items: ["FastAPI", "Python", "Pydantic", "REST Endpoints"] },
+      { category: "DATABASE & ENTERPRISE", items: ["PostgreSQL", "Full-Text Search", "Docker", "PDF/CSV Exports"] }
     ],
     technology: ["FastAPI", "PostgreSQL", "OpenCV", "Tesseract", "OCR", "Docker", "AI", "Python"],
     statistics: [
@@ -243,19 +220,178 @@ export const projectsData: Project[] = [
       { label: "Export Formats", value: "CSV/Excel/PDF" },
       { label: "Backend Core", value: "FastAPI + DB" }
     ],
+    metricBlocks: [
+      { value: "OCR PIPELINE", label: "TESSERACT SCAN ENGINE" },
+      { value: "OPENCV PREPROCESSING", label: "DESKEW & ADAPTIVE THRESHOLD" },
+      { value: "FASTAPI", label: "HIGH-PERFORMANCE BACKEND" },
+      { value: "POSTGRESQL", label: "RELATIONAL DB ARCHIVE" }
+    ],
     image: "/projects/assets/images/prescription_extractor.jpg",
     links: {
       demo: "https://prescription-extractor-ocr.vercel.app/",
       github: "https://github.com/Ashwin15-png/prescription-extractor-ocr"
     },
     modalDetails: {
-      overview: "Prescription Extractor SaaS is a specialized enterprise platform transforming unstructured prescription images into searchable structured medical records with enterprise analytics, advanced filtering, OCR confidence scoring, duplicate detection, and various data exports.",
-      challenges: "Poor lighting, extreme cursive writing variability, low-resolution uploads, and non-standard prescription formats aggressively corrupt standard OCR segmentations.",
-      solutions: "Implemented an advanced OpenCV image processing pipeline (Deskew, adaptive thresholding) paired with Tesseract OCR and fuzzy matching against standard pharmacopeia dictionaries to robustly parse 25+ medical fields with high confidence.",
+      overview: "Prescription Extractor SaaS is a specialized enterprise platform transforming unstructured prescription images into searchable structured medical records with enterprise analytics, advanced filtering, OCR confidence scoring, duplicate detection, and data exports.",
+      problem: "Poor lighting, extreme cursive writing variability, low-resolution uploads, and non-standard prescription formats aggressively corrupt standard OCR segmentations.",
+      approach: "Implemented an advanced OpenCV image processing pipeline (Deskew, adaptive thresholding) paired with Tesseract OCR and fuzzy matching against standard pharmacopeia dictionaries to robustly parse 25+ medical fields with high confidence.",
+      challenges: [
+        { title: "Cursive Script Variability", desc: "Handwritten prescription scripts had unpredictable stroke widths and character spacing." },
+        { title: "Document Orientation & Skew", desc: "Mobile uploads often arrived rotated, skewed, or blurred from uneven camera angles." },
+        { title: "Low-Latency Structured Extraction", desc: "Mapping raw unformatted OCR text output into 25+ structured JSON medical fields efficiently." }
+      ],
+      solutions: "Engineered automated image deskewing and bilaterally filtered thresholding, parsing extracted OCR blocks through fuzzy pharmacopeia matchers.",
       futureScope: "Integrating cross-reference global drug interaction APIs for immediate risk warnings, AI-driven context corrections for dosages, and direct HL7/FHIR EHR integrations.",
       gallery: [
         "/projects/assets/images/prescription_details_1.jpg",
         "/projects/assets/images/prescription_details_2.jpg"
+      ]
+    }
+  },
+  {
+    id: "vigil-voice",
+    isFlagship: false,
+    isOngoing: true,
+    title: "VIGIL-VOICE — AI Voice Anti-Spoofing & Deepfake Detection System",
+    category: "AUDIO AI / ANTI-SPOOFING",
+    categories: ["AI", "Audio Security", "Deepfake Detection", "PyTorch"],
+    tagline: "Real-time AI voice anti-spoofing and deepfake detection engine.",
+    description: "Real-time multi-model voice anti-spoofing and speaker verification system leveraging AASIST-L, ECAPA-TDNN, and LFCC-LCNN architectures for deepfake defense.",
+    problemStatement: "Voice synthesis and AI deepfake audio tools bypass conventional voice authentication systems, creating security vulnerabilities in voice channels.",
+    myApproach: "Architected a multi-stage audio inference pipeline that captures raw voice streams, performs LFCC feature extraction, routes tensors across parallel AASIST-L and ECAPA-TDNN models, and enforces policy decisions via a centralized risk engine.",
+    architectureDiagram: [
+      "AUDIO INPUT",
+      "AUDIO PROCESSING",
+      "┌────────────┬────────────┬────────────┐\n│ AASIST-L   │ ECAPA-TDNN │ LFCC-LCNN  │\n│ SPOOF      │ SPEAKER    │ REPLAY/PAD │\n└────────────┴────────────┴────────────┘",
+      "RISK PROCESSING",
+      "POLICY ENGINE",
+      "ALLOW / VERIFY / HOLD / BLOCK"
+    ],
+    features: [
+      "Multi-Model Spoof Classification",
+      "AASIST-L Graph Neural Network",
+      "ECAPA-TDNN Speaker Verification",
+      "LFCC Feature Extraction",
+      "Real-Time WebSocket Ingestion",
+      "Risk Score Calculation Engine",
+      "Automated Policy Decisioning",
+      "Low-Latency Audio Streaming"
+    ],
+    architecture: [
+      "AUDIO INPUT",
+      "AUDIO PROCESSING",
+      "AASIST-L / ECAPA-TDNN / LFCC-LCNN",
+      "RISK PROCESSING",
+      "POLICY ENGINE",
+      "ALLOW / VERIFY / HOLD / BLOCK"
+    ],
+    technologyCategorized: [
+      { category: "AI / ML MODELS", items: ["AASIST-L", "ECAPA-TDNN", "LFCC-LCNN", "PyTorch", "SpeechBrain"] },
+      { category: "BACKEND & PIPELINE", items: ["FastAPI", "WebSockets", "Python", "NumPy"] },
+      { category: "SECURITY", items: ["Risk Engine", "Policy Enforcement", "Biometric Verification"] }
+    ],
+    technology: ["PyTorch", "SpeechBrain", "FastAPI", "WebSockets", "Python", "NumPy", "AASIST-L"],
+    statistics: [
+      { label: "Audio Pipeline", value: "Real-Time" },
+      { label: "Inference Stack", value: "AASIST-L + ECAPA" },
+      { label: "Policy Engine", value: "Dynamic Risk" },
+      { label: "System State", value: "Ongoing R&D" }
+    ],
+    metricBlocks: [
+      { value: "REAL-TIME AUDIO", label: "STREAM INFERENCE" },
+      { value: "AASIST-L MODEL", label: "DEEPFAKE DETECTION" },
+      { value: "RISK POLICY ENGINE", label: "ALLOW / HOLD / BLOCK" },
+      { value: "ANTI-SPOOFING", label: "MULTI-MODEL GUARD" }
+    ],
+    image: "/projects/assets/images/face_recognition.jpg",
+    links: {
+      demo: "https://github.com/Ashwin15-png",
+      github: "https://github.com/Ashwin15-png"
+    },
+    modalDetails: {
+      overview: "VIGIL-VOICE is an audio AI anti-spoofing system that analyzes streaming voice data to detect synthetic deepfake audio, replay attacks, and spoofed voice signatures before executing high-risk policy actions.",
+      problem: "Generative AI voice clones can impersonate speakers with high fidelity, trivializing traditional single-factor acoustic voice authentication.",
+      approach: "Built a parallel inference framework where AASIST-L evaluates spectral artifact graphs, ECAPA-TDNN verifies speaker identity embeddings, and LFCC-LCNN scans for replay padding.",
+      challenges: [
+        { title: "Real-Time Audio Latency", desc: "Streaming raw audio buffers and executing triple model inference within sub-200ms windows." },
+        { title: "Codec Distortion Rejection", desc: "Telephony compression artifacts triggering false positive spoof flags." },
+        { title: "Multi-Model Consensus", desc: "Reconciling score variances between speaker embedding match and anti-spoof classifiers." }
+      ],
+      solutions: "Implemented streaming frame buffer chunking and normalized confidence scoring across the risk evaluation engine.",
+      futureScope: "Deploying model quantizations to edge mobile SDKs and supporting live SIP VoIP telephony gateways.",
+      gallery: [
+        "/projects/assets/images/face_recognition.jpg"
+      ]
+    }
+  },
+  {
+    id: "attendance-system",
+    title: "Smart Attendance & Visitor Management System",
+    category: "AI / COMPUTER VISION",
+    categories: ["AI", "Computer Vision", "Cloud", "DevSecOps"],
+    description: "Developed a secure attendance and visitor management platform featuring authentication, facial recognition, Dockerized deployment, CI/CD automation, and cloud-ready architecture.",
+    problemStatement: "Manual attendance logging and physical badge swiping cause long delays and proxy check-in fraud in institutional facilities.",
+    myApproach: "Engineered sub-second biometric check-in using OpenCV facial landmark extraction, precomputed 128D embeddings, Docker containerization, and GitHub Actions CI/CD workflows.",
+    architectureDiagram: [
+      "User / Visitor Camera Stream Input",
+      "Authentication Shield Guard",
+      "Flask Backend API Router",
+      "OpenCV Facial Landmark Recognition Engine",
+      "SQLite Persistent Database Store",
+      "Docker Containerization & GitHub Actions CI/CD"
+    ],
+    features: [
+      "Facial Recognition Attendance",
+      "Visitor Registration",
+      "Secure Authentication",
+      "Attendance Analytics",
+      "Role Based Access",
+      "Admin Dashboard",
+      "Dockerized Deployment",
+      "CI/CD Automation"
+    ],
+    architecture: [
+      "Camera Feed Input",
+      "OpenCV Detection",
+      "Embedding Matching",
+      "Flask API Router",
+      "SQLite Persistence",
+      "Docker Deployment"
+    ],
+    technologyCategorized: [
+      { category: "COMPUTER VISION", items: ["Python", "OpenCV", "Facial Embeddings"] },
+      { category: "BACKEND & DB", items: ["Flask", "SQLite", "REST APIs"] },
+      { category: "DEVSECOPS & CLOUD", items: ["Docker", "GitHub Actions", "AWS Ready"] }
+    ],
+    technology: ["Python", "Flask", "OpenCV", "SQLite", "Docker", "GitHub Actions", "HTML", "CSS", "JavaScript"],
+    statistics: [
+      { label: "Recognition Accuracy", value: "99%" },
+      { label: "Deployment Structure", value: "Docker Enabled" },
+      { label: "Infrastructure State", value: "Cloud Ready" }
+    ],
+    metricBlocks: [
+      { value: "FACIAL RECOGNITION", label: "OPENCV VISION" },
+      { value: "99% ACCURACY", label: "VERIFIED ACCURACY" },
+      { value: "DOCKERIZED", label: "CONTAINER RUNTIME" },
+      { value: "CI/CD AUTOMATION", label: "GITHUB ACTIONS" }
+    ],
+    image: "/projects/assets/images/attendance_system.jpg",
+    links: {
+      demo: "https://github.com/Ashwin15-png",
+      github: "https://github.com/Ashwin15-png"
+    },
+    modalDetails: {
+      overview: "An automated biometric check-in solution for schools, universities, or secure checkpoints. Users pass in front of a camera system and are authenticated in sub-second latency using pre-computed face embedding indexes.",
+      problem: "Varying illumination in lobby areas drastically reduced basic OpenCV classification rates, while heavy CPU spikes degraded performance.",
+      approach: "Implemented bilateral filtering, histogram equalization, and transformed face crops into 128-dimensional encodings matched via optimized matrix dot-products.",
+      challenges: [
+        { title: "Illumination Variance", desc: "Lobby lighting changes causing false negatives during peak morning hours." },
+        { title: "CPU Resource Bottlenecks", desc: "Parsing uncompressed HD video frames directly through face detection cascades." }
+      ],
+      solutions: "Pre-processed lighting normalizations and optimized matrix dot-products across pre-computed feature vectors.",
+      futureScope: "Integrating stereo-vision depth arrays to prevent static image spoofing and deploying to AWS EKS.",
+      gallery: [
+        "/projects/assets/images/attendance_system.jpg"
       ]
     }
   },
@@ -265,24 +401,35 @@ export const projectsData: Project[] = [
     category: "COMPUTER VISION",
     categories: ["Computer Vision", "Accessibility", "AI"],
     description: "Designed a real-time sign language recognition system using MediaPipe and computer vision to enhance communication accessibility.",
+    problemStatement: "Deaf and speech-impaired individuals encounter communication barriers in standard public services without sign language interpreters.",
+    myApproach: "Formulated a 30 FPS visual translation framework using MediaPipe 3D hand tracking to extract 21 coordinate points and translate dynamic gestures instantly.",
+    architectureDiagram: [
+      "Webcam Visual Stream Input",
+      "Video Frame Extractor",
+      "MediaPipe Pipeline Core (21-Point Hand Skeleton)",
+      "Dynamic Scale Normalizer (Wrist Distance Ratio)",
+      "Gesture Classification ML Model",
+      "Live Translated Text Stream Overlay"
+    ],
     features: [
       "Real-Time Gesture Tracking",
       "3D Hand Landmark Detection",
       "Dual MediaPipe Models",
       "Computer Vision Transforms",
       "Accessibility Overlay Module",
-      "Instant Text Translation",
-      "Ultra-Low Frame Delay",
-      "Robust Gesture Catalog"
+      "Instant Text Translation"
     ],
     architecture: [
-      "Webcam Visual Stream",
-      "Video Frame Extractor",
-      "MediaPipe Pipeline Core",
-      "Hand Bone Keypoint Coordinates",
-      "Dynamic Scale Normalizer",
-      "Translation ML Model",
-      "Live Translated Text Stream"
+      "Webcam Feed",
+      "Frame Processing",
+      "MediaPipe 21-Points",
+      "Distance Normalizer",
+      "Classification Model",
+      "Live Text Stream"
+    ],
+    technologyCategorized: [
+      { category: "COMPUTER VISION & AI", items: ["Python", "MediaPipe", "OpenCV", "NumPy", "Scikit-Learn"] },
+      { category: "UI & ACCESSIBILITY", items: ["Overlay Grid", "Real-Time Render"] }
     ],
     technology: ["Python", "MediaPipe", "OpenCV", "NumPy", "Scikit-Learn"],
     statistics: [
@@ -290,19 +437,29 @@ export const projectsData: Project[] = [
       { label: "Classification", value: "AI Vision" },
       { label: "Target Audience", value: "Accessible" }
     ],
+    metricBlocks: [
+      { value: "REAL-TIME", label: "PIPELINE STREAM" },
+      { value: "30 FPS", label: "HIGH FRAME-RATE" },
+      { value: "MediaPipe", label: "3D LANDMARK TRACKING" },
+      { value: "COMPUTER VISION", label: "GESTURE CLASSIFICATION" }
+    ],
     image: "/projects/assets/images/sign_language.jpg",
     links: {
       demo: "https://github.com/Ashwin15-png",
       github: "https://github.com/Ashwin15-png"
     },
     modalDetails: {
-      overview: "An accessibility interface that maps hand expressions dynamically onto readable transcripts. Built to bridge communication divides, this system tracks joint angles and spatial movements of fingers in real-time, outputting immediate translation overlay grids.",
-      challenges: "Hand sizes and relative distances changed randomly as users moved closer to or further from the camera, breaking coordinate-based models.",
-      solutions: "Converted hand skeleton coordinates to relative distance ratios based on wrist landmarks. This created a distance-invariant framework that translates effectively regardless of camera proximity.",
-      futureScope: "Introducing 3D skeleton maps of facial expressions and body posture for full American Sign Language (ASL) contextual processing.",
+      overview: "An accessibility interface that maps hand expressions dynamically onto readable transcripts. Built to bridge communication divides by tracking joint angles and spatial movements of fingers in real-time.",
+      problem: "Hand sizes and relative camera distances varied drastically as users moved closer to or further from the webcam, corrupting fixed-coordinate gesture models.",
+      approach: "Transformed absolute hand keypoint coordinates into distance-invariant relative ratios computed against wrist reference landmarks.",
+      challenges: [
+        { title: "Proximity Variance", desc: "User distance from camera breaking static coordinate bounding boxes." },
+        { title: "Frame-Rate Jitter", desc: "High frame drops during complex gesture sequences degrading translation fluency." }
+      ],
+      solutions: "Calculated wrist-relative vector normalizations to maintain consistent recognition accuracy across varied camera positions.",
+      futureScope: "Introducing 3D skeleton maps for facial expressions and body posture for full ASL contextual processing.",
       gallery: [
-        "/projects/assets/images/sign_details_1.jpg",
-        "/projects/assets/images/sign_details_2.jpg"
+        "/projects/assets/images/sign_language.jpg"
       ]
     }
   },
@@ -312,23 +469,35 @@ export const projectsData: Project[] = [
     category: "COMPUTER VISION / MACHINE LEARNING",
     categories: ["Computer Vision", "Machine Learning", "Security"],
     description: "Implemented an intelligent face detection and recognition application using OpenCV and machine learning for identity verification.",
+    problemStatement: "Legacy facial detectors suffer high failure rates when subject head angles rotate away from frontal angles or during shadow changes.",
+    myApproach: "Utilized MTCNN 5-point facial landmark alignment (eyes, nose, mouth corners) to dynamically deskew facial frames before passing them into a 128D embedding generator and KNN classifier.",
+    architectureDiagram: [
+      "Camera Capture Feed",
+      "Active Frame Buffering",
+      "MTCNN Multi-Task Cascaded Face Detection",
+      "5-Point Landmark Face Alignment",
+      "128D Vector Embedding Generator",
+      "K-Nearest Neighbors Identity Classifier",
+      "Verified Entry Lock Output"
+    ],
     features: [
-      "Real-Time Scanner stream",
+      "Real-Time Scanner Stream",
       "Multi-Face Coordinates",
-      "Face Embedding Computations",
-      "Identity Lock Validation",
-      "Security Auth integration",
-      "Sub-100ms Inference",
-      "Multiple Face Batch scans"
+      "128D Face Embedding Computations",
+      "Identity Verification",
+      "Sub-80ms Inference",
+      "MTCNN Facial Landmark Alignment"
     ],
     architecture: [
-      "Camera Capture feed",
-      "Active Frame Buffering",
-      "MTCNN Face Detection Box",
-      "128D Embedding Engine",
-      "K-Nearest Neighbors Classify",
-      "Verified Entry Decoded",
-      "Hardware Auth Relay Output"
+      "Camera Stream",
+      "MTCNN Detection",
+      "5-Point Alignment",
+      "128D Embeddings",
+      "KNN Classifier",
+      "Verified Entry"
+    ],
+    technologyCategorized: [
+      { category: "MACHINE LEARNING & CV", items: ["Python", "OpenCV", "MTCNN", "Scikit-Learn", "NumPy"] }
     ],
     technology: ["Python", "OpenCV", "Machine Learning", "NumPy", "Scikit-Learn"],
     statistics: [
@@ -336,19 +505,29 @@ export const projectsData: Project[] = [
       { label: "System Accuracy", value: "98.7%" },
       { label: "Algorithm Base", value: "ML Powered" }
     ],
+    metricBlocks: [
+      { value: "SUB-80MS INFERENCE", label: "SCAN LATENCY" },
+      { value: "98.7% ACCURACY", label: "CLASSIFICATION RATE" },
+      { value: "MTCNN ALIGNMENT", label: "5-POINT LANDMARKS" },
+      { value: "128D EMBEDDINGS", label: "VECTOR MATCHING" }
+    ],
     image: "/projects/assets/images/face_recognition.jpg",
     links: {
       demo: "https://github.com/Ashwin15-png",
       github: "https://github.com/Ashwin15-png"
     },
     modalDetails: {
-      overview: "A standalone identity verification utility that works at the edge. Capable of scanning high-speed video streams, it uses light face-encoding algorithms to verify authorized members and log timestamps automatically.",
-      challenges: "Side profile head tilts and sudden shadow occlusion bypassed traditional HAAR cascades.",
-      solutions: "Swapped HAAR classifiers with MTCNN (Multi-task Cascaded Convolutional Networks), performing 5-point face alignment (eyes, nose, mouth corners) to dynamically rotate faces before calculating embeddings.",
-      futureScope: "Integrating secure cloud sync protocols to automatically update matching indices across multiple edge terminals simultaneously.",
+      overview: "A standalone identity verification utility that works at the edge. Capable of scanning high-speed video streams, it uses lightweight face-encoding algorithms to verify authorized members and log timestamps.",
+      problem: "Side profile head tilts and sudden shadow occlusion bypassed traditional HAAR cascades.",
+      approach: "Swapped HAAR classifiers with MTCNN (Multi-task Cascaded Convolutional Networks), performing 5-point face alignment to dynamically rotate faces before calculating embeddings.",
+      challenges: [
+        { title: "Head Rotation Skew", desc: "Non-frontal face angles causing key feature mismatches." },
+        { title: "Sub-Second Latency Requirement", desc: "Parsing neural network alignment cascades without dropping video stream frames." }
+      ],
+      solutions: "Executed 5-point facial landmark transforms to normalize head rotation prior to vector distance comparison.",
+      futureScope: "Integrating secure cloud sync protocols to automatically update matching indices across multiple edge terminals.",
       gallery: [
-        "/projects/assets/images/face_details_1.jpg",
-        "/projects/assets/images/face_details_2.jpg"
+        "/projects/assets/images/face_recognition.jpg"
       ]
     }
   },
@@ -356,27 +535,37 @@ export const projectsData: Project[] = [
     id: "hospital-portal",
     title: "Hospital Management Portal",
     category: "FULL STACK",
-    categories: ["Full Stack", "Healthcare"],
+    categories: ["Full Stack", "Healthcare", "Databases"],
     description: "Developed a web-based hospital management platform for efficient patient, appointment, and administrative management.",
+    problemStatement: "Concurrent patient scheduling requests led to overlapping doctor appointment slots during busy hospital operational hours.",
+    myApproach: "Built a transaction-safe full-stack portal using PHP and MySQL with InnoDB row-level locking to validate timetable availability before committing appointment slips.",
+    architectureDiagram: [
+      "Role-Based User Clients (Patients, Doctors, Admins)",
+      "HTTP Session Security Guard",
+      "PHP Controller & Routing Module",
+      "Patient Record & Appointment Manager",
+      "MySQL Multi-Table Relational Store (InnoDB Row Locks)",
+      "Visual Analytics & Billing Report Generator"
+    ],
     features: [
       "Patient Intake Registration",
       "Doctor Schedule Roster",
       "Appointment Calendar Sync",
       "Digital Health Records",
       "Invoicing & Reports",
-      "Role-Based Dashboards",
-      "Session Security Locks",
-      "Fluid Desktop Design"
+      "Role-Based Dashboards"
     ],
     architecture: [
-      "Role-Based User Clients",
-      "HTTP Router Session Shield",
-      "PHP Controller Module",
-      "Patient Record Router",
-      "Doctor Timetable Tracker",
-      "Appointment Booking Queue",
-      "MySQL Multi-Table Cache",
-      "Visual Analytics Generator"
+      "Role Clients",
+      "PHP Controller",
+      "Appointment Validator",
+      "MySQL InnoDB Locks",
+      "Billing Engine",
+      "Analytics Dashboard"
+    ],
+    technologyCategorized: [
+      { category: "FULL STACK WEB", items: ["HTML5", "CSS3", "JavaScript", "PHP", "Bootstrap"] },
+      { category: "DATABASE & LOGISTICS", items: ["MySQL", "InnoDB Row Locking", "Relational Schemas"] }
     ],
     technology: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Bootstrap"],
     statistics: [
@@ -384,19 +573,29 @@ export const projectsData: Project[] = [
       { label: "Layout Type", value: "Highly Responsive" },
       { label: "Data Structure", value: "MySQL Engine" }
     ],
+    metricBlocks: [
+      { value: "FULL STACK PORTAL", label: "HEALTHCARE LOGISTICS" },
+      { value: "10K+ RECORDS", label: "DATABASE SCALE" },
+      { value: "INNODB ROW LOCK", label: "ZERO DOUBLE-BOOKING" },
+      { value: "MYSQL DB", label: "RELATIONAL ENGINE" }
+    ],
     image: "/projects/assets/images/hospital_portal.jpg",
     links: {
       demo: "https://github.com/Ashwin15-png",
       github: "https://github.com/Ashwin15-png"
     },
     modalDetails: {
-      overview: "An integrated healthcare logistics application that unites medical, billing, and scheduling workflows. Serves as a single source of truth for doctors logging diagnosis slips, patients checking slots, and admins balancing invoices.",
-      challenges: "Concurrent database operations caused overlapping appointment bookings for the same doctor at the same hour during peak loads.",
-      solutions: "Introduced MySQL transactions utilizing InnoDB row-level locking. Developed a validator that cross-references conflict lists within the transaction before finalizing patient check-out records.",
-      futureScope: "Building automated SMS alerts for patient queues and integrating a HIPAA-compliant encrypted video system for telemedicine sessions.",
+      overview: "An integrated healthcare logistics application that unites medical, billing, and scheduling workflows. Serves as a single source of truth for doctors logging diagnosis slips and patients checking slots.",
+      problem: "Concurrent database operations caused overlapping appointment bookings for the same doctor at the same hour during peak loads.",
+      approach: "Introduced MySQL transactions utilizing InnoDB row-level locking. Developed a validator that cross-references conflict lists within the transaction before finalizing patient records.",
+      challenges: [
+        { title: "Race Conditions on Slots", desc: "Simultaneous booking requests creating duplicate appointment records." },
+        { title: "Role-Based Access Control", desc: "Enforcing strict data privacy boundaries between patients, doctors, and billing staff." }
+      ],
+      solutions: "Wrapped booking queries inside atomic SQL transactions with explicit row locking.",
+      futureScope: "Building automated SMS alerts for patient queues and integrating a HIPAA-compliant encrypted video system.",
       gallery: [
-        "/projects/assets/images/hospital_details_1.jpg",
-        "/projects/assets/images/hospital_details_2.jpg"
+        "/projects/assets/images/hospital_portal.jpg"
       ]
     }
   },
@@ -404,27 +603,36 @@ export const projectsData: Project[] = [
     id: "hotel-reservation",
     title: "Hotel Reservation System",
     category: "FULL STACK",
-    categories: ["Full Stack", "Booking", "Database"],
+    categories: ["Full Stack", "Booking", "Databases"],
     description: "Designed a reservation management application to simplify hotel booking, customer management, and room allocation.",
-    features: [
-      "Interactive Room Grid",
-      "Booking lifecycle logic",
-      "Customer Profile records",
-      "Secure Transaction logs",
-      "Live Room availability",
-      "Analytics Revenue charts",
-      "Advanced Staff Dashboard",
-      "Elastic Search Filters"
-    ],
-    architecture: [
-      "Customer Booking Frontend",
+    problemStatement: "Dynamic seasonal pricing and real-time room availability matrix queries created database performance bottlenecks.",
+    myApproach: "Optimized database schemas through normalization, indexed booking timestamps, and integrated Memcached to serve real-time room matrices instantly.",
+    architectureDiagram: [
+      "Customer Booking Frontend UI",
       "Secure Router Shield",
       "Booking Engine Controller",
       "Room Matrix Coordinator",
-      "Payment Processing Stub",
-      "Customer Record Database",
-      "MySQL Tables System",
-      "Admin Dashboard Metrics"
+      "Memcached Query Acceleration Layer",
+      "MySQL Relational Database System"
+    ],
+    features: [
+      "Interactive Room Grid",
+      "Booking Lifecycle Logic",
+      "Customer Profile Records",
+      "Secure Transaction Logs",
+      "Live Room Availability",
+      "Analytics Revenue Charts"
+    ],
+    architecture: [
+      "Customer Frontend",
+      "Booking Engine",
+      "Memcached Layer",
+      "MySQL Database",
+      "Admin Analytics"
+    ],
+    technologyCategorized: [
+      { category: "FULL STACK WEB", items: ["HTML5", "CSS3", "JavaScript", "PHP"] },
+      { category: "DATABASE & CACHING", items: ["MySQL", "Memcached", "Relational Schemas"] }
     ],
     technology: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     statistics: [
@@ -432,19 +640,29 @@ export const projectsData: Project[] = [
       { label: "Core Database", value: "Relational SQL" },
       { label: "User Interface", value: "Responsive Grids" }
     ],
+    metricBlocks: [
+      { value: "REAL-TIME GRID", label: "ROOM MATRIX" },
+      { value: "DYNAMIC PRICING", label: "AUTOMATED RATES" },
+      { value: "MEMCACHED CACHE", label: "FAST RESPONSE" },
+      { value: "SQL ENGINE", label: "STRUCTURED DB" }
+    ],
     image: "/projects/assets/images/hotel_reservation.jpg",
     links: {
       demo: "https://github.com/Ashwin15-png",
       github: "https://github.com/Ashwin15-png"
     },
     modalDetails: {
-      overview: "A dedicated reservation command center. Room state triggers are updated automatically, letting checkout managers track active bookings, handle cleanings, process room changes, and audit invoices from a unified dashboard.",
-      challenges: "Dynamic price calculations based on weekend rates and holiday seasons resulted in slow MySQL query times.",
-      solutions: "Optimized database schemas by normalizing rates, indexing booking timestamps, and using Memcached to cache room configurations.",
-      futureScope: "Integrating IoT smart locks that send temporary QR-code door keys directly to customers' emails upon booking confirmation.",
+      overview: "A dedicated reservation command center. Room state triggers are updated automatically, letting checkout managers track active bookings, handle cleanings, and audit invoices.",
+      problem: "Dynamic price calculations based on weekend rates and holiday seasons resulted in slow MySQL query times.",
+      approach: "Optimized database schemas by normalizing rates, indexing booking timestamps, and using Memcached to cache room configurations.",
+      challenges: [
+        { title: "Dynamic Rate Computation", desc: "Recalculating room tariffs dynamically during seasonal date ranges caused query latency." },
+        { title: "Grid State Sync", desc: "Updating room availability states across concurrent admin and customer sessions." }
+      ],
+      solutions: "Cached calculated room matrices in Memcached with automatic invalidation triggers on status update.",
+      futureScope: "Integrating IoT smart locks that send temporary QR-code door keys directly to customers' emails upon booking.",
       gallery: [
-        "/projects/assets/images/hotel_details_1.jpg",
-        "/projects/assets/images/hotel_details_2.jpg"
+        "/projects/assets/images/hotel_reservation.jpg"
       ]
     }
   }

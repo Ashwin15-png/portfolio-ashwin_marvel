@@ -79,74 +79,97 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
-        <div class="z-10 text-center px-4 max-w-5xl mx-auto" data-aos="zoom-out" data-aos-duration="1200">
-            <div
-                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/5 text-blue-400 mono text-xs mb-8">
-                <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
-                OPEN TO SOFTWARE ENGINEERING • FULL STACK • DEVSECOPS
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
+        <!-- Subtle Technical Glow background -->
+        <div class="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_50%_30%,rgba(99,102,241,0.25),transparent_70%)]"></div>
+
+        <div class="z-10 text-center px-4 max-w-5xl mx-auto" data-aos="zoom-out" data-aos-duration="1000">
+            
+            <!-- Live engineering status indicator -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-mono text-xs font-semibold mb-8 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                ● AVAILABLE FOR SOFTWARE ENGINEERING OPPORTUNITIES
             </div>
 
-            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight mb-6 leading-none">
-                S. ASHWIN <span
-                    class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500">KUMAR</span>
-            </h1>
-
-            <!-- Word Rotator Subtitle -->
-            <div
-                class="text-xl md:text-3xl font-semibold tracking-tight text-slate-400 mb-10 h-10 flex items-center justify-center">
-                <span class="mr-2">// I'm a</span>
-                <span id="roleRotator"
-                    class="text-white border-b-2 border-indigo-500/40 pb-1 min-w-[200px] transition-all duration-300 inline-block opacity-100 transform translate-y-0">Software
-                    Engineer</span>
+            <!-- NAME & HEADLINE -->
+            <div class="mb-6">
+                <span class="block text-slate-400 font-mono text-xs md:text-sm tracking-[0.25em] uppercase mb-3 font-semibold">
+                    S. ASHWIN KUMAR
+                </span>
+                <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-[1.08] max-w-5xl mx-auto">
+                    I engineer <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">AI-powered systems</span> that solve real-world problems.
+                </h1>
             </div>
 
-            <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed mb-12">
-                Building scalable software, cloud-native applications, and AI-powered solutions through modern
-                engineering practices. Passionate about full-stack development, DevSecOps, automation, and solving
-                real-world problems with technology.
-            </p>
+            <!-- SUPPORTING TEXT & SECOND LINE -->
+            <div class="max-w-3xl mx-auto mb-8 space-y-2">
+                <p class="text-lg sm:text-xl md:text-2xl text-slate-200 font-semibold leading-relaxed">
+                    Software Engineer specializing in Full Stack, AI Engineering & Cloud Systems.
+                </p>
+                <p class="text-base sm:text-lg text-indigo-300/90 font-mono font-normal">
+                    Turning complex ideas into production-ready systems.
+                </p>
+            </div>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a href="/projects" class="btn-premium btn-premium-primary text-black">
-                    View Projects
+            <!-- SPECIALIZATION ROW -->
+            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-mono font-bold tracking-widest uppercase mb-10 text-slate-300">
+                <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-indigo-300 shadow-sm">FULL STACK</span>
+                <span class="text-indigo-500">•</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-purple-300 shadow-sm">AI/ML</span>
+                <span class="text-indigo-500">•</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-blue-300 shadow-sm">CLOUD</span>
+                <span class="text-indigo-500">•</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-emerald-300 shadow-sm">DEVSECOPS</span>
+            </div>
+
+            <!-- EXACTLY 3 CTAS -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
+                <a href="#projects" class="w-full sm:w-auto btn-premium btn-premium-primary text-black font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-full shadow-[0_10px_30px_rgba(59,130,246,0.3)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.4)] transition-all cursor-none flex items-center justify-center gap-2">
+                    <span>VIEW MY WORK</span>
+                    <i class="bi bi-arrow-down-right"></i>
                 </a>
-                <a href="assets/Resume_CV_-Ashwin Kumar S.pdf" download="Resume_CV_-Ashwin Kumar S.pdf"
-                    class="btn-premium btn-premium-secondary cursor-none">
-                    Download Resume <i class="bi bi-download ml-2 text-xs"></i>
+                <a href="assets/Resume_CV_-Ashwin Kumar S.pdf" download="Resume_CV_-Ashwin Kumar S.pdf" class="w-full sm:w-auto btn-premium btn-premium-secondary font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-full border border-white/15 hover:bg-white/10 transition-all cursor-none flex items-center justify-center gap-2">
+                    <span>DOWNLOAD RESUME</span>
+                    <i class="bi bi-download"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-indigo-600/30 border border-indigo-500/50 hover:bg-indigo-600 text-indigo-200 hover:text-white font-bold text-xs font-mono uppercase tracking-wider transition-all cursor-none flex items-center justify-center gap-2 shadow-lg">
+                    <span>LET'S CONNECT</span>
+                    <i class="bi bi-chat-text-fill"></i>
                 </a>
             </div>
+
         </div>
 
-        <!-- Subtle Scroll Down Indicator -->
-        <div
-            class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 text-[10px] uppercase tracking-widest">
+        <!-- Subtle Scroll Indicator -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 text-[10px] uppercase font-mono tracking-widest">
             <span>Scroll Down</span>
-            <div class="w-1.5 h-6 rounded-full border border-slate-500/30 flex items-start justify-center p-[2px] h-8">
+            <div class="w-1.5 h-6 rounded-full border border-slate-500/30 flex items-start justify-center p-[2px]">
                 <div class="w-1 h-2 bg-slate-400 rounded-full animate-bounce"></div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-32 px-6 bg-black/20">
+    <section id="about" class="py-24 px-6 bg-black/30 border-y border-white/5">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-xs mono text-blue-400 mb-4 tracking-widest uppercase">// ABOUT</h2>
-            <h3 class="text-3xl md:text-5xl font-bold uppercase mb-8 tracking-tight bg-text-gradient">About Me</h3>
-            <div class="space-y-6 text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed text-center">
+            <h2 class="text-xs mono text-blue-400 mb-3 tracking-widest uppercase">// CORE POSITIONING</h2>
+            <h3 class="text-3xl md:text-5xl font-extrabold uppercase mb-6 tracking-tight bg-text-gradient">Engineering Identity</h3>
+            
+            <div class="p-6 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 mb-8 max-w-3xl mx-auto shadow-inner">
+                <p class="text-lg md:text-2xl font-extrabold text-white tracking-tight leading-snug">
+                    Software Engineer specializing in Full Stack, AI Engineering & Cloud Systems
+                </p>
+                <p class="text-xs font-mono text-indigo-300 uppercase tracking-widest mt-2">
+                    Turning complex ideas into production-ready software systems
+                </p>
+            </div>
+
+            <div class="space-y-6 text-base md:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed text-center font-light">
                 <p>
-                    I'm Ashwin Kumar, a B.Tech Information Technology student passionate about building secure,
-                    scalable, and user-centric software solutions.
+                    I'm Ashwin Kumar, an engineer focused on architecting end-to-end software systems that combine robust full-stack web applications, real-time AI/ML pipelines, and cloud-native infrastructure.
                 </p>
                 <p>
-                    My interests span Full Stack Development, Cloud Computing, DevSecOps, Artificial Intelligence, and
-                    Software Engineering. I enjoy transforming ideas into production-ready applications while
-                    continuously learning modern technologies and industry best practices.
-                </p>
-                <p>
-                    Currently serving as the President of IntelliVerse AI Club and Organizer of Google Developer
-                    Groups (GDG) PSVPEC, I actively contribute to technical communities, organize events, and
-                    collaborate on innovative projects.
+                    From high-frequency IoT predictive maintenance stream engines (VibeGuard AI) to medical OCR extraction SaaS platforms (PrescriptionX) and real-time audio anti-spoofing systems (VIGIL-VOICE), I build software systems using modern Full Stack, AI, and Cloud technologies.
                 </p>
             </div>
         </div>
@@ -252,128 +275,99 @@
     <!-- Technical Stack Section -->
     <section id="skills" class="py-32 px-6 bg-black/20">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-xs mono text-blue-400 mb-4 text-center tracking-widest uppercase">// TECH STACK</h2>
-            <h3 class="text-3xl md:text-5xl font-bold uppercase text-center mb-20 tracking-tight bg-text-gradient">
-                Technical Arsenal</h3>
+            <h2 class="text-xs mono text-blue-400 mb-4 text-center tracking-widest uppercase">// CORE DOMAINS</h2>
+            <h3 class="text-3xl md:text-5xl font-bold uppercase text-center mb-16 tracking-tight bg-text-gradient">
+                Engineering Specializations</h3>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Langs Card -->
-                <div class="glass-card interactive-card p-8 border-white/5" data-aos="fade-up">
-                    <h5 class="mono text-blue-400 text-xs mb-6 uppercase tracking-wider">// Programming Languages</h5>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Java</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Python</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">JavaScript</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">C++</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">SQL</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- 1. FULL STACK -->
+                <div class="glass-card interactive-card p-8 border-indigo-500/20 flex flex-col justify-between" data-aos="fade-up">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-xl mb-6">
+                            <i class="bi bi-layers-fill"></i>
+                        </div>
+                        <h4 class="text-xl font-extrabold text-white mb-2">FULL STACK</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6 font-light">
+                            End-to-end web architectures, reactive client applications, REST/WebSocket APIs, and relational/document database schemas.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-indigo-300">React</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-indigo-300">Next.js</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-indigo-300">Node.js</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-indigo-300">Express</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-indigo-300">FastAPI</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-indigo-300">JavaScript</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-indigo-300">MongoDB</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-indigo-300">MySQL</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-indigo-300">PostgreSQL</span>
                     </div>
                 </div>
 
-                <!-- Frontend Card -->
-                <div class="glass-card interactive-card p-8 border-white/5" data-aos="fade-up" data-aos-delay="100">
-                    <h5 class="mono text-purple-400 text-xs mb-6 uppercase tracking-wider">// Frontend</h5>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">React</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Next.js</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">HTML5</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">CSS3</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Tailwind
-                            CSS</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Bootstrap</span>
+                <!-- 2. AI / ML -->
+                <div class="glass-card interactive-card p-8 border-purple-500/20 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl mb-6">
+                            <i class="bi bi-cpu-fill"></i>
+                        </div>
+                        <h4 class="text-xl font-extrabold text-white mb-2">AI / ML</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6 font-light">
+                            Computer vision pipelines, neural network inference, optical character recognition, audio anti-spoofing, and landmark models.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-purple-300">Python</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-purple-300">PyTorch</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-purple-300">OpenCV</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-purple-300">Tesseract OCR</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-purple-300">MediaPipe</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-purple-300">AASIST-L</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-purple-300">Scikit-Learn</span>
                     </div>
                 </div>
 
-                <!-- Backend Card -->
-                <div class="glass-card interactive-card p-8 border-white/5" data-aos="fade-up" data-aos-delay="200">
-                    <h5 class="mono text-blue-400 text-xs mb-6 uppercase tracking-wider">// Backend</h5>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Node.js</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Express.js</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Flask</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">FastAPI</span>
+                <!-- 3. CLOUD -->
+                <div class="glass-card interactive-card p-8 border-blue-500/20 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl mb-6">
+                            <i class="bi bi-cloud-check-fill"></i>
+                        </div>
+                        <h4 class="text-xl font-extrabold text-white mb-2">CLOUD</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6 font-light">
+                            Containerized deployments, cloud services, high-availability web servers, and distributed cloud platform architecture.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-blue-300">AWS</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-blue-300">GCP</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-blue-300">Azure</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-blue-300">Docker</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-blue-300">Kubernetes</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-blue-300">Nginx</span>
                     </div>
                 </div>
 
-                <!-- Databases Card -->
-                <div class="glass-card interactive-card p-8 border-white/5" data-aos="fade-up">
-                    <h5 class="mono text-purple-400 text-xs mb-6 uppercase tracking-wider">// Databases</h5>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">MongoDB</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">MySQL</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">PostgreSQL</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Neo4j</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">SQLite</span>
+                <!-- 4. DEVSECOPS -->
+                <div class="glass-card interactive-card p-8 border-emerald-500/20 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-6">
+                            <i class="bi bi-shield-lock-fill"></i>
+                        </div>
+                        <h4 class="text-xl font-extrabold text-white mb-2">DEVSECOPS</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6 font-light">
+                            CI/CD pipeline automation, endpoint security compliance, automated integration test suites, and system encryption.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-emerald-300">GitHub Actions</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-emerald-300">Linux</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-emerald-300">Git</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-emerald-300">TPM 2.0</span>
+                        <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[11px] font-mono text-emerald-300">ServiceNow</span>
                     </div>
                 </div>
 
-                <!-- Cloud & DevOps -->
-                <div class="glass-card interactive-card p-8 border-white/5" data-aos="fade-up" data-aos-delay="100">
-                    <h5 class="mono text-blue-400 text-xs mb-6 uppercase tracking-wider">// Cloud & DevOps</h5>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">AWS</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Google
-                            Cloud</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Microsoft
-                            Azure</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Docker</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Kubernetes</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">GitHub
-                            Actions</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Linux</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Git</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Nginx</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Gunicorn</span>
-                    </div>
-                </div>
-
-                <!-- AI / Machine Learning -->
-                <div class="glass-card interactive-card p-8 border-white/5" data-aos="fade-up" data-aos-delay="200">
-                    <h5 class="mono text-purple-400 text-xs mb-6 uppercase tracking-wider">// AI / Machine Learning</h5>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">OpenCV</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">TensorFlow</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">MediaPipe</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Scikit-Learn</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Pandas</span>
-                        <span
-                            class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">NumPy</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -381,244 +375,446 @@
     <!-- Projects Section -->
     <section id="projects" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-xs mono text-cyan-400 mb-4 text-center tracking-widest uppercase">// PORTFOLIO FLAGSHIP SHOWCASE</h2>
-            <h3 class="text-3xl md:text-5xl font-bold uppercase text-center mb-16 tracking-tight bg-text-gradient">
-                Featured Projects</h3>
+            <h2 class="text-xs mono text-cyan-400 mb-3 text-center tracking-widest uppercase">// FEATURED SYSTEMS SHOWCASE</h2>
+            <h3 class="text-3xl md:text-5xl font-extrabold uppercase text-center mb-16 tracking-tight bg-text-gradient">
+                Production-Ready Projects</h3>
 
-            <!-- ⭐ FLAGSHIP PROJECT HERO BANNERS -->
+            <!-- ⭐ FLAGSHIP PROJECTS -->
             <div class="grid lg:grid-cols-2 gap-8 mb-16">
-                <!-- VibeGuard AI - Flagship 1 -->
-                <div class="glass-card interactive-card p-8 border-cyan-500/30 relative overflow-hidden group flex flex-col h-full" data-aos="fade-up">
-                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition duration-700"></div>
-                    
-                    <!-- Top Graphic -->
-                    <div class="relative rounded-2xl overflow-hidden border border-cyan-500/20 shadow-[0_15px_40px_rgba(6,182,212,0.15)] group-hover:scale-[1.02] transition duration-500 mb-6 shrink-0 aspect-[16/9]">
-                        <img src="/projects/assets/images/vibeguard_ai.jpg" alt="VibeGuard AI Telemetry Suite" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent opacity-60"></div>
-                        <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 flex justify-between items-center text-[10px] font-mono">
-                            <span class="text-cyan-400 font-bold">● LIVE STREAMING</span>
-                            <span class="text-emerald-400 font-bold">5+ PARAMETERS</span>
-                        </div>
-                    </div>
-
-                    <!-- Content -->
-                    <div class="space-y-4 flex-grow flex flex-col">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/40 bg-cyan-500/10 text-cyan-300 mono text-[10px] font-bold tracking-wider uppercase self-start">
+                
+                <!-- Flagship 1: VibeGuard AI -->
+                <div class="glass-card interactive-card p-8 border-cyan-500/30 relative overflow-hidden group flex flex-col h-full rounded-2xl shadow-xl" data-aos="fade-up">
+                    <!-- Top Category Badge -->
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/40 bg-cyan-500/10 text-cyan-300 font-mono text-[10px] font-bold tracking-wider uppercase">
                             <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                            ⭐ FLAGSHIP • INDUSTRIAL IOT
-                        </div>
-                        <h4 class="text-2xl font-extrabold text-white tracking-tight leading-tight">
-                            VibeGuard AI — Predictive Maintenance
-                        </h4>
-                        <p class="text-indigo-200 text-sm italic font-light leading-relaxed border-l-2 border-cyan-400 pl-3 py-1">
-                            "An enterprise-grade Industrial IoT platform leveraging real-time sensor processing for condition monitoring."
-                        </p>
-                        <p class="text-slate-400 text-xs leading-relaxed font-light flex-grow">
-                            Continuous machine telemetry monitoring with sustained anomaly verification, EMA signal filtering, Socket.IO live streaming, and MongoDB Atlas persistence.
-                        </p>
-                        
-                        <!-- Tech Badges -->
-                        <div class="flex flex-wrap gap-2 pt-2">
-                            <span class="px-2 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-[10px] font-mono text-blue-300">React</span>
-                            <span class="px-2 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-mono text-emerald-300">Node.js</span>
-                            <span class="px-2 py-1 rounded bg-cyan-500/10 border border-cyan-500/20 text-[10px] font-mono text-cyan-300">Socket.IO</span>
-                            <span class="px-2 py-1 rounded bg-purple-500/10 border border-purple-500/20 text-[10px] font-mono text-purple-300">MongoDB</span>
+                            ⭐ FLAGSHIP • INDUSTRIAL IOT / PREDICTIVE MAINTENANCE
+                        </span>
+                    </div>
+
+                    <!-- Real Screenshot (Visually Dominant) -->
+                    <div class="relative rounded-xl overflow-hidden border border-cyan-500/20 shadow-[0_15px_40px_rgba(6,182,212,0.15)] group-hover:scale-[1.02] transition duration-500 mb-6 shrink-0 aspect-[16/9] bg-slate-950">
+                        <img src="/projects/assets/images/vibeguard_ai.jpg" alt="VibeGuard AI Telemetry Suite" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute bottom-3 left-3 right-3 bg-black/75 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 flex justify-between items-center text-[10px] font-mono">
+                            <span class="text-cyan-400 font-bold">● LIVE WEBSOCKET TELEMETRY</span>
+                            <span class="text-emerald-400 font-bold">5+ SENSOR PARAMETERS</span>
                         </div>
                     </div>
 
-                    <!-- Buttons -->
-                    <div class="flex flex-wrap items-center gap-3 pt-6 mt-auto">
-                        <a href="/vibeguard-ai.html" class="flex-1 text-center btn-premium btn-premium-primary text-black font-bold text-[10px] uppercase tracking-wider cursor-none">
-                            Case Study <i class="bi bi-arrow-right ml-1"></i>
+                    <!-- Title & Problem Statement -->
+                    <div class="space-y-3 flex-grow flex flex-col mb-4">
+                        <h4 class="text-2xl font-extrabold text-white tracking-tight leading-tight group-hover:text-cyan-300 transition-colors">
+                            VibeGuard AI — Predictive Maintenance System
+                        </h4>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed font-light">
+                            Enterprise-grade Industrial IoT platform leveraging real-time sensor processing, noise-filtered anomaly detection algorithms, and Socket.IO WebSocket telemetry to eliminate false alarms and minimize machine downtime.
+                        </p>
+                    </div>
+
+                    <!-- KEY EVIDENCE / METRICS VISUAL BLOCKS -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+                        <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 text-center">
+                            <div class="text-white text-xs font-extrabold font-mono text-cyan-300">5+ SENSOR PARAMETERS</div>
+                            <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">TELEMETRY STREAM</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 text-center">
+                            <div class="text-white text-xs font-extrabold font-mono text-cyan-300">REAL-TIME TELEMETRY</div>
+                            <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">LATENCY &lt; 50MS</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 text-center">
+                            <div class="text-white text-xs font-extrabold font-mono text-cyan-300">SOCKET.IO STREAMING</div>
+                            <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">BIDIRECTIONAL FEED</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 text-center">
+                            <div class="text-white text-xs font-extrabold font-mono text-cyan-300">MONGODB ATLAS</div>
+                            <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">PERSISTENT STORE</div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack Badges -->
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-[10px] font-mono text-blue-300">React</span>
+                        <span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-mono text-emerald-300">Node.js</span>
+                        <span class="px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20 text-[10px] font-mono text-cyan-300">Socket.IO</span>
+                        <span class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20 text-[10px] font-mono text-purple-300">MongoDB</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-500/10 border border-slate-500/20 text-[10px] font-mono text-slate-300">EMA Filter</span>
+                    </div>
+
+                    <!-- Actions: CASE STUDY | LIVE DEMO | GITHUB -->
+                    <div class="flex flex-wrap items-center gap-2 pt-2 mt-auto border-t border-white/5">
+                        <a href="/vibeguard-ai.html" class="flex-1 text-center py-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 hover:bg-cyan-500 text-cyan-200 hover:text-black font-bold font-mono text-[11px] uppercase tracking-wider transition cursor-none flex items-center justify-center gap-1">
+                            <span>CASE STUDY</span> <i class="bi bi-arrow-right"></i>
                         </a>
-                        <a href="https://machine-condition-monitoring-vibe-g.vercel.app" target="_blank" class="flex-1 text-center py-2.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500/20 text-cyan-300 font-bold text-[10px] uppercase tracking-wider transition cursor-none">
-                            Live Demo <i class="bi bi-box-arrow-up-right ml-1"></i>
+                        <a href="https://machine-condition-monitoring-vibe-g.vercel.app" target="_blank" class="flex-1 text-center py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 font-bold font-mono text-[11px] uppercase tracking-wider transition cursor-none flex items-center justify-center gap-1">
+                            <span>LIVE DEMO</span> <i class="bi bi-box-arrow-up-right"></i>
                         </a>
-                        <a href="https://github.com/Ashwin15-png/Machine-Condition-Monitoring-VibeGuardAI" target="_blank" class="flex-1 text-center py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 font-bold text-[10px] uppercase tracking-wider transition cursor-none">
-                            GitHub <i class="bi bi-github ml-1"></i>
+                        <a href="https://github.com/Ashwin15-png/Machine-Condition-Monitoring-VibeGuardAI" target="_blank" class="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 transition cursor-none" title="GitHub">
+                            <i class="bi bi-github text-sm"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- PrescriptionX - Flagship 2 -->
-                <div class="glass-card interactive-card p-8 border-purple-500/30 relative overflow-hidden group flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition duration-700"></div>
-                    
-                    <!-- Top Graphic -->
-                    <div class="relative rounded-2xl overflow-hidden border border-purple-500/20 shadow-[0_15px_40px_rgba(168,85,247,0.15)] group-hover:scale-[1.02] transition duration-500 mb-6 shrink-0 aspect-[16/9]">
-                        <img src="/projects/assets/images/prescription_extractor.jpg" alt="Prescription Extractor SaaS" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent opacity-60"></div>
-                        <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 flex justify-between items-center text-[10px] font-mono">
-                            <span class="text-purple-400 font-bold">● NEW SAAS</span>
-                            <span class="text-pink-400 font-bold">AI OCR PIPELINE</span>
+                <!-- Flagship 2: PrescriptionX -->
+                <div class="glass-card interactive-card p-8 border-purple-500/30 relative overflow-hidden group flex flex-col h-full rounded-2xl shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Top Category Badge -->
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 font-mono text-[10px] font-bold tracking-wider uppercase">
+                            <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                            ⭐ FLAGSHIP • HEALTHCARE AI / ENTERPRISE SAAS
+                        </span>
+                    </div>
+
+                    <!-- Real Screenshot (Visually Dominant) -->
+                    <div class="relative rounded-xl overflow-hidden border border-purple-500/20 shadow-[0_15px_40px_rgba(168,85,247,0.15)] group-hover:scale-[1.02] transition duration-500 mb-6 shrink-0 aspect-[16/9] bg-slate-950">
+                        <img src="/projects/assets/images/prescription_extractor.jpg" alt="Prescription Extractor SaaS" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute bottom-3 left-3 right-3 bg-black/75 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 flex justify-between items-center text-[10px] font-mono">
+                            <span class="text-purple-400 font-bold">● ENTERPRISE OCR PIPELINE</span>
+                            <span class="text-pink-400 font-bold">25+ EXTRACTED FIELDS</span>
                         </div>
                     </div>
 
-                    <!-- Content -->
-                    <div class="space-y-4 flex-grow flex flex-col">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 mono text-[10px] font-bold tracking-wider uppercase self-start">
-                            <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
-                            ⭐ FLAGSHIP • HEALTHCARE AI
-                        </div>
-                        <h4 class="text-2xl font-extrabold text-white tracking-tight leading-tight">
+                    <!-- Title & Problem Statement -->
+                    <div class="space-y-3 flex-grow flex flex-col mb-4">
+                        <h4 class="text-2xl font-extrabold text-white tracking-tight leading-tight group-hover:text-purple-300 transition-colors">
                             PrescriptionX — Enterprise Medical OCR Platform
                         </h4>
-                        <p class="text-purple-200 text-sm italic font-light leading-relaxed border-l-2 border-purple-400 pl-3 py-1">
-                            "Enterprise-grade AI healthcare SaaS platform that digitizes handwritten and printed medical prescriptions."
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed font-light">
+                            Enterprise-grade AI healthcare SaaS platform digitizing handwritten prescriptions using OpenCV image preprocessing, Tesseract OCR, FastAPI, PostgreSQL, and intelligent medical entity extraction.
                         </p>
-                        <p class="text-slate-400 text-xs leading-relaxed font-light flex-grow">
-                            Utilizes OpenCV image preprocessing, Tesseract OCR, FastAPI, PostgreSQL, enterprise analytics, advanced medical field extraction, intelligent filtering, and automated reporting.
-                        </p>
-                        
-                        <!-- Tech Badges -->
-                        <div class="flex flex-wrap gap-2 pt-2">
-                            <span class="px-2 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-[10px] font-mono text-blue-300">FASTAPI</span>
-                            <span class="px-2 py-1 rounded bg-purple-500/10 border border-purple-500/20 text-[10px] font-mono text-purple-300">POSTGRESQL</span>
-                            <span class="px-2 py-1 rounded bg-pink-500/10 border border-pink-500/20 text-[10px] font-mono text-pink-300">OPENCV</span>
+                    </div>
+
+                    <!-- KEY EVIDENCE / METRICS VISUAL BLOCKS -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+                        <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 text-center">
+                            <div class="text-white text-xs font-extrabold font-mono text-purple-300">OCR PIPELINE</div>
+                            <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">TESSERACT SCANNER</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 text-center">
+                            <div class="text-white text-xs font-extrabold font-mono text-purple-300">OPENCV PREPROCESSING</div>
+                            <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">DESKEW &amp; THRESHOLD</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 text-center">
+                            <div class="text-white text-xs font-extrabold font-mono text-purple-300">FASTAPI</div>
+                            <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">REST BACKEND ENGINE</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 text-center">
+                            <div class="text-white text-xs font-extrabold font-mono text-purple-300">POSTGRESQL</div>
+                            <div class="text-[9px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">RELATIONAL DB STORE</div>
                         </div>
                     </div>
 
-                    <!-- Buttons -->
-                    <div class="flex flex-wrap items-center gap-3 pt-6 mt-auto">
-                        <a href="/prescription-extractor.html" class="flex-1 text-center py-2.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-400 hover:to-indigo-400 text-white font-bold text-[10px] uppercase tracking-wider transition shadow-lg cursor-none">
-                            Case Study <i class="bi bi-arrow-right ml-1"></i>
+                    <!-- Tech Stack Badges -->
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-[10px] font-mono text-blue-300">FastAPI</span>
+                        <span class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20 text-[10px] font-mono text-purple-300">PostgreSQL</span>
+                        <span class="px-2 py-0.5 rounded bg-pink-500/10 border border-pink-500/20 text-[10px] font-mono text-pink-300">OpenCV</span>
+                        <span class="px-2 py-0.5 rounded bg-teal-500/10 border border-teal-500/20 text-[10px] font-mono text-teal-300">Tesseract</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-500/10 border border-slate-500/20 text-[10px] font-mono text-slate-300">Docker</span>
+                    </div>
+
+                    <!-- Actions: CASE STUDY | LIVE DEMO | GITHUB -->
+                    <div class="flex flex-wrap items-center gap-2 pt-2 mt-auto border-t border-white/5">
+                        <a href="/prescription-extractor.html" class="flex-1 text-center py-2.5 rounded-xl bg-purple-500/20 border border-purple-500/40 hover:bg-purple-500 text-purple-200 hover:text-white font-bold font-mono text-[11px] uppercase tracking-wider transition cursor-none flex items-center justify-center gap-1">
+                            <span>CASE STUDY</span> <i class="bi bi-arrow-right"></i>
                         </a>
-                        <a href="https://prescription-extractor-ocr.vercel.app/" target="_blank" class="flex-1 text-center py-2.5 rounded-full bg-purple-500/10 border border-purple-500/30 hover:bg-purple-500/20 text-purple-300 font-bold text-[10px] uppercase tracking-wider transition cursor-none">
-                            Live Demo <i class="bi bi-box-arrow-up-right ml-1"></i>
+                        <a href="https://prescription-extractor-ocr.vercel.app/" target="_blank" class="flex-1 text-center py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 font-bold font-mono text-[11px] uppercase tracking-wider transition cursor-none flex items-center justify-center gap-1">
+                            <span>LIVE DEMO</span> <i class="bi bi-box-arrow-up-right"></i>
                         </a>
-                        <a href="https://github.com/Ashwin15-png/prescription-extractor-ocr" target="_blank" class="flex-1 text-center py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 font-bold text-[10px] uppercase tracking-wider transition cursor-none">
-                            GitHub <i class="bi bi-github ml-1"></i>
+                        <a href="https://github.com/Ashwin15-png/prescription-extractor-ocr" target="_blank" class="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 transition cursor-none" title="GitHub">
+                            <i class="bi bi-github text-sm"></i>
                         </a>
                     </div>
                 </div>
+
             </div>
 
-             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Flagship Grid Card -->
-                <a href="/vibeguard-ai.html" class="glass-card interactive-card p-8 border-cyan-500/30 flex flex-col justify-between cursor-none hover:no-underline relative overflow-hidden"
-                    data-aos="fade-up">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded bg-cyan-500/20 border border-cyan-500/40 text-[9px] font-mono font-bold text-cyan-300 uppercase">
-                        ⭐ FLAGSHIP
-                    </div>
+            <!-- ⚡ ONGOING & OTHER PROJECTS GRID -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: VIGIL-VOICE (Ongoing Audio AI Project with Architecture Diagram) -->
+                <div class="glass-card interactive-card p-6 border-amber-500/30 flex flex-col justify-between rounded-2xl group shadow-lg" data-aos="fade-up">
                     <div>
-                        <div
-                            class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center border border-cyan-500/30 mb-6">
-                            <i class="bi bi-cpu-fill text-cyan-400 text-lg"></i>
+                        <!-- Category Badge -->
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-[9px] font-mono font-bold text-amber-300 uppercase">
+                                ⚡ ONGOING SYSTEM
+                            </span>
+                            <span class="text-[9px] font-mono text-slate-400">AUDIO AI / ANTI-SPOOFING</span>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-4">VibeGuard AI — Predictive Maintenance Platform</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Enterprise Industrial IoT system leveraging real-time sensor processing, noise-filtered anomaly detection algorithms, Socket.IO live telemetry, and sustained anomaly validation.
-                        </p>
-                    </div>
-                    <div class="mono text-[10px] text-cyan-400 font-bold">INDUSTRIAL IOT // SOCKET.IO // MONGODB</div>
-                </a>
 
-                <!-- Flagship Grid Card 2 -->
-                <a href="/prescription-extractor.html" class="glass-card interactive-card p-8 border-purple-500/30 flex flex-col justify-between cursor-none hover:no-underline relative overflow-hidden"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded bg-purple-500/20 border border-purple-500/40 text-[9px] font-mono font-bold text-purple-300 uppercase">
-                        ⭐ FLAGSHIP
+                        <!-- Real Screenshot -->
+                        <div class="relative h-44 rounded-xl overflow-hidden border border-white/10 mb-4 bg-slate-950">
+                            <img src="/projects/assets/images/face_recognition.jpg" alt="VIGIL-VOICE Deepfake Detection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+                        </div>
+
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">
+                            VIGIL-VOICE — AI Voice Anti-Spoofing System
+                        </h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4 font-light">
+                            Real-time multi-model voice anti-spoofing and deepfake detection engine processing AASIST-L, ECAPA-TDNN, and LFCC-LCNN neural architectures.
+                        </p>
+
+                        <!-- KEY EVIDENCE / METRICS BLOCKS -->
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-amber-300 text-xs font-bold font-mono">REAL-TIME AUDIO</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">STREAM INFERENCE</div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-amber-300 text-xs font-bold font-mono">AASIST-L MODEL</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">DEEPFAKE GUARD</div>
+                            </div>
+                        </div>
+
+                        <!-- ARCHITECTURE DIAGRAM FLOW -->
+                        <div class="p-3 rounded-xl bg-black/60 border border-white/10 text-[9px] font-mono text-slate-300 mb-4 space-y-1">
+                            <div class="text-amber-400 font-bold uppercase mb-1">// ARCHITECTURE PIPELINE</div>
+                            <div class="text-center font-bold">AUDIO INPUT ↓ AUDIO PROCESSING</div>
+                            <div class="p-1.5 bg-white/5 rounded border border-white/10 text-[8px] text-center text-slate-200">
+                                AASIST-L (Spoof) | ECAPA-TDNN (Speaker) | LFCC-LCNN (Replay)
+                            </div>
+                            <div class="text-center font-bold">RISK PROCESSING ↓ POLICY ENGINE ↓ ALLOW/VERIFY/HOLD/BLOCK</div>
+                        </div>
                     </div>
+
+                    <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+                        <a href="/projects" class="flex-1 text-center py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 hover:bg-amber-500 text-amber-200 hover:text-black font-bold font-mono text-[10px] uppercase tracking-wider transition cursor-none">
+                            Case Study <i class="bi bi-arrow-right ml-1"></i>
+                        </a>
+                        <a href="https://github.com/Ashwin15-png" target="_blank" class="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 transition cursor-none">
+                            <i class="bi bi-github text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Smart Attendance System -->
+                <div class="glass-card interactive-card p-6 border-white/10 flex flex-col justify-between rounded-2xl group shadow-lg" data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <div
-                            class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center border border-purple-500/30 mb-6">
-                            <i class="bi bi-file-earmark-medical-fill text-purple-400 text-lg"></i>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="px-2 py-0.5 rounded-full bg-blue-500/20 border border-blue-500/40 text-[9px] font-mono font-bold text-blue-300 uppercase">
+                                PRODUCTION SYSTEM
+                            </span>
+                            <span class="text-[9px] font-mono text-slate-400">AI / COMPUTER VISION</span>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-4">Prescription Extractor SaaS (PrescriptionX)</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Enterprise AI healthcare platform that digitizes handwritten medical prescriptions using OpenCV image preprocessing, Tesseract OCR, FastAPI, PostgreSQL, intelligent analytics, advanced extraction filters, and automated reporting.
-                        </p>
-                    </div>
-                    <div class="mono text-[10px] text-purple-400 font-bold">FASTAPI // POSTGRESQL // OPENCV</div>
-                </a>
 
-                <!-- Project 1 -->
-                <a href="/smart-attendance.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
-                    data-aos="fade-up">
+                        <div class="relative h-44 rounded-xl overflow-hidden border border-white/10 mb-4 bg-slate-950">
+                            <img src="/projects/assets/images/attendance_system.jpg" alt="Smart Attendance System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+                        </div>
+
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                            Smart Attendance &amp; Visitor System
+                        </h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4 font-light">
+                            Automated biometric check-in solution with OpenCV face embeddings, Flask REST API, Docker containerization, and GitHub Actions CI/CD workflows.
+                        </p>
+
+                        <!-- KEY EVIDENCE / METRICS BLOCKS -->
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-blue-300 text-xs font-bold font-mono">FACIAL RECOGNITION</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">OPENCV EMBEDDINGS</div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-blue-300 text-xs font-bold font-mono">99% ACCURACY</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">DOCKER &amp; CI/CD</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+                        <a href="/smart-attendance.html" class="flex-1 text-center py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 hover:bg-blue-500 text-blue-200 hover:text-white font-bold font-mono text-[10px] uppercase tracking-wider transition cursor-none">
+                            Case Study <i class="bi bi-arrow-right ml-1"></i>
+                        </a>
+                        <a href="https://github.com/Ashwin15-png" target="_blank" class="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 transition cursor-none">
+                            <i class="bi bi-github text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Sign Language Translation System -->
+                <div class="glass-card interactive-card p-6 border-white/10 flex flex-col justify-between rounded-2xl group shadow-lg" data-aos="fade-up" data-aos-delay="200">
                     <div>
-                        <div
-                            class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 mb-6">
-                            <i class="bi bi-people-fill text-blue-400"></i>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[9px] font-mono font-bold text-emerald-300 uppercase">
+                                ACCESSIBILITY AI
+                            </span>
+                            <span class="text-[9px] font-mono text-slate-400">COMPUTER VISION</span>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-4">Smart Attendance & Visitor Management System</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Developed a secure attendance and visitor management platform featuring authentication,
-                            facial recognition, Dockerized deployment, CI/CD automation, and cloud-ready architecture to
-                            streamline institutional operations.
+
+                        <div class="relative h-44 rounded-xl overflow-hidden border border-white/10 mb-4 bg-slate-950">
+                            <img src="/projects/assets/images/sign_language.jpg" alt="Sign Language Translation System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+                        </div>
+
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
+                            Sign Language Translation System
+                        </h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4 font-light">
+                            Real-time sign language recognition system using MediaPipe 3D hand tracking and spatial landmark distance transforms.
                         </p>
+
+                        <!-- KEY EVIDENCE / METRICS BLOCKS -->
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-emerald-300 text-xs font-bold font-mono">REAL-TIME 30 FPS</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">MEDIAPIPE TRACKING</div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-emerald-300 text-xs font-bold font-mono">COMPUTER VISION</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">GESTURE CLASSIFICATION</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mono text-[10px] text-slate-500">CI/CD // CLOUD // COMPUTER VISION</div>
-                </a>
 
+                    <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+                        <a href="/sign-language.html" class="flex-1 text-center py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 hover:bg-emerald-500 text-emerald-200 hover:text-black font-bold font-mono text-[10px] uppercase tracking-wider transition cursor-none">
+                            Case Study <i class="bi bi-arrow-right ml-1"></i>
+                        </a>
+                        <a href="https://github.com/Ashwin15-png" target="_blank" class="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 transition cursor-none">
+                            <i class="bi bi-github text-xs"></i>
+                        </a>
+                    </div>
+                </div>
 
-
-                <!-- Project 3 -->
-                <a href="/sign-language.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
-                    data-aos="fade-up" data-aos-delay="200">
+                <!-- Project 4: Face Recognition System -->
+                <div class="glass-card interactive-card p-6 border-white/10 flex flex-col justify-between rounded-2xl group shadow-lg" data-aos="fade-up">
                     <div>
-                        <div
-                            class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 mb-6">
-                            <i class="bi bi-sign-turn-right-fill text-emerald-400"></i>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="px-2 py-0.5 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-[9px] font-mono font-bold text-indigo-300 uppercase">
+                                ML SECURITY
+                            </span>
+                            <span class="text-[9px] font-mono text-slate-400">COMPUTER VISION</span>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-4">Sign Language Translation System</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Designed a real-time sign language recognition system using MediaPipe and computer vision to
-                            enhance communication accessibility.
-                        </p>
-                    </div>
-                    <div class="mono text-[10px] text-slate-500">CV // MEDIAPIPE // ACCESSIBILITY</div>
-                </a>
 
-                <!-- Project 4 -->
-                <a href="/face-recognition.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
-                    data-aos="fade-up">
-                    <div>
-                        <div
-                            class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 mb-6">
-                            <i class="bi bi-person-bounding-box text-blue-400"></i>
+                        <div class="relative h-44 rounded-xl overflow-hidden border border-white/10 mb-4 bg-slate-950">
+                            <img src="/projects/assets/images/face_recognition.jpg" alt="Face Recognition System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-4">Face Recognition System</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Implemented an intelligent face detection and recognition application using OpenCV and
-                            machine learning for identity verification.
-                        </p>
-                    </div>
-                    <div class="mono text-[10px] text-slate-500">OPENCV // ML // VERIFICATION</div>
-                </a>
 
-                <!-- Project 5 -->
-                <a href="/hospital-portal.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div>
-                        <div
-                            class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20 mb-6">
-                            <i class="bi bi-activity text-purple-400"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-4">Hospital Management Portal</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Developed a web-based hospital management platform for efficient patient, appointment, and
-                            administrative management.
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
+                            Face Recognition ML Engine
+                        </h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4 font-light">
+                            High-speed identity verification utility using MTCNN 5-point face alignment and 128D embedding vector matching.
                         </p>
-                    </div>
-                    <div class="mono text-[10px] text-slate-500">DEV // DATABASES // PORTAL</div>
-                </a>
 
-                <!-- Project 6 -->
-                <a href="/hotel-reservation.html" class="glass-card interactive-card p-8 border-white/5 flex flex-col justify-between cursor-none hover:no-underline"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div>
-                        <div
-                            class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 mb-6">
-                            <i class="bi bi-house-check-fill text-emerald-400"></i>
+                        <!-- KEY EVIDENCE / METRICS BLOCKS -->
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-indigo-300 text-xs font-bold font-mono">SUB-80MS INFERENCE</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">98.7% ACCURACY</div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-indigo-300 text-xs font-bold font-mono">MTCNN ALIGNMENT</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">128D EMBEDDINGS</div>
+                            </div>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-4">Hotel Reservation System</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Designed a reservation management application to simplify hotel booking, customer
-                            management, and room allocation.
-                        </p>
                     </div>
-                    <div class="mono text-[10px] text-slate-500">DATABASES // BOOKING // DEPLOY</div>
-                </a>
+
+                    <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+                        <a href="/face-recognition.html" class="flex-1 text-center py-2 rounded-lg bg-indigo-500/20 border border-indigo-500/30 hover:bg-indigo-500 text-indigo-200 hover:text-white font-bold font-mono text-[10px] uppercase tracking-wider transition cursor-none">
+                            Case Study <i class="bi bi-arrow-right ml-1"></i>
+                        </a>
+                        <a href="https://github.com/Ashwin15-png" target="_blank" class="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 transition cursor-none">
+                            <i class="bi bi-github text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5: Hospital Management Portal -->
+                <div class="glass-card interactive-card p-6 border-white/10 flex flex-col justify-between rounded-2xl group shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="px-2 py-0.5 rounded-full bg-purple-500/20 border border-purple-500/40 text-[9px] font-mono font-bold text-purple-300 uppercase">
+                                WEB PLATFORM
+                            </span>
+                            <span class="text-[9px] font-mono text-slate-400">FULL STACK</span>
+                        </div>
+
+                        <div class="relative h-44 rounded-xl overflow-hidden border border-white/10 mb-4 bg-slate-950">
+                            <img src="/projects/assets/images/hospital_portal.jpg" alt="Hospital Management Portal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+                        </div>
+
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                            Hospital Management Portal
+                        </h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4 font-light">
+                            Web-based clinical application featuring patient registration, doctor schedule rostering, and InnoDB transaction row-level locking.
+                        </p>
+
+                        <!-- KEY EVIDENCE / METRICS BLOCKS -->
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-purple-300 text-xs font-bold font-mono">FULL STACK PORTAL</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">10K+ RECORDS</div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-purple-300 text-xs font-bold font-mono">INNODB ROW LOCK</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">MYSQL ENGINE</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+                        <a href="/hospital-portal.html" class="flex-1 text-center py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 hover:bg-purple-500 text-purple-200 hover:text-white font-bold font-mono text-[10px] uppercase tracking-wider transition cursor-none">
+                            Case Study <i class="bi bi-arrow-right ml-1"></i>
+                        </a>
+                        <a href="https://github.com/Ashwin15-png" target="_blank" class="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 transition cursor-none">
+                            <i class="bi bi-github text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Hotel Reservation System -->
+                <div class="glass-card interactive-card p-6 border-white/10 flex flex-col justify-between rounded-2xl group shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[9px] font-mono font-bold text-emerald-300 uppercase">
+                                BOOKING ENGINE
+                            </span>
+                            <span class="text-[9px] font-mono text-slate-400">FULL STACK</span>
+                        </div>
+
+                        <div class="relative h-44 rounded-xl overflow-hidden border border-white/10 mb-4 bg-slate-950">
+                            <img src="/projects/assets/images/hotel_reservation.jpg" alt="Hotel Reservation System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+                        </div>
+
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
+                            Hotel Reservation System
+                        </h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4 font-light">
+                            Reservation management application with interactive room grids, dynamic seasonal rate algorithms, and Memcached query caching.
+                        </p>
+
+                        <!-- KEY EVIDENCE / METRICS BLOCKS -->
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-emerald-300 text-xs font-bold font-mono">REAL-TIME GRID</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">DYNAMIC PRICING</div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-black/40 border border-white/10 text-center">
+                                <div class="text-emerald-300 text-xs font-bold font-mono">MEMCACHED CACHE</div>
+                                <div class="text-[8px] font-mono text-slate-400 uppercase">SQL RELATIONAL DB</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+                        <a href="/hotel-reservation.html" class="flex-1 text-center py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 hover:bg-emerald-500 text-emerald-200 hover:text-black font-bold font-mono text-[10px] uppercase tracking-wider transition cursor-none">
+                            Case Study <i class="bi bi-arrow-right ml-1"></i>
+                        </a>
+                        <a href="https://github.com/Ashwin15-png" target="_blank" class="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-300 transition cursor-none">
+                            <i class="bi bi-github text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
