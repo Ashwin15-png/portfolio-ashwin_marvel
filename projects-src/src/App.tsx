@@ -43,7 +43,7 @@ const ProjectCard: React.FC<CardProps> = ({ project, onOpenModal }) => {
     <motion.div
       className="glass-card gradient-border-anim rounded-2xl relative flex flex-col justify-between overflow-hidden group cursor-pointer border border-white/10 hover:border-indigo-500/40 transition-all duration-300 shadow-xl hover:shadow-indigo-500/10"
       onClick={() => {
-        if (project.links.caseStudy && project.links.caseStudy.endsWith(".html")) {
+        if (project.links.caseStudy) {
           window.location.href = project.links.caseStudy;
         } else {
           onOpenModal(project);
@@ -136,7 +136,7 @@ const ProjectCard: React.FC<CardProps> = ({ project, onOpenModal }) => {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              if (project.links.caseStudy && project.links.caseStudy.endsWith(".html")) {
+              if (project.links.caseStudy) {
                 window.location.href = project.links.caseStudy;
               } else {
                 onOpenModal(project);
